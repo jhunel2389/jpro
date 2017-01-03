@@ -11,11 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', array('uses' =>'HomeController@cusIndex', 'as' => 'cusIndex'));
+
+
+Route::group(array('prefix' => '/admin'),function()
+{
+	Route::get('/', array('uses' =>'HomeController@index', 'as' => 'home'));
+
+	Route::group(array('before' => 'guest'), function()
+	{
+		Route::get('/login',array('uses' =>'UserController@getLogin', 'as' => 'getLogin'));
+		Route::group(array('before' => 'csrf'), function()
+		{
+			Route::post('/user/login',array('uses' => 'UserController@postLogin', 'as' => 'postLogin')); 
+		});
+	});
+
+	Route::group(array('before' => 'auth'), function()
+	{
+		Route::get('/user/logout', array('uses' => 'UserController@getLogout', 'as' => 'getLogout'));
+	});
 });
 
-Route::auth();
+
+/*Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
@@ -26,4 +45,4 @@ Route::group(array('prefix' => 'product'), function()
 	{
 		
 	});
-});
+});*/
