@@ -21,9 +21,11 @@ Route::group(array('prefix' => '/admin'),function()
 	Route::group(array('before' => 'guest'), function()
 	{
 		Route::get('/login',array('uses' =>'UserController@getLogin', 'as' => 'getLogin'));
+		Route::get('/register',array('uses' =>'UserController@getRegister', 'as' => 'getRegister'));
 		Route::group(array('before' => 'csrf'), function()
 		{
 			Route::post('/user/login',array('uses' => 'UserController@postLogin', 'as' => 'postLogin')); 
+			Route::post('/user/register',array('uses' => 'UserController@postRegister', 'as' => 'postRegister')); 
 		});
 	});
 

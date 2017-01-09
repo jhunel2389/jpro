@@ -66,7 +66,7 @@
     <!-- /.social-auth-links -->
 
     <a href="#">I forgot my password</a><br>
-    <a href="#" class="text-center">Register a new membership</a>
+    <a href="{{ URL::Route('getRegister') }}" class="text-center">Register a new membership</a>
 
   </div>
   <!-- /.login-box-body -->
