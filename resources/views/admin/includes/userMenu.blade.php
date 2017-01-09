@@ -1,7 +1,7 @@
 <!-- User Account: style can be found in dropdown.less -->
 <li class="dropdown user user-menu">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    <img src="{{env('FILE_PATH_CUSTOM').''.$userInfo['userDp']}}" class="user-image" alt="User Image">
+    <img src="{{ Avatar::create($fullname)->toBase64() }}" class="user-image" alt="User Image">
     <span class="hidden-xs">{{$userInfo['fname']}} {{$userInfo['lname']}}</span>
   </a>
   <ul class="dropdown-menu">

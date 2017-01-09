@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Redirect , Auth, App;
+use App\Models\User;
+use App\Models\Info;
 
 class HomeController extends Controller
 {
@@ -26,7 +28,8 @@ class HomeController extends Controller
     public function index()
     {
         $userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
-        return (Auth::Check() && Auth::User()['isAdmin']) ? View('admin.home.index')->with("userInfo",$userInfo)->with('mt','db') : Redirect::route('getLogin');
+        $fullname = Info::getFullname(1);
+        return (Auth::Check() && Auth::User()['isAdmin']) ? View('admin.home.index')->with("userInfo",$userInfo)->with("fullname",$fullname)->with('mt','db') : Redirect::route('getLogin');
     }
 
     public function cusIndex()

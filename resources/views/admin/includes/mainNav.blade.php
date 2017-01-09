@@ -6,7 +6,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{env('FILE_PATH_CUSTOM').''.$userInfo['userDp']}}" class="img-circle" alt="User Image">
+          <img src="{{ Avatar::create($fullname)->toBase64() }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{$userInfo['fname']}} {{$userInfo['lname']}}</p>
