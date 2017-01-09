@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
-        return (Auth::Check()) ? View('admin.home.index')->with("userInfo",$userInfo)->with('mt','db') : Redirect::route('getLogin');
+        return (Auth::Check() && Auth::User()['isAdmin']) ? View('admin.home.index')->with("userInfo",$userInfo)->with('mt','db') : Redirect::route('getLogin');
     }
 
     public function cusIndex()
