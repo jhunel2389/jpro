@@ -127,7 +127,7 @@
                                 </div>\
                                 <div class="modal-footer">\
                                   <button type="submit" class="btn btn-primary">Save</button>\
-                                  <button type="submit" class="btn btn-default pull-right">Cancel</button>\
+                                  <button type="submit" class="btn btn-default pull-right btn_cancel_product">Cancel</button>\
                                 </div>\
                               </div>\
                             </div>\
@@ -149,7 +149,7 @@
           {
             var template = 
             '<div class="col-xs-4">'+
-              '<a href="javascript:void(0)" class="thumbnail">'+
+              '<a href="javascript:void(0)" class="thumbnail" data-img="'+e.target.result+'">'+
                 '<img src="'+e.target.result+'" alt="..." style="width: 120px;height: 60px;">'+
               '</a>'+
             '</div>';
@@ -160,7 +160,22 @@
             $x++;
           };
         });
+        $(".thumbnail").focus();
       });
+
+      $(document).on("click",".thumbnail",function(e){
+        var img = $(this).data("img")
+        $(".product_image_view").attr("src",img);
+      });
+
+      $(document).on("click",".btn_cancel_product",function(e){
+        $('.product_info_add').modal('hide');
+      });
+
+      $(document).on("hidden.bs.modal",".product_info_add",function(){
+        $(this).remove();
+      });
+
 		});
 	</script>
 @endsection
