@@ -104,43 +104,13 @@
                                       <textarea class="form-control input-sm" rows="3" id="product_description" style=" resize: none;"></textarea>\
                                     </div>\
                                   </div>\
-                                  <div class="col-md-6">\
+                                  <div class="col-md-6 product_image_list" >\
                                     <div class="form-group col-xs-12">\
-                                      <input type="file" id="exampleInputFile">\
+                                      <input type="file" id="file" multiple="multiple">\
                                     </div>\
                                     <div class="col-xs-12">\
                                       <a href="javascript:void(0)" class="thumbnail">\
-                                        <img src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="...">\
-                                      </a>\
-                                    </div>\
-                                    <div class="col-xs-4">\
-                                      <a href="javascript:void(0)" class="thumbnail">\
-                                        <img src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="...">\
-                                      </a>\
-                                    </div>\
-                                    <div class="col-xs-4">\
-                                      <a href="javascript:void(0)" class="thumbnail">\
-                                        <img src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="...">\
-                                      </a>\
-                                    </div>\
-                                    <div class="col-xs-4">\
-                                      <a href="javascript:void(0)" class="thumbnail">\
-                                        <img src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="...">\
-                                      </a>\
-                                    </div>\
-                                    <div class="col-xs-4">\
-                                      <a href="javascript:void(0)" class="thumbnail">\
-                                        <img src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="...">\
-                                      </a>\
-                                    </div>\
-                                    <div class="col-xs-4">\
-                                      <a href="javascript:void(0)" class="thumbnail">\
-                                        <img src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="...">\
-                                      </a>\
-                                    </div>\
-                                    <div class="col-xs-4">\
-                                      <a href="javascript:void(0)" class="thumbnail">\
-                                        <img src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="...">\
+                                        <img class="product_image_view" src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="...">\
                                       </a>\
                                     </div>\
                                   </div>\
@@ -149,7 +119,7 @@
                             </form>';
 
       $(document).on("click",".add_product",function(){
-        console.log('click');
+        //console.log('click');
         $('body').append('<div class="modal fade product_info_add" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">\
                             <div class="modal-dialog" style="width:645px;">\
                               <div class="modal-content">\
@@ -164,6 +134,32 @@
                           </div>');
         $(".product_info_add").find(".modal-body").append(product_fields);
         $('.product_info_add').modal('show');
+      });
+
+      $(document).on("change","#file",function(e){
+        var fileCollection = new Array();
+        var  files = e.target.files;
+        $x = 0;
+        $.each(files, function(i, file)
+        {
+          fileCollection.push(file);
+          var reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = function(e)
+          {
+            var template = 
+            '<div class="col-xs-4">'+
+              '<a href="javascript:void(0)" class="thumbnail">'+
+                '<img src="'+e.target.result+'" alt="..." style="width: 120px;height: 60px;">'+
+              '</a>'+
+            '</div>';
+            if($x == 0){
+              $(".product_image_view").attr("src",e.target.result);
+            }
+            $('.product_image_list').append(template);
+            $x++;
+          };
+        });
       });
 		});
 	</script>
