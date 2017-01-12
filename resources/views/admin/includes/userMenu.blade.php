@@ -7,7 +7,6 @@
   <ul class="dropdown-menu">
     <!-- User image -->
     <li class="user-header">
-      <img src="{{env('FILE_PATH_CUSTOM').''.$userInfo['userDp']}}" class="img-circle" alt="User Image">
       <p>
         {{$userInfo['fname']}} {{$userInfo['lname']}}
         <small>Member since {{date("M Y", strtotime($userInfo['dm']))}}</small>
