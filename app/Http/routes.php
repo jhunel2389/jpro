@@ -17,7 +17,7 @@ Route::get('/', array('uses' =>'HomeController@cusIndex', 'as' => 'cusIndex'));
 Route::group(array('prefix' => '/admin'),function()
 {
 	Route::get('/', array('uses' =>'HomeController@index', 'as' => 'home'));
-
+	Route::get('/product', array('uses' => 'ProductController@index','as' => 'getProduct'));
 	Route::group(array('before' => 'guest'), function()
 	{
 		Route::get('/login',array('uses' =>'UserController@getLogin', 'as' => 'getLogin'));

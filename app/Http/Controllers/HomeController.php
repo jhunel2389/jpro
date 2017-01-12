@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
-        $fullname = Info::getFullname(1);
+        $fullname = Info::getFullname(Auth::User()['id']);
         return (Auth::Check()) ? View('admin.home.index')->with("userInfo",$userInfo)->with("fullname",$fullname)->with('mt','db') : Redirect::route('getLogin');
     }
 

@@ -53,7 +53,7 @@
 
         <!--end filemaintenance part -->
         <li class="treeview {{ ($mt == "pt") ? "active" : ""}}">
-          <a href="{{ URL::Route('home') }}">
+          <a href="{{ URL::Route('getProduct') }}">
             <i class="fa fa-gamepad"></i> <span>Products</span> <i class="fa pull-right"></i>
           </a>
         </li>

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Redirect , Auth, App;
+use App\Models\User;
+use App\Models\Info;
 
 class ProductController extends Controller
 {
@@ -25,6 +28,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('product.index');
+        $userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
+        $fullname = Info::getFullname(Auth::User()['id']);
+        return view('admin.product.index')->with("userInfo",$userInfo)->with("fullname",$fullname)->with('mt','db');
     }
 }
