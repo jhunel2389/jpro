@@ -17,7 +17,20 @@ Route::get('/', array('uses' =>'HomeController@cusIndex', 'as' => 'cusIndex'));
 Route::group(array('prefix' => '/admin'),function()
 {
 	Route::get('/', array('uses' =>'HomeController@index', 'as' => 'home'));
-	Route::get('/product', array('uses' => 'ProductController@index','as' => 'getProduct'));
+	
+
+	Route::group(array('before' => 'auth'), function()
+	{
+		Route::group(array('prefix' => '/product'),function()
+		{
+			Route::get('/', array('uses' => 'ProductController@index','as' => 'getProduct'));
+			Route::group(array('before' => 'csrf'), function()
+			{
+				Route::post('/post_product',array('uses' => 'ProductController@addProduct', 'as' => 'addProduct')); 
+			});
+		});
+	});
+	
 	Route::group(array('before' => 'guest'), function()
 	{
 		Route::get('/login',array('uses' =>'UserController@getLogin', 'as' => 'getLogin'));

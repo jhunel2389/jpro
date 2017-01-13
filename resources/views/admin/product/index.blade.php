@@ -83,30 +83,40 @@
 			  "info": true,
 			  "autoWidth": false
 			});
-      var product_fields = '<form role="form">\
+      var product_fields = '<form role="form" method="POST" action="{{ URL::Route('addProduct') }}">\
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}" >\
                               <div class="box-body">\
                                 <div class="row">\
                                   <div class="col-md-6">\
                                     <div class="form-group">\
                                       <label for="product_name">Product name</label>\
-                                      <input type="text" class="form-control input-sm" id="product_name" placeholder="Enter product name">\
+                                      <input type="text" class="form-control input-sm" id="product_name" name="product_name" placeholder="Enter product name" required>\
                                     </div>\
-                                    <div class="form-group">\
-                                      <label for="product_category">Category</label>\
-                                      <input type="text" class="form-control input-sm" id="product_category" placeholder="Enter product Category">\
-                                    </div>\
-                                    <div class="form-group">\
-                                      <label for="product_price">Price</label>\
-                                      <input type="text" class="form-control input-sm" id="product_price" placeholder="Enter product price">\
+                                    <div class="row">\
+                                      <div class="col-md-6">\
+                                          <div class="form-group">\
+                                            <label>Category</label>\
+                                            <select class="form-control select2" style="width: 100%;" id="product_category" name="product_category" required>\
+                                              <option value="1" selected="selected">Category 1</option>\
+                                              <option value="2">Category 2</option>\
+                                            </select>\
+                                          </div>\
+                                      </div>\
+                                      <div class="col-md-6">\
+                                        <div class="form-group">\
+                                          <label for="product_price">Price</label>\
+                                          <input type="text" class="form-control" id="product_price" name="product_price" placeholder="Enter price" required>\
+                                        </div>\
+                                      </div>\
                                     </div>\
                                     <div class="form-group">\
                                       <label for="product_description">Description</label>\
-                                      <textarea class="form-control input-sm" rows="3" id="product_description" style=" resize: none;"></textarea>\
+                                      <textarea class="form-control input-sm" rows="3" id="product_description" name="product_description" style=" resize: none;" required></textarea>\
                                     </div>\
                                   </div>\
                                   <div class="col-md-6 product_image_list" >\
                                     <div class="form-group col-xs-12">\
-                                      <input type="file" id="file" multiple="multiple">\
+                                      <input type="file" id="file" multiple="multiple" >\
                                     </div>\
                                     <div class="col-xs-12">\
                                       <a href="javascript:void(0)" class="thumbnail">\
@@ -116,24 +126,25 @@
                                   </div>\
                                 </div>\
                               </div>\
+                              <button type="submit" hidden></button>\
                             </form>';
 
       $(document).on("click",".add_product",function(){
-        //console.log('click');
         $('body').append('<div class="modal fade product_info_add" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">\
-                            <div class="modal-dialog" style="width:645px;">\
+                            <div class="modal-dialog">\
                               <div class="modal-content">\
                                 <div class="modal-body">\
                                 </div>\
                                 <div class="modal-footer">\
-                                  <button type="submit" class="btn btn-primary">Save</button>\
-                                  <button type="submit" class="btn btn-default pull-right btn_cancel_product">Cancel</button>\
+                                  <button type="button" class="btn btn-primary btn_save">Save</button>\
+                                  <button type="button" class="btn btn-default pull-right btn_cancel_product">Cancel</button>\
                                 </div>\
                               </div>\
                             </div>\
                           </div>');
         $(".product_info_add").find(".modal-body").append(product_fields);
         $('.product_info_add').modal('show');
+        $(".select2").select2();
       });
 
       $(document).on("change","#file",function(e){
@@ -149,7 +160,7 @@
           {
             var template = 
             '<div class="col-xs-4">'+
-              '<a href="javascript:void(0)" class="thumbnail" data-img="'+e.target.result+'">'+
+              '<a href="javascript:void(0)" class="thumbnail tn_small" data-img="'+e.target.result+'">'+
                 '<img src="'+e.target.result+'" alt="..." style="width: 120px;height: 60px;">'+
               '</a>'+
             '</div>';
@@ -159,8 +170,9 @@
             $('.product_image_list').append(template);
             $x++;
           };
+          $(".tn_small").focus();
         });
-        $(".thumbnail").focus();
+        
       });
 
       $(document).on("click",".thumbnail",function(e){
@@ -174,6 +186,30 @@
 
       $(document).on("hidden.bs.modal",".product_info_add",function(){
         $(this).remove();
+      });
+
+      $(document).on("click",".btn_save",function(e){
+        $(".product_info_add").find("form").find("button").click();
+        /*var _token = "{{ csrf_token() }}";
+        var product_name = $("#product_name").val();
+        var product_category = $("#product_category").val();
+        var product_price = $("#product_price").val();
+        var product_description = $("#product_description").val();
+        if(msg != ''){
+          $.ajax({
+              type: "POST",
+              //url: '',
+              url: 'http://jewerly.dev/admin/sendMessage',
+              dataType: "json",
+              data: {'_token':token,'message':msg,'user':user, 'id':id},
+              success:function(data){
+                  console.log(data);
+                  $("input[name='message']").val('');
+              },
+              error:function(){
+              }
+          });
+        }*/
       });
 
 		});

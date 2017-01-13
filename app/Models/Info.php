@@ -13,7 +13,6 @@ class Info extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    //public function scopeFullname($id)
     static public function getFullname($id)
     {
     	$fullname = self::where("user_id","=",$id)->first();

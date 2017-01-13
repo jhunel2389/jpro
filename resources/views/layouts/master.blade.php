@@ -24,6 +24,8 @@
 		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   		<!-- DataTables -->
   		<link rel="stylesheet" href="{{env('FILE_PATH_CUSTOM')}}plugins/datatables/dataTables.bootstrap.css">
+  		<!-- Select2 -->
+  		<link rel="stylesheet" href="{{env('FILE_PATH_CUSTOM')}}plugins/select2/select2.min.css">
   		<!-- Theme style -->
 		<link rel="stylesheet" href="{{env('FILE_PATH_CUSTOM')}}dist/css/AdminLTE.min.css">
 		<!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -131,6 +133,8 @@
 	<!-- DataTables -->
 	<script src="{{env('FILE_PATH_CUSTOM')}}plugins/datatables/jquery.dataTables.min.js"></script>
 	<script src="{{env('FILE_PATH_CUSTOM')}}plugins/datatables/dataTables.bootstrap.min.js"></script>
+	<!-- Select2 -->
+	<script src="{{env('FILE_PATH_CUSTOM')}}plugins/select2/select2.full.min.js"></script>
 
 </body>
 </html>
