@@ -34,4 +34,24 @@ class GlobalController extends Controller {
 					);
 		}
 	}
+
+	//resize image to default max width or high
+	public function imageResized($width,$height,$size)
+	{
+		if($width <= $size && $height <= $size)
+		{
+			return array(
+					"width"	=> $width,
+					"height" => $height,
+				);
+		}
+		else
+		{
+			$percentagetoLess = ($width > $height) ? ((($width - $size)/$width)*100) : ((($height - $size)/$height)*100);
+			return array(
+					"width"	=> intval($width * ((100-$percentagetoLess) / 100)),
+					"height" => intval($height * ((100-$percentagetoLess) / 100)),
+				);
+		}
+	}
 }

@@ -37,7 +37,26 @@
 	@yield('addHead')
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini skin-red">
+<body class="hold-transition skin-blue sidebar-mini skin-red fixed">
+	<div class="modal fade" tabindex="-1" role="dialog" id="prompt_modal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">System Message...</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p id="mdl_msg"></p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	    <!-- /.modal-content -->
+	  </div>
+	  <!-- /.modal-dialog -->
+	</div>
 	<script type="text/javascript">
 		function promptMsg($result,$message)
 		{
@@ -90,33 +109,35 @@
 	</script>
 	@if(Session::has('success'))
 		<script type="text/javascript">
-			promptMsg('success',"{{Session::get('success')}}");
+			//promptMsg('success',"{{Session::get('success')}}");
+			$("body").append('<div class="modal fade" tabindex="-1" role="dialog" id="alert_success">\
+								  	<div class="modal-dialog">\
+								    	<div class="alert alert-success alert-dismissible">\
+							                <button type="button" class="close" data-dismiss="modal"  aria-hidden="true">&times;</button>\
+							                <h4><i class="icon fa fa-check"></i> Alert!</h4>\
+							                {{Session::get('success')}}\
+							             </div>\
+								  	</div>\
+								</div>');
+			$("#alert_success").modal("show");
 		</script>
 	@elseif (Session::has('fail'))
 		<script type="text/javascript">
-			promptMsg('fail',"{{Session::get('fail')}}");
+			//promptMsg('fail',"{{Session::get('fail')}}");
+			$("body").append('<div class="modal fade" tabindex="-1" role="dialog" id="alert_success">\
+								  	<div class="modal-dialog">\
+								    	<div class="alert alert-danger alert-dismissible">\
+							                <button type="button" class="close" data-dismiss="modal"  aria-hidden="true">&times;</button>\
+							                <h4><i class="icon fa fa-check"></i> Alert!</h4>\
+							                {{Session::get('success')}}\
+							             </div>\
+								  	</div>\
+								</div>');
+			$("#alert_success").modal("show");
 		</script>
 	@endif
 	@yield('content')
-	<div class="modal fade" tabindex="-1" role="dialog" id="prompt_modal">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title">System Message...</h4>
-	      </div>
-	      <div class="modal-body">
-	        <p id="mdl_msg"></p>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-	      </div>
-	    </div>
-	    <!-- /.modal-content -->
-	  </div>
-	  <!-- /.modal-dialog -->
-	</div>
+	
 	
 	<!-- ./wrapper -->
 	<!-- daterangepicker -->

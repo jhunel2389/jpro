@@ -83,7 +83,7 @@
 			  "info": true,
 			  "autoWidth": false
 			});
-      var product_fields = '<form role="form" method="POST" action="{{ URL::Route('addProduct') }}">\
+      var product_fields = '<form role="form" method="POST" action="{{ URL::Route('addProduct') }}" enctype ="multipart/form-data">\
                               <input type="hidden" name="_token" value="{{ csrf_token() }}" >\
                               <div class="box-body">\
                                 <div class="row">\
@@ -116,7 +116,7 @@
                                   </div>\
                                   <div class="col-md-6 product_image_list" >\
                                     <div class="form-group col-xs-12">\
-                                      <input type="file" id="file" multiple="multiple" >\
+                                      <input type="file" id="file" name="product_image[]" multiple="multiple" >\
                                     </div>\
                                     <div class="col-xs-12">\
                                       <a href="javascript:void(0)" class="thumbnail">\
@@ -161,7 +161,7 @@
             var template = 
             '<div class="col-xs-4">'+
               '<a href="javascript:void(0)" class="thumbnail tn_small" data-img="'+e.target.result+'">'+
-                '<img src="'+e.target.result+'" alt="..." style="width: 120px;height: 60px;">'+
+                '<img src="'+e.target.result+'" alt="..." style="width: 50px;height: 50px;">'+
               '</a>'+
             '</div>';
             if($x == 0){
