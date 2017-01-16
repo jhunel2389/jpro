@@ -32,7 +32,8 @@ class ProductController extends Controller
     {
         $userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
         $fullname = Info::getFullname(Auth::User()['id']);
-        return view('admin.product.index')->with("userInfo",$userInfo)->with("fullname",$fullname)->with('mt','db');
+        $allProducts = Product::all();
+        return view('admin.product.index')->with("userInfo",$userInfo)->with("fullname",$fullname)->with('mt','db')->with('allProducts',$allProducts);
     }
 
     public function addProduct(Request $request)
