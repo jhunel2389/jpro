@@ -77,14 +77,14 @@
                                   <div class="col-md-6">\
                                     <div class="form-group">\
                                       <label for="product_name">Product name</label>\
-                                      <input type="text" class="form-control input-sm" id="product_name" name="product_name" placeholder="Enter product name" required>\
+                                      <input type="text" class="form-control input-sm" id="product_name" name="product_name" placeholder="Enter product name" maxlength="25" required>\
                                     </div>\
                                     <div class="row">\
                                       <div class="col-md-6">\
                                         <div class="form-group ">\
                                           <label for="product_name">Add price</label>\
                                           <div class="input-group">\
-                                            <input id="input_price" name="input_price" type="text" placeholder="enter ..." class="form-control" aria-label="..." >\
+                                            <input id="input_price" name="input_price" type="text" placeholder="enter ..." class="form-control" aria-label="..." maxlength="7" >\
                                             <div class="input-group-btn">\
                                               <button style="height:34px;" type="button" data-id="" class="btn btn-default btn_addPrice" >\
                                                 <i class="fa fa-plus" aria-hidden="true"></i>\
@@ -192,7 +192,13 @@
       });
 
       $(document).on("click",".btn_save",function(e){
-        $(".product_info_add").find("form").find("button").click();
+        var $fileUpload = $("#file");
+        if (parseInt($fileUpload.get(0).files.length)>3){
+         alert("You can only upload a maximum of 3 images");
+        }
+        else{
+          $(".product_info_add").find("form").find("button").click();
+        }
       });
 
       $(document).on("click",".btn_addPrice",function(){
@@ -220,7 +226,21 @@
           $('#input_price').focus();
         }
       });
-
+      $(document).on("keydown","#input_price",function(e){
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+             // Allow: Ctrl+A, Command+A
+            (e.keyCode == 65 && ( e.ctrlKey === true || e.metaKey === true ) ) || 
+             // Allow: home, end, left, right, down, up
+            (e.keyCode >= 35 && e.keyCode <= 40)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+      });
 		});
 	</script>
 @endsection
