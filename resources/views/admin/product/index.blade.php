@@ -81,18 +81,30 @@
                                     </div>\
                                     <div class="row">\
                                       <div class="col-md-6">\
-                                          <div class="form-group">\
-                                            <label>Category</label>\
-                                            <select class="form-control select2" style="width: 100%;" id="product_category" name="product_category" required>\
-                                              <option value="1" selected="selected">Category 1</option>\
-                                              <option value="2">Category 2</option>\
-                                            </select>\
+                                        <div class="form-group ">\
+                                          <label for="product_name">Add price</label>\
+                                          <div class="input-group">\
+                                            <input id="input_price" name="input_price" type="text" placeholder="enter ..." class="form-control" aria-label="..." >\
+                                            <div class="input-group-btn">\
+                                              <button style="height:34px;" type="button" data-id="" class="btn btn-default btn_addPrice" >\
+                                                <i class="fa fa-plus" aria-hidden="true"></i>\
+                                              </button>\
+                                            </div>\
                                           </div>\
+                                        </div>\
+                                        <div class="form-group">\
+                                          <label>Category</label>\
+                                          <select class="form-control select2" style="width: 100%;" id="product_category" name="product_category" required>\
+                                            <option value="1" selected="selected">Category 1</option>\
+                                            <option value="2">Category 2</option>\
+                                          </select>\
+                                        </div>\
                                       </div>\
                                       <div class="col-md-6">\
                                         <div class="form-group">\
-                                          <label for="product_price">Price</label>\
-                                          <input type="text" class="form-control" id="product_price" name="product_price" placeholder="Enter price" required>\
+                                          <label>Choose price</label>\
+                                          <select class="form-control select2" style="width: 100%;" id="product_price" name="product_price" required>\
+                                          </select>\
                                         </div>\
                                       </div>\
                                     </div>\
@@ -103,7 +115,7 @@
                                   </div>\
                                   <div class="col-md-6 product_image_list" >\
                                     <div class="form-group col-xs-12">\
-                                      <input type="file" id="file" name="product_image[]" multiple="multiple" >\
+                                      <input type="file" id="file" name="product_image[]" multiple="multiple" required >\
                                     </div>\
                                     <div class="col-xs-12">\
                                       <a href="javascript:void(0)" class="thumbnail">\
@@ -177,26 +189,32 @@
 
       $(document).on("click",".btn_save",function(e){
         $(".product_info_add").find("form").find("button").click();
-        /*var _token = "{{ csrf_token() }}";
-        var product_name = $("#product_name").val();
-        var product_category = $("#product_category").val();
-        var product_price = $("#product_price").val();
-        var product_description = $("#product_description").val();
-        if(msg != ''){
+      });
+
+      $(document).on("click",".btn_addPrice",function(){
+        var amount = $('#input_price').val();
+        var _token = $("input[name='_token']").val();
+        var product_id = 0;
+        if(amount != ''){
           $.ajax({
-              type: "POST",
-              //url: '',
-              url: 'http://jewerly.dev/admin/sendMessage',
-              dataType: "json",
-              data: {'_token':token,'message':msg,'user':user, 'id':id},
-              success:function(data){
-                  console.log(data);
-                  $("input[name='message']").val('');
-              },
-              error:function(){
-              }
+            type: "POST",
+            url: 'http://jewerly.dev/admin/product/post_addPrice',
+            dataType: "json",
+            data: {'_token':_token,'amount':amount, 'id':product_id},
+            success:function(data){
+                console.log(data);
+                $("#product_price").append('<option id="'+data.newAddId+'" value="'+data.newAddId+'">'+data.newAddPrice+'</option>');
+                $('#input_price').val("");
+                $('#product_price')
+                    .val(data.newAddId) //select option of select2
+                    .trigger("change");
+            },
+            error:function(){
+            }
           });
-        }*/
+        }else{
+          $('#input_price').focus();
+        }
       });
 
 		});

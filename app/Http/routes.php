@@ -24,7 +24,9 @@ Route::group(array('prefix' => '/admin'),function()
 		Route::group(array('before' => 'csrf'), function()
 		{
 			Route::post('/post_product',array('uses' => 'ProductController@addProduct', 'as' => 'addProduct')); 
+			Route::post('/post_addPrice', array('uses' => 'ProductController@addPrice', 'as' => 'addPrice'));
 		});
+
 	});
 	
 	Route::group(array('before' => 'guest'), function()

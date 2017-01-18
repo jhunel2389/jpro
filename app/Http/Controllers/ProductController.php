@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Redirect , Auth, App , DateTime, Image;
+use Redirect , Auth, App , DateTime, Image, Response;
 use App\Models\User;
 use App\Models\Info;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\ProductPrice;
 
 class ProductController extends Controller
 {
@@ -41,6 +42,7 @@ class ProductController extends Controller
         $product_name = $request->input('product_name');
         $product_category = $request->input('product_category');
         $product_description = $request->input('product_description');
+        $product_price = $request->input('product_price');
         $images = $request->file('product_image');
         $add = new Product();
         $add['name'] = $product_name;
@@ -48,6 +50,8 @@ class ProductController extends Controller
         $add['description'] = $product_description;
         if($add->save())
         {
+            //$checkPrice = ProductPrice::where()
+           $updatePrice = ProductPrice::updatePrice($product_price,$add['id'],Auth::User()['id']);
             if(!empty($images))
             {
                 foreach($images as $image)
@@ -76,5 +80,31 @@ class ProductController extends Controller
         else{
              //$this->index();
         }
+    }
+
+    public function addPrice(Request $request)
+    {
+        $id = $request->input('id');
+        $price = $request->input('amount');
+        $add = new ProductPrice();
+        $add['prod_id'] = $id;
+        $add['price'] = $price;
+        $add['status'] = 0;
+        $add['user'] = Auth::User()['id'];
+        if($add->save())
+        {
+            //$newlyPrice = ProductPrice::where('prod_id','=',$id)->where('user','=',Auth::User()['id'])->get();
+            return Response::json(array(
+                "status" => "success",
+                "message" => "Success to add price.",
+                "newAddPrice" => $add['price'],
+                "newAddId" => $add['id'],
+            )); 
+        }
+
+        return Response::json(array(
+                "status" => "fail",
+                "message" => "Fail to add price.",
+            ));
     }
 }

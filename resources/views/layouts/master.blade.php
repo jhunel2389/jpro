@@ -114,7 +114,7 @@
 								  	<div class="modal-dialog">\
 								    	<div class="alert alert-success alert-dismissible">\
 							                <button type="button" class="close" data-dismiss="modal"  aria-hidden="true">&times;</button>\
-							                <h4><i class="icon fa fa-check"></i> Alert!</h4>\
+							                <h4><i class="icon fa fa-check"></i> Success!</h4>\
 							                {{Session::get('success')}}\
 							             </div>\
 								  	</div>\
@@ -128,7 +128,7 @@
 								  	<div class="modal-dialog">\
 								    	<div class="alert alert-danger alert-dismissible">\
 							                <button type="button" class="close" data-dismiss="modal"  aria-hidden="true">&times;</button>\
-							                <h4><i class="icon fa fa-check"></i> Alert!</h4>\
+							                <h4><i class="icon fa fa-check"></i> Failed!</h4>\
 							                {{Session::get('success')}}\
 							             </div>\
 								  	</div>\
