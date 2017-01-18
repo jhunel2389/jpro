@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Info;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\ProductCategory;
 use App\Models\ProductPrice;
 
 class ProductController extends Controller
@@ -34,7 +35,13 @@ class ProductController extends Controller
         $userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
         $fullname = Info::getFullname(Auth::User()['id']);
         $allProducts = Product::all();
-        return view('admin.product.index')->with("userInfo",$userInfo)->with("fullname",$fullname)->with('mt','pt')->with('allProducts',$allProducts);
+        $category = ProductCategory::all();
+        return view('admin.product.index')
+            ->with("userInfo",$userInfo)
+                ->with("fullname",$fullname)
+                    ->with('mt','pt')
+                        ->with('allProducts',$allProducts)
+                            ->with('category',$category);
     }
 
     public function addProduct(Request $request)
@@ -50,8 +57,7 @@ class ProductController extends Controller
         $add['description'] = $product_description;
         if($add->save())
         {
-            //$checkPrice = ProductPrice::where()
-           $updatePrice = ProductPrice::updatePrice($product_price,$add['id'],Auth::User()['id']);
+            $updatePrice = ProductPrice::updatePrice($product_price,$add['id'],Auth::User()['id']);
             if(!empty($images))
             {
                 foreach($images as $image)

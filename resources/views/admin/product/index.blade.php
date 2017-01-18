@@ -95,8 +95,9 @@
                                         <div class="form-group">\
                                           <label>Category</label>\
                                           <select class="form-control select2" style="width: 100%;" id="product_category" name="product_category" required>\
-                                            <option value="1" selected="selected">Category 1</option>\
-                                            <option value="2">Category 2</option>\
+                                            @foreach($category as $categoryi)\
+                                            <option value="{{$categoryi['id']}}">{{$categoryi['name']}}</option>\
+                                            @endforeach\
                                           </select>\
                                         </div>\
                                       </div>\
@@ -143,7 +144,10 @@
                           </div>');
         $(".product_info_add").find(".modal-body").append(product_fields);
         $('.product_info_add').modal('show');
-        $(".select2").select2();
+        $(".select2").select2(
+        {
+          minimumResultsForSearch: -1
+        });
       });
 
       $(document).on("change","#file",function(e){
