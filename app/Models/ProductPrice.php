@@ -14,6 +14,13 @@ class ProductPrice extends Model
     	$price['prod_id'] = $productId;
     	$price['status'] = 1;
     	$price['user'] = $user;
-    	$price->save();
+    	if($price->save())
+        {
+        	$update = ProductPrice::where('prod_id','=',0)
+        							->where('user','=',$user)
+            							->update(array(
+            								'prod_id' => $productId
+            								));
+        }
     }
 }

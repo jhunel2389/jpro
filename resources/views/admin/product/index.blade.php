@@ -23,15 +23,22 @@
 	    
 	    <!-- Main content -->
 	    <section class="content">
-	    	 <div class="box">
+	    	 <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Products</h3>
+              <h3 class="box-title">Product List</h3>
+              <div class="box-tools pull-right">
+                  <button class="btn btn-primary btn-sm add_product" type="button">
+                    <i class="fa fa-plus"></i>
+                    Add
+                  </button>
+                  <button id="editProduct" class="btn btn-info btn-sm " type="button" disabled>
+                    <i class="fa fa-edit"></i>
+                    Edit
+                  </button>
+                </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <a class="btn btn-app add_product">
-                <i class="fa fa-edit"></i> Add
-              </a>
               <table id="tbl_product" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -194,7 +201,7 @@
       $(document).on("click",".btn_save",function(e){
         var $fileUpload = $("#file");
         if (parseInt($fileUpload.get(0).files.length)>3){
-         alert("You can only upload a maximum of 3 images");
+          alert("You can only upload a maximum of 3 images");
         }
         else{
           $(".product_info_add").find("form").find("button").click();
