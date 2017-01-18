@@ -69,7 +69,7 @@
 	@include('admin.includes.settingSidebar')
 	<script>
 		$(function () {
-			$('#tbl_product').DataTable({
+			 var table = $('#tbl_product').DataTable({
 			  "paging": true,
 			  "lengthChange": false,
 			  "searching": true,
@@ -77,6 +77,17 @@
 			  "info": true,
 			  "autoWidth": false
 			});
+
+      $('#tbl_product tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('active') ) {
+          $(this).removeClass('active');
+        }
+        else {
+          table.$('tr.active').removeClass('active');
+          $(this).addClass('active');
+        }
+      });
+
       var product_fields = '<form role="form" method="POST" action="{{ URL::Route('addProduct') }}" enctype ="multipart/form-data">\
                               <input type="hidden" name="_token" value="{{ csrf_token() }}" >\
                               <div class="box-body">\
