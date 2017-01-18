@@ -81,10 +81,12 @@
       $('#tbl_product tbody').on( 'click', 'tr', function () {
         if ( $(this).hasClass('active') ) {
           $(this).removeClass('active');
+          $('#editProduct').prop("disabled", true);
         }
         else {
           table.$('tr.active').removeClass('active');
           $(this).addClass('active');
+          $('#editProduct').prop("disabled", false);
         }
       });
 
