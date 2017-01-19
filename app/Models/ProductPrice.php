@@ -10,7 +10,10 @@ class ProductPrice extends Model
 
     static public function updatePrice($id,$productId,$user)
     {
-    	$price = self::find($id);
+        $updateActive = ProductPrice::where('prod_id','=',$productId)
+                                    ->where('status','=',1)
+                                    ->update(['status' => 0]);
+        $price = self::find($id);
     	$price['prod_id'] = $productId;
     	$price['status'] = 1;
     	$price['user'] = $user;

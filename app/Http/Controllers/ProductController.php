@@ -60,14 +60,13 @@ class ProductController extends Controller
             $add = Product::find($product_id);
             $session_message = "Product updated.";
         }
-        //$add = new Product();
         $add['name'] = $product_name;
         $add['pro_cat_id'] = $product_category;
         $add['description'] = $product_description;
         if($add->save())
         {
             $updatePrice = ProductPrice::updatePrice($product_price,$add['id'],Auth::User()['id']);
-            if(!empty($images))
+            if (!empty(array_filter($images)))
             {
                 foreach($images as $image)
                 {

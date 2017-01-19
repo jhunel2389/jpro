@@ -136,7 +136,7 @@
                                   </div>\
                                   <div class="col-md-6 product_image_list" >\
                                     <div class="form-group col-xs-12">\
-                                      <input type="file" id="file" name="product_image[]" multiple="multiple" required >\
+                                      <input type="file" id="file" name="product_image[]" multiple="multiple" >\
                                     </div>\
                                     <div class="col-xs-12">\
                                       <a href="javascript:void(0)" class="thumbnail">\
