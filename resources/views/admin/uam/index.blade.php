@@ -91,6 +91,68 @@
 	          $('#editProduct').prop("disabled", false);
 	        }
 	      });
-	  });
+	  	});
+
+		var product_fields = '<form id="form_product" role="form" method="POST" action="{{ URL::Route('addProduct') }}" enctype ="multipart/form-data">\
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}" >\
+                              <div class="box-body">\
+                                <div class="row">\
+                                  <div class="col-md-12">\
+                                    <div class="form-group">\
+                                          <label>User Name</label>\
+                                          <select class="form-control select2" style="width: 100%;" id="product_category" name="product_category" required>\
+                                           	<option value="1">Staff</option>\
+                                            <option value="2">Admin</option>\
+                                            <option value="3">Super Admin</option>\
+                                          </select>\
+                                    </div>\
+                                    <div class="form-group">\
+                                          <label>Access Level</label>\
+                                          <select class="form-control select2" style="width: 100%;" id="product_category" name="product_category" required>\
+                                           	<option value="1">Staff</option>\
+                                            <option value="2">Admin</option>\
+                                            <option value="3">Super Admin</option>\
+                                          </select>\
+                                    </div>\
+                                  </div>\
+                                </div>\
+                              </div>\
+                              <button type="submit" hidden></button>\
+                            </form>';
+
+		function modalForm()
+		{
+			$('body').append('<div class="modal fade product_info_add" tabindex="-1" role="dialog" data-keyboard="true" data-backdrop="static">\
+			                    <div class="modal-dialog">\
+			                      <div class="modal-content">\
+			                        <div class="modal-body">\
+			                        </div>\
+			                        <div class="modal-footer">\
+			                          <button type="button" class="btn btn-primary btn_save">Save</button>\
+			                          <button type="button" class="btn btn-default pull-right btn_cancel_product">Cancel</button>\
+			                        </div>\
+			                      </div>\
+			                    </div>\
+			                  </div>');
+		}
+
+		$(document).on("click",".add_product",function(){
+			modalForm();
+				$(".product_info_add").find(".modal-body").append(product_fields);
+				$('.product_info_add').modal('show');
+				$(".select2").select2();
+		});
+
+		$(document).on("click",".btn_cancel_product",function(e){
+			$('.product_info_add').modal('hide');
+		});
+
+		$(document).on("hidden.bs.modal",".product_info_add",function(){
+			$(this).remove();
+		});
+
+		$(document).on("click",".btn_save",function(e){
+			$(".product_info_add").find("form").find("button").click();
+		});
 	</script>
 @endsection
