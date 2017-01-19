@@ -51,14 +51,22 @@ class ProductController extends Controller
         $product_description = $request->input('product_description');
         $product_price = $request->input('product_price');
         $images = $request->file('product_image');
-        $add = new Product();
+        $product_id = $request->input('product_id');
+        if(empty($product_id)){
+            $add = new Product();
+            $session_message = "Product created.";
+        }
+        else{
+            $add = Product::find($product_id);
+            $session_message = "Product updated.";
+        }
         $add['name'] = $product_name;
         $add['pro_cat_id'] = $product_category;
         $add['description'] = $product_description;
         if($add->save())
         {
             $updatePrice = ProductPrice::updatePrice($product_price,$add['id'],Auth::User()['id']);
-            if(!empty($images))
+            if (!empty(array_filter($images)))
             {
                 foreach($images as $image)
                 {
@@ -81,8 +89,10 @@ class ProductController extends Controller
                         }
                     }
                 }
-                return Redirect::Route('getProduct')->with('success','Product created.');
+                return Redirect::Route('getProduct')->with('success',$session_message);
             }
+            return Redirect::Route('getProduct')->with('success',$session_message);
+
         }
         else{
              //$this->index();
