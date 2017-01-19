@@ -37,7 +37,7 @@
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ $mt == "uam" ? (($cc == "ual") ? "active" : "") : ""}}"><a href="{{ URL::Route('home') }}"><i class="fa fa-users"></i> User Access Level</a></li>
+            <li class="{{ $mt == "uam" ? (($cc == "ual") ? "active" : "") : ""}}"><a href="{{ URL::Route('getUAL') }}"><i class="fa fa-users"></i> User Access Level</a></li>
           </ul>
         </li>
 

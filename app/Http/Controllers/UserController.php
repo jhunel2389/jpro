@@ -137,4 +137,17 @@ class UserController extends Controller {
 		Auth::logout();
 		return Redirect::route('cusIndex');
 	}
+
+	public function getUAL()
+	{
+		$userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
+        $fullname = Info::getFullname(Auth::User()['id']);
+        $users = Info::all();
+		return view('admin.uam.index')
+            ->with("userInfo",$userInfo)
+                ->with("fullname",$fullname)
+                	->with("users",$users)
+	                    ->with('cc','ual')
+	                    	->with('mt','uam');
+	}
 }
