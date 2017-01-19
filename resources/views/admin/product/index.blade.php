@@ -12,12 +12,11 @@
 	    <!-- Content Header (Page header) -->
 	    <section class="content-header">
 	      <h1>
-	        Dashboard
-	        <small>Control panel</small>
+	        Product List
 	      </h1>
 	      <ol class="breadcrumb">
 	        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-	        <li class="active">Dashboard</li>
+	        <li class="active">Products</li>
 	      </ol>
 	    </section>
 	    
@@ -25,8 +24,8 @@
 	    <section class="content">
 	    	 <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Product List</h3>
-              <div class="box-tools pull-right">
+              <h3 class="box-title"></h3>
+              <div class="box-tools pull-left">
                   <button class="btn btn-primary btn-sm add_product" type="button">
                     <i class="fa fa-plus"></i>
                     Add
@@ -92,6 +91,7 @@
 
       var product_fields = '<form id="form_product" role="form" method="POST" action="{{ URL::Route('addProduct') }}" enctype ="multipart/form-data">\
                               <input type="hidden" name="_token" value="{{ csrf_token() }}" >\
+                              <input type="hidden" id="product_id" name="product_id" value="" >\
                               <div class="box-body">\
                                 <div class="row">\
                                   <div class="col-md-6">\
@@ -175,31 +175,46 @@
       });
 
       $(document).on("change","#file",function(e){
-        var fileCollection = new Array();
-        var  files = e.target.files;
-        $x = 0;
-        $.each(files, function(i, file)
-        {
-          fileCollection.push(file);
-          var reader = new FileReader();
-          reader.readAsDataURL(file);
-          reader.onload = function(e)
+        var count = $('.thumbnail').length;
+        var set = 4 - parseInt(count);
+
+        if (parseInt($(this).get(0).files.length) > set){
+          $(this).wrap('<form>').closest('form').get(0).reset();
+          $(this).unwrap();
+          //alert("You can only upload a maximum of 3 images");
+          
+          $(".product_info_add").find(".modal-body").prepend('<div class="alert alert-danger alert-dismissible">\
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
+                                        <h4><i class="icon fa fa-ban"></i> Alert!</h4>\
+                                        You can only upload a maximum of 3 images. Need '+set+' more.\
+                                      </div>');
+        }
+        else{
+          var fileCollection = new Array();
+          var  files = e.target.files;
+          $x = 0;
+          $.each(files, function(i, file)
           {
-            var template = 
-            '<div class="col-xs-4">'+
-              '<a href="javascript:void(0)" class="thumbnail tn_small" data-img="'+e.target.result+'">'+
-                '<img src="'+e.target.result+'" alt="..." style="width: 50px;height: 50px;">'+
-              '</a>'+
-            '</div>';
-            if($x == 0){
-              $(".product_image_view").attr("src",e.target.result);
-            }
-            $('.product_image_list').append(template);
-            $x++;
-          };
-          $(".tn_small").focus();
-        });
-        
+            fileCollection.push(file);
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function(e)
+            {
+              var template = 
+              '<div class="col-xs-4">'+
+                '<a href="javascript:void(0)" class="thumbnail tn_small" data-img="'+e.target.result+'">'+
+                  '<img src="'+e.target.result+'" alt="..." style="width: 40px;height: 40px;">'+
+                '</a>'+
+              '</div>';
+              if($x == 0){
+                $(".product_image_view").attr("src",e.target.result);
+              }
+              $('.product_image_list').append(template);
+              $x++;
+            };
+            $(".tn_small").focus();
+          });
+        }
       });
 
       $(document).on("click",".thumbnail",function(e){
@@ -257,7 +272,8 @@
         $('.product_info_add').modal('show');
         $(".product_info_add").find(".modal-body").append(product_fields);
         $(".btn_save").toggleClass('btn_save btn_edit').text('Update');
-        $("#form_product").attr("action", "{{ URL::Route('updateProduct') }}");
+        $("#product_id").val(id);
+        //$("#form_product").attr("action", "{{ URL::Route('updateProduct') }}");
         $(".select2").select2(
         {
           minimumResultsForSearch: -1
@@ -284,7 +300,7 @@
               var template = 
                             '<div class="col-xs-4">'+
                               '<a href="javascript:void(0)" class="thumbnail tn_small" data-img="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'">'+
-                                '<img src="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'" alt="..." style="width: 50px;height: 50px;">'+
+                                '<img src="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'" alt="..." style="width: 40px;height: 40px;">'+
                               '</a>'+
                             '</div>';
             if(i == 0){
