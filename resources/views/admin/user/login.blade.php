@@ -27,7 +27,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b><img width="226" height="77" src="{{env('FILE_PATH_CUSTOM')}}img/logo_silvershop.png"></a>
+    <a href="#"><b><img width="300" height="300" src="{{env('FILE_PATH_CUSTOM')}}img/logo.jpg"></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

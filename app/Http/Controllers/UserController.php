@@ -140,9 +140,10 @@ class UserController extends Controller {
 
 	public function getUAL()
 	{
+		$user = new User();
 		$userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
         $fullname = Info::getFullname(Auth::User()['id']);
-        $users = Info::all();
+        $users = Info::whereIn('user_id',$user->adminUsers())->get();
 		return view('admin.uam.index')
             ->with("userInfo",$userInfo)
                 ->with("fullname",$fullname)

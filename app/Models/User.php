@@ -27,4 +27,9 @@ class User extends Authenticatable
     {
         return ($this -> isAdmin != 0);
     }
+
+    public function adminUsers()
+    {
+        return $this->where('isAdmin','!=',0)->select(array('id'))->get();
+    }
 }
