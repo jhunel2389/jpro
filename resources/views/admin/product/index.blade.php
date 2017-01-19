@@ -170,7 +170,7 @@
         $('.product_info_add').modal('show');
         $(".select2").select2(
         {
-          //minimumResultsForSearch: -1
+          minimumResultsForSearch: -1
         });
       });
 
@@ -276,7 +276,7 @@
         //$("#form_product").attr("action", "{{ URL::Route('updateProduct') }}");
         $(".select2").select2(
         {
-          //minimumResultsForSearch: -1
+          minimumResultsForSearch: -1
         });
         $.get('{{URL::Route('getProductInfo')}}',{ product: id}, function(data)
         {
