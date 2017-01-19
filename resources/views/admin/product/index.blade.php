@@ -150,7 +150,7 @@
                             </form>';
       function modalForm()
       {
-        $('body').append('<div class="modal fade product_info_add" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">\
+        $('body').append('<div class="modal fade product_info_add"  role="dialog" data-keyboard="false" data-backdrop="static">\
                             <div class="modal-dialog">\
                               <div class="modal-content">\
                                 <div class="modal-body">\
@@ -170,7 +170,7 @@
         $('.product_info_add').modal('show');
         $(".select2").select2(
         {
-          minimumResultsForSearch: -1
+          //minimumResultsForSearch: -1
         });
       });
 
@@ -276,7 +276,7 @@
         //$("#form_product").attr("action", "{{ URL::Route('updateProduct') }}");
         $(".select2").select2(
         {
-          minimumResultsForSearch: -1
+          //minimumResultsForSearch: -1
         });
         $.get('{{URL::Route('getProductInfo')}}',{ product: id}, function(data)
         {
