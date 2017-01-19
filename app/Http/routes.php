@@ -21,9 +21,11 @@ Route::group(array('prefix' => '/admin'),function()
 	Route::group(array('prefix' => '/product'),function()
 	{
 		Route::get('/', array('uses' => 'ProductController@index','as' => 'getProduct'));
+		Route::get('/getProductInfo', array('uses' => 'ProductController@getProductInfo', 'as' => 'getProductInfo'));
 		Route::group(array('before' => 'csrf'), function()
 		{
 			Route::post('/post_product',array('uses' => 'ProductController@addProduct', 'as' => 'addProduct')); 
+			Route::post('/update_product',array('uses' => 'ProductController@updateProduct', 'as' => 'updateProduct')); 
 			Route::post('/post_addPrice', array('uses' => 'ProductController@addPrice', 'as' => 'addPrice'));
 		});
 

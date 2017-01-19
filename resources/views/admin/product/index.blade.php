@@ -90,7 +90,7 @@
         }
       });
 
-      var product_fields = '<form role="form" method="POST" action="{{ URL::Route('addProduct') }}" enctype ="multipart/form-data">\
+      var product_fields = '<form id="form_product" role="form" method="POST" action="{{ URL::Route('addProduct') }}" enctype ="multipart/form-data">\
                               <input type="hidden" name="_token" value="{{ csrf_token() }}" >\
                               <div class="box-body">\
                                 <div class="row">\
@@ -148,8 +148,8 @@
                               </div>\
                               <button type="submit" hidden></button>\
                             </form>';
-
-      $(document).on("click",".add_product",function(){
+      function modalForm()
+      {
         $('body').append('<div class="modal fade product_info_add" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">\
                             <div class="modal-dialog">\
                               <div class="modal-content">\
@@ -162,6 +162,10 @@
                               </div>\
                             </div>\
                           </div>');
+      }
+
+      $(document).on("click",".add_product",function(){
+        modalForm();
         $(".product_info_add").find(".modal-body").append(product_fields);
         $('.product_info_add').modal('show');
         $(".select2").select2(
@@ -246,6 +250,64 @@
           $('#input_price').focus();
         }
       });
+
+      $(document).on("click","#editProduct",function(){
+        var id = table.cell('.active', 0).data();
+        modalForm();
+        $('.product_info_add').modal('show');
+        $(".product_info_add").find(".modal-body").append(product_fields);
+        $(".btn_save").toggleClass('btn_save btn_edit').text('Update');
+        $("#form_product").attr("action", "{{ URL::Route('updateProduct') }}");
+        $(".select2").select2(
+        {
+          minimumResultsForSearch: -1
+        });
+        $.get('{{URL::Route('getProductInfo')}}',{ product: id}, function(data)
+        {
+          console.log(data);
+          $("#product_name").val(data.name);
+          $("#product_description").val(data.description);
+          if(data.price.length != 0){
+            for (var i = 0; i < data.price.length; i++) 
+            {
+              $('#product_price').append('<option  value="'+data.price[i].id+'">'+data.price[i].price+'</option>')
+            }
+            $('#product_price')
+                      .val(data.current_price) //select option of select2
+                      .trigger("change"); //apply to select2
+          }
+
+          if(data.product_image.length != 0)
+          {
+            for (var i = 0; i < data.product_image.length; i++) 
+            {
+              var template = 
+                            '<div class="col-xs-4">'+
+                              '<a href="javascript:void(0)" class="thumbnail tn_small" data-img="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'">'+
+                                '<img src="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'" alt="..." style="width: 50px;height: 50px;">'+
+                              '</a>'+
+                            '</div>';
+            if(i == 0){
+                $(".product_image_view").attr("src",'{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'');
+            }
+            $('.product_image_list').append(template);
+            }
+          }
+
+        });
+      });
+
+       $(document).on("click",".btn_edit",function(e){
+        /*var $fileUpload = $("#file");
+        if (parseInt($fileUpload.get(0).files.length)>3){
+          alert("You can only upload a maximum of 3 images");
+        }
+        else{
+          $(".product_info_add").find("form").find("button").click();
+        }*/
+        $(".product_info_add").find("form").find("button").click();
+      });
+
       $(document).on("keydown","#input_price",function(e){
         // Allow: backspace, delete, tab, escape, enter and .
         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||

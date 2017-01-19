@@ -76,11 +76,12 @@ class ProductController extends Controller
                         $addProductImage['img_file'] = $iname;
                         $addProductImage['thumbnail_img'] = $tn_name;
                         $addProductImage['uploader_id'] = Auth::User()['id'];
-                        if($addProductImage->save()){
-                            return Redirect::Route('getProduct')->with('success','Product created.');
+                        if(!$addProductImage->save()){
+                            
                         }
                     }
                 }
+                return Redirect::Route('getProduct')->with('success','Product created.');
             }
         }
         else{
@@ -112,5 +113,26 @@ class ProductController extends Controller
                 "status" => "fail",
                 "message" => "Fail to add price.",
             ));
+    }
+
+    public function getProductInfo(Request $request)
+    {
+        $id = $request->input('product');
+        $product = Product::find($id);
+        $price = ProductPrice::where('prod_id','=',$id)->get();
+        $current_price = ProductPrice::where('prod_id','=',$id)->where('status','=',1)->first();
+        $images = ProductImage::where('prod_id','=',$id)->get(array('thumbnail_img','id'));
+        return Response::json(array(
+            "name"          => $product['name'],
+            "description"   => $product['description'],
+            "price"         => $price,
+            "current_price" => !empty($current_price) ? $current_price['id'] : "",
+            "product_image"        => !empty($images) ? $images : "",
+        ));
+    }
+
+    public function updateProduct(Request $request)
+    {
+        return 1;
     }
 }
