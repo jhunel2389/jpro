@@ -1,6 +1,22 @@
 @extends('layouts.master')
 @section('addHead')
   <title>Dashboard</title>
+  <style type="text/css">
+    #hover-cap-4col .thumbnail {
+ position:relative;
+ overflow:hidden; 
+}
+.caption {
+ display: none;
+ position: absolute;
+ top: 0;
+ left: 0;
+ background: rgba(0,0,0,0.4);
+ width: 100%;
+ height: 100%;
+ color:#fff !important;
+}
+  </style>
 @endsection
 
 @section('content')
@@ -66,6 +82,9 @@
 	<!-- /.content-wrapper -->
 	@include('admin.includes.footer')
 	@include('admin.includes.settingSidebar')
+  <script type="text/javascript">
+  
+  </script>
 	<script>
 		$(function () {
 			 var table = $('#tbl_product').DataTable({
@@ -139,9 +158,15 @@
                                       <input type="file" id="file" name="product_image[]" multiple="multiple" >\
                                     </div>\
                                     <div class="col-xs-12">\
-                                      <a href="javascript:void(0)" class="thumbnail">\
-                                        <img class="product_image_view" src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="...">\
-                                      </a>\
+                                      <div id="hover-cap-4col">\
+                                        <div class="thumbnail">\
+                                            <div class="caption">\
+                                                <h4>Do you want to remove this image?</h4>\
+                                                <button type="button" class="btn btn-block btn-default btn-sm">Yes</button>\
+                                            </div>\
+                                            <img class="product_image_view" src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="...">\
+                                          </div>\
+                                      </div>\
                                     </div>\
                                   </div>\
                                 </div>\
@@ -311,6 +336,16 @@
           }
 
         });
+
+        $("[rel='tooltip']").tooltip(); 
+        $('#hover-cap-4col .thumbnail').hover(
+          function(){
+            $(this).find('.caption').slideDown(250); //.fadeIn(250)
+          },
+          function(){
+            $(this).find('.caption').slideUp(250); //.fadeOut(205)
+          }
+        ); 
       });
 
        $(document).on("click",".btn_edit",function(e){
