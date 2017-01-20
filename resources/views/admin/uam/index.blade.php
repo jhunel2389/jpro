@@ -122,7 +122,7 @@
 
 		function modalForm()
 		{
-			$('body').append('<div class="modal fade product_info_add" tabindex="-1" role="dialog" data-keyboard="true" data-backdrop="static">\
+			$('body').append('<div class="modal fade product_info_add" role="dialog" data-keyboard="true" data-backdrop="static">\
 			                    <div class="modal-dialog">\
 			                      <div class="modal-content">\
 			                        <div class="modal-body">\

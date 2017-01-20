@@ -1,0 +1,68 @@
+/* ------- FONTS ------- */
+/* ------- BORDERS ------- */
+/* ------- BACKGROUNDS ------- */
+/* ------- COLORS ------- */
+/* ------- Indents ------- */
+/* ------- Product Elements ------- */
+/* ------- Buttons ------- */
+/* ------- Buttons +/- ------ */
+/* ------- Button Small ------- */
+/* ------- Button exclusive-medium ------- */
+/* ------- My Account List bg ------- */
+/* ------- Product Listing ------- */
+/* ------- Grid/List vars ------- */
+/* ------- Pagination vars ------- */
+/* ------- Product Info ------- */
+/* ------- Cart Steps ------- */
+/* ------- sub heading (h2,h3) define ------- */
+/* ------- Image vars ------- */
+.shop-phone {
+  display: none;
+  float: left;
+  padding: 5px 0 10px; }
+  .shop-phone i {
+    font-size: 21px;
+    line-height: 21px;
+    color: white;
+    padding-right: 7px; }
+  .shop-phone strong {
+    color: white; }
+
+#contact-link {
+  float: left;
+  padding-top: 10px; }
+  @media (max-width: 479px) {
+    #contact-link {
+      width: 25%;
+      text-align: center; } }
+  #contact-link a {
+    text-decoration: underline;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer; }
+    @media (max-width: 479px) {
+      #contact-link a {
+        font-size: 11px;
+        padding-left: 5px;
+        padding-right: 5px; } }
+    #contact-link a:hover, #contact-link a.active {
+      color: #777777; }
+
+@media (max-width: 767px) {
+  #contact_block {
+    margin-bottom: 20px; } }
+#contact_block .label {
+  display: none; }
+#contact_block .block_content {
+  color: #888; }
+#contact_block p {
+  margin-bottom: 4px; }
+#contact_block p.tel {
+  font: 400 17px/21px Arial, Helvetica, sans-serif;
+  color: black;
+  margin-bottom: 6px; }
+  #contact_block p.tel i {
+    font-size: 25px;
+    vertical-align: -2px;
+    padding-right: 10px; }

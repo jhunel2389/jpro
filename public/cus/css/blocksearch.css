@@ -1,0 +1,109 @@
+/* ------- FONTS ------- */
+/* ------- BORDERS ------- */
+/* ------- BACKGROUNDS ------- */
+/* ------- COLORS ------- */
+/* ------- Indents ------- */
+/* ------- Product Elements ------- */
+/* ------- Buttons ------- */
+/* ------- Buttons +/- ------ */
+/* ------- Button Small ------- */
+/* ------- Button exclusive-medium ------- */
+/* ------- My Account List bg ------- */
+/* ------- Product Listing ------- */
+/* ------- Grid/List vars ------- */
+/* ------- Pagination vars ------- */
+/* ------- Product Info ------- */
+/* ------- Cart Steps ------- */
+/* ------- sub heading (h2,h3) define ------- */
+/* ------- Image vars ------- */
+#search_block_top {
+  position: absolute;
+  top: 62px;
+  right: 140px; }
+  #search_block_top #searchbox {
+    padding: 0 25px 0 0;
+    float: left;
+    width: 127px;
+    background: white;
+    border: 1px solid #d6d4d4;
+    height: 29px; }
+    #search_block_top #searchbox input {
+      border: none; }
+  #search_block_top .btn.button-search {
+    position: absolute;
+    top: 0;
+    background: none;
+    right: 0;
+    border: none;
+    width: 20px;
+    text-align: center;
+    padding: 0;
+    display: inline-block;
+    color: black; }
+    #search_block_top .btn.button-search span {
+      display: none; }
+    #search_block_top .btn.button-search:before {
+      height: 27px;
+      text-align: center;
+      content: "\f002";
+      padding: 5px 6px 0 0;
+      top: 0;
+      display: block;
+      width: 24px;
+      font-family: "FontAwesome";
+      font-size: 13px;
+      position: relative;
+      right: 0; }
+    #search_block_top .btn.button-search:hover {
+      color: #6f6f6f; }
+  #search_block_top #search_query_top {
+    height: 27px;
+    display: inline-block;
+    padding: 0 0 0 10px; }
+  @media (max-width: 1199px) {
+    #search_block_top {
+      right: 115px; } }
+  @media (max-width: 991px) {
+    #search_block_top {
+      bottom: auto;
+      display: inline-block;
+      margin-bottom: 10px;
+      position: relative;
+      right: auto;
+      top: auto; }
+      #search_block_top #searchbox {
+        width: 100%; } }
+  @media (max-width: 767px) {
+    #search_block_top {
+      display: inline-block; } }
+
+.ac_results {
+  background: white;
+  border: 1px solid #d6d4d4;
+  width: 271px;
+  margin-top: -1px; }
+  .ac_results li {
+    padding: 0 10px;
+    font-weight: normal;
+    color: #686666;
+    font-size: 13px;
+    line-height: 22px; }
+    .ac_results li.ac_odd {
+      background: white; }
+    .ac_results li:hover, .ac_results li.ac_over {
+      background: #dadada; }
+
+form#searchbox {
+  position: relative; }
+  form#searchbox label {
+    color: black; }
+  form#searchbox input#search_query_block {
+    margin-right: 10px;
+    max-width: 222px;
+    margin-bottom: 10px;
+    display: inline-block;
+    float: left; }
+  form#searchbox .button.button-small {
+    float: left; }
+    form#searchbox .button.button-small i {
+      margin-right: 0; }

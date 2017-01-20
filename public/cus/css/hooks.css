@@ -1,0 +1,116 @@
+/* ------- FONTS ------- */
+/* ------- BORDERS ------- */
+/* ------- BACKGROUNDS ------- */
+/* ------- COLORS ------- */
+/* ------- Indents ------- */
+/* ------- Product Elements ------- */
+/* ------- Buttons ------- */
+/* ------- Buttons +/- ------ */
+/* ------- Button Small ------- */
+/* ------- Button exclusive-medium ------- */
+/* ------- My Account List bg ------- */
+/* ------- Product Listing ------- */
+/* ------- Grid/List vars ------- */
+/* ------- Pagination vars ------- */
+/* ------- Product Info ------- */
+/* ------- Cart Steps ------- */
+/* ------- sub heading (h2,h3) define ------- */
+/* ------- Image vars ------- */
+/* Home hook CSS */
+#htmlcontent_home ul {
+  margin: 0 -5px; }
+  #htmlcontent_home ul li {
+    padding: 0 5px 10px; }
+    @media (max-width: 479px) {
+      #htmlcontent_home ul li {
+        width: 100%; } }
+    #htmlcontent_home ul li img {
+      max-width: 100%;
+      height: auto; }
+      @media (max-width: 479px) {
+        #htmlcontent_home ul li img {
+          min-width: 100%; } }
+    #htmlcontent_home ul li.htmlcontent-item-5 {
+      width: 66.6667%; }
+      @media (max-width: 479px) {
+        #htmlcontent_home ul li.htmlcontent-item-5 {
+          width: 100%; } }
+
+/* Top hook CSS */
+@media (max-width: 767px) {
+  #htmlcontent_top {
+    width: 100%;
+    max-width: 100%; } }
+@media (max-width: 767px) {
+  #htmlcontent_top ul {
+    margin: 0 -5px; } }
+#htmlcontent_top ul li {
+  width: 300px;
+  float: left;
+  margin-bottom: 10px; }
+  @media (max-width: 1199px) {
+    #htmlcontent_top ul li {
+      width: 242px; } }
+  @media (max-width: 991px) {
+    #htmlcontent_top ul li {
+      width: 187px; } }
+  #htmlcontent_top ul li a {
+    position: relative;
+    display: block;
+    transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease; }
+    #htmlcontent_top ul li a .item-html {
+      background: #000;
+      position: absolute;
+      bottom: 0;
+      padding-bottom: 10px;
+      width: 100%;
+      text-align: center; }
+      #htmlcontent_top ul li a .item-html h3 {
+        color: #fdfdfd;
+        font-family: 'Roboto Slab', 'serif';
+        font-weight: 300;
+        font-size: 20px; }
+        @media (max-width: 1199px) {
+          #htmlcontent_top ul li a .item-html h3 {
+            font-size: 17px; } }
+        @media (min-width: 768px) and (max-width: 991px) {
+          #htmlcontent_top ul li a .item-html h3 {
+            margin: 7px 0 4px;
+            padding: 0 4px; } }
+        #htmlcontent_top ul li a .item-html h3 span {
+          color: #888;
+          font-size: 12px;
+          font-family: 'Roboto', 'sans-serif';
+          margin-bottom: 0;
+          line-height: 19px;
+          display: none;
+          padding-top: 5px; }
+          @media (max-width: 991px) {
+            #htmlcontent_top ul li a .item-html h3 span {
+              line-height: 15px;
+              padding-top: 2px; } }
+    #htmlcontent_top ul li a:hover .item-html span {
+      display: block; }
+  @media (min-width: 480px) and (max-width: 767px) {
+    #htmlcontent_top ul li {
+      float: left;
+      padding-left: 5px;
+      padding-right: 5px;
+      width: 50%; } }
+  @media (max-width: 479px) {
+    #htmlcontent_top ul li {
+      width: 100%; } }
+  #htmlcontent_top ul li:last-child {
+    margin-bottom: 0; }
+  #htmlcontent_top ul li img {
+    max-width: 100%;
+    height: auto; }
+    @media (max-width: 767px) {
+      #htmlcontent_top ul li img {
+        width: 100%; } }
+
+/* Left hook CSS */
+/* Right hook CSS */
+/* Footer hook CSS */

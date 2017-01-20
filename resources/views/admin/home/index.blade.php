@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('addHead')
-  <title>Dashboard</title>
+  <title>Handmade</title>
 @endsection
 
 @section('content')
