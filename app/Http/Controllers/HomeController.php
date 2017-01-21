@@ -34,6 +34,7 @@ class HomeController extends Controller
 
     public function cusIndex()
     {
-        return View("customer.home.index")->with('mt','home');
+        $newProducts = App::make("App\Http\Controllers\ProductController")->newProduct();
+        return View("customer.home.index")->with('newProducts',$newProducts);
     }
 }

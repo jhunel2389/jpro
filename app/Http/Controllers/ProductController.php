@@ -145,4 +145,76 @@ class ProductController extends Controller
     {
         return 1;
     }
+
+    public function newProduct()
+    {
+        $response = array(
+            array(
+                "prod_name" => "Crochet necklace - The boa friend",
+                "prod_image" => "2-tm_home_default.jpg",
+                "prod_description" => "Donec quis egestas neque. Integer mattis velit nisi, quis adipiscing augue.",
+                "prod_price_new" => "$122.51",
+                "prod_price_old" => "$128.96",
+                "prod_price_reduction" => "-5%",
+            ),
+            array(
+                "prod_name" => "Red Dichroic Bead Embroidered Earrings",
+                "prod_image" => "10-tm_home_default.jpg",
+                "prod_description" => "Proin venenatis quam non nunc placerat, ac posuere erat suscipit.",
+                "prod_price_new" => "$628.96",
+                "prod_price_old" => "",
+                "prod_price_reduction" => "",
+            ),
+            array(
+                "prod_name" => "Harry potter mini painting pendant necklace",
+                "prod_image" => "19-tm_home_default.jpg",
+                "prod_description" => "Mi sit amet porta, neque velit volutpat sapien, eleifend rhoncus arcu elit et.",
+                "prod_price_new" => "$394.64",
+                "prod_price_old" => "$428.96",
+                "prod_price_reduction" => "-8%",
+            ),
+            array(
+                "prod_name" => "Beaded book lover Bracelet",
+                "prod_image" => "28-tm_home_default.jpg",
+                "prod_description" => "Nunc luctus dictum tortor, ac euismod dolor vulputate at.",
+                "prod_price_new" => "$122.51",
+                "prod_price_old" => "",
+                "prod_price_reduction" => "",
+            ),
+            array(
+                "prod_name" => "Pumpkin Earrings - Halloween Orange Czech",
+                "prod_image" => "37-tm_home_default.jpg",
+                "prod_description" => "Donec quis egestas neque. Integer mattis velit nisi, quis adipiscing augue.",
+                "prod_price_new" => "$428.96",
+                "prod_price_old" => "",
+                "prod_price_reduction" => "",
+            ),
+            array(
+                "prod_name" => "Kitsch Necklace Neon Laser Cut Choice of 3",
+                "prod_image" => "46-tm_home_default.jpg",
+                "prod_description" => "Proin venenatis quam non nunc, ac posuere erat suscipit. Suspendisse potenti.",
+                "prod_price_new" => "$428.96",
+                "prod_price_old" => "",
+                "prod_price_reduction" => "",
+            ),
+            array(
+                "prod_name" => "Little Girls Bracelet Pink and Blue",
+                "prod_image" => "55-tm_home_default.jpg",
+                "prod_description" => "Mi sit amet porta, neque velit volutpat sapien, eleifend rhoncus arcu elit et.",
+                "prod_price_new" => "$632.15",
+                "prod_price_old" => "",
+                "prod_price_reduction" => "",
+            ),
+            array(
+                "prod_name" => "Red Jasper and Swarovski Crystal Necklace",
+                "prod_image" => "64-tm_home_default.jpg",
+                "prod_description" => "Nunc luctus dictum tortor, acvulputate at. Donec eros in pharetra rutrum.",
+                "prod_price_new" => "$563.42",
+                "prod_price_old" => "$640.25",
+                "prod_price_reduction" => "-12%",
+            )
+        );
+
+        return $response;
+    }
 }

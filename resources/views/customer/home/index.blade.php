@@ -370,81 +370,79 @@
 						<div class="tab-content">
 						    <!-- Products list -->
 							<ul id="blocknewproducts" class="product_list grid row blocknewproducts tab-pane active">
-                    			<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3">
-                					<div class="product-container" itemscope="" itemtype="https://schema.org/Product">
-                    					<div class="left-block">
-                        					<div class="product-image-container">
-                            					<a class="product_img_link" href="index-7.html" title="Crochet necklace - The boa friend" itemprop="url">
-                                					<img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_home_default.jpg" alt="Crochet necklace - The boa friend" title="Crochet necklace - The boa friend" itemprop="image">
-                            					</a>
-                                                <a class="quick-view" href="#" rel="https://livedemo00.template-help.com/prestashop_49165/index.php?id_product=1&amp;controller=product&amp;id_lang=1" title="Quick view">
-				                                    <span>Quick view</span>
-				                                </a>
-                                                <span class="new-box">
-                                    				<span class="new-label">New</span>
-                                				</span>
-                                                <span class="sale-box">
-				                                    <span class="sale-label">Sale!</span>
-				                                </span>
-                                            </div>
-                    					</div>
-                    					<div class="right-block">
-	                        				<h5 itemprop="name">
-	                                            <a class="product-name" href="index-7.html" title="Crochet necklace - The boa friend" itemprop="url">
-					                                <span class="list-name">Crochet necklace - The boa friend</span>
-					                                <span class="grid-name">Crochet necklace - The boa friend</span>
-					                            </a>
-	                        				</h5>
-				                        	<div class="comments_note" itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating">	
-												<div class="star_content clearfix">
-													<div class="star star_on"></div>
-													<div class="star star_on"></div>
-													<div class="star star_on"></div>
-													<div class="star"></div>
-													<div class="star"></div>
-													<meta itemprop="worstRating" content="0">
-													<meta itemprop="ratingValue" content="2">
-													<meta itemprop="bestRating" content="5">
+								@foreach($newProducts as $newProduct)
+	                    			<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3">
+	                					<div class="product-container">
+	                    					<div class="left-block">
+	                        					<div class="product-image-container">
+	                            					<a class="product_img_link" href="index-7.html" title="Crochet necklace - The boa friend" itemprop="url">
+	                                					<img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/{{$newProduct['prod_image']}}" alt="Crochet necklace - The boa friend" title="Crochet necklace - The boa friend" itemprop="image">
+	                            					</a>
+	                                                <a class="quick-view" href="#" title="Quick view">
+					                                    <span>Quick view</span>
+					                                </a>
+	                                                <span class="new-box">
+	                                    				<span class="new-label">New</span>
+	                                				</span>
+	                                                <span class="sale-box">
+					                                    <span class="sale-label">Sale!</span>
+					                                </span>
+	                                            </div>
+	                    					</div>
+	                    					<div class="right-block">
+		                        				<h5 itemprop="name">
+		                                            <a class="product-name" href="index-7.html" title="Crochet necklace - The boa friend" itemprop="url">
+						                                <span class="list-name">{{$newProduct['prod_name']}}</span>
+						                                <span class="grid-name">{{$newProduct['prod_name']}}</span>
+						                            </a>
+		                        				</h5>
+					                        	<div class="comments_note" itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating">	
+													<div class="star_content clearfix">
+														<div class="star star_on"></div>
+														<div class="star star_on"></div>
+														<div class="star star_on"></div>
+														<div class="star"></div>
+														<div class="star"></div>
+														<meta itemprop="worstRating" content="0">
+														<meta itemprop="ratingValue" content="2">
+														<meta itemprop="bestRating" content="5">
+													</div>
+													<span class="nb-comments">1 Review(s)</span>
 												</div>
-												<span class="nb-comments">1 Review(s)</span>
-											</div>
-					                        <p class="product-desc" itemprop="description">
-					                            <span class="list-desc">Donec quis egestas 
-					neque. Integer mattis velit nisi, quis adipiscing augue sollicitudin id.
-					 In accumsan, sapien ut accumsan vehicula, tortor risus sollicitudin 
-					diam, quis eleifend metus dolor in augue.</span>
-					                            <span class="grid-desc">Donec quis egestas neque. Integer...</span>
-					                        </p>
-	                                        <div itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" class="content_price">
-	                                            <span itemprop="price" class="price product-price product-price-new">
-	                       							$122.51                                
-	                                    		</span>
-	                                			<meta itemprop="priceCurrency" content="1">
-	                                            <span class="old-price product-price">
-	                                        		$128.96
-	                                    		</span>
-	                                            <span class="price-percent-reduction">-5%</span>
-	                                       	</div>
-	                                       	<div class="button-container">                          
-	                                            <a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="Add to cart" data-id-product="1">
-	                                            	<span>Add to cart</span>
-	                                        	</a>			
-	                                            <a itemprop="url" class="button lnk_view btn btn-default" href="#" title="View">
-	                                				<span>More</span>
-	                            				</a>
-	                        				</div>
-	                                        <div class="product-flags">
-	                                            <span class="online_only">Online only</span>                        
+						                        <p class="product-desc" itemprop="description">
+						                            <span class="list-desc">{{$newProduct['prod_description']}}</span>
+						                            <span class="grid-desc">{{$newProduct['prod_description']}}</span>
+						                        </p>
+		                                        <div itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" class="content_price">
+		                                            <span itemprop="price" class="price product-price product-price-new">
+		                       							{{$newProduct['prod_price_new']}}                               
+		                                    		</span>
+		                                			<meta itemprop="priceCurrency" content="1">
+		                                            <span class="old-price product-price">
+		                                        		{{$newProduct['prod_price_old']}}
+		                                    		</span>
+		                                            <span class="price-percent-reduction">{{$newProduct['prod_price_reduction']}}</span>
+		                                       	</div>
+		                                       	<div class="button-container">                          
+		                                            <a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="Add to cart" data-id-product="1">
+		                                            	<span>Add to cart</span>
+		                                        	</a>			
+		                                            <a itemprop="url" class="button lnk_view btn btn-default" href="#" title="View">
+		                                				<span>More</span>
+		                            				</a>
+		                        				</div>
+		                                        <div class="product-flags">
+		                                            <span class="online_only">Online only</span>                        
+		                                        </div>
+		                                        <span itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" class="availability">
+		                                            <span class="available-now">
+		                                            	<link itemprop="availability" href="https://schema.org/InStock">In Stock                          
+		                                            </span>
+		                                        </span>
 	                                        </div>
-	                                        <span itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" class="availability">
-	                                            <span class="available-now">
-	                                            	<link itemprop="availability" href="https://schema.org/InStock">In Stock                          
-	                                            </span>
-	                                        </span>
-                                        </div>
-                                    </div><!-- .product-container> -->    
-            					</li>
-
+	                                    </div><!-- .product-container> -->    
+	            					</li>
+	            				@endforeach
         					</ul>
 						</div>
 					</div><!-- #center_column -->
@@ -452,447 +450,511 @@
 				</div><!-- #columns -->
 			</div><!-- .columns-container -->
 
-	<div class="shadow"><div class="container"><div class="clearfix"><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="images/D6ZfFsLEB4F.htm" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="f3695094f3f98bc" allowtransparency="true" allowfullscreen="true" scrolling="no" style="display: none;" src="images/ping.htm" frameborder="0"></iframe></div></div></div>
-<div id="facebook_block" class="col-xs-4">
-	<h4>Follow us on facebook</h4>
-	<div class="facebook-fanbox">
-		<div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/prestashop" data-height="200" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=334341610034299&amp;color_scheme=light&amp;container_width=301&amp;header=false&amp;height=200&amp;href=https%3A%2F%2Fwww.facebook.com%2Fprestashop&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false"><span style="vertical-align: bottom; width: 300px; height: 154px;"><iframe name="f3b7ec536e6b68c" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" style="border: medium none; visibility: visible; width: 300px; height: 154px;" src="images/like_box.htm" class="" width="1000px" height="200px" frameborder="0"></iframe></span></div>
-	</div>
-</div>
-<!-- MODULE Block cmsinfo -->
-<div id="cmsinfo_block">
-					<div class="col-xs-6"><h2>Custom Block 1</h2>
-<ul>
-<li><em class="icon-truck" id="icon-truck"></em>
-<div class="type-text">
-<h3>Lorem Ipsum</h3>
-<p>Lorem ipsum dolor sit amet conse ctetur voluptate velit esse cillum dolore eu</p>
-</div>
-</li>
-<li><em class="icon-phone" id="icon-phone"></em>
-<div class="type-text">
-<h3>Dolor Sit Amet</h3>
-<p>Lorem ipsum dolor sit amet conse ctetur voluptate velit esse cillum dolore eu</p>
-</div>
-</li>
-<li><em class="icon-credit-card" id="icon-credit-card"></em>
-<div class="type-text">
-<h3>Ctetur Voluptate</h3>
-<p>Lorem ipsum dolor sit amet conse ctetur voluptate velit esse cillum dolore eu</p>
-</div>
-</li>
-</ul></div>
-					<div class="col-xs-6"><h2>Custom Block 2</h2>
-<div class="block">
-<p><strong class="dark">Lorem ipsum dolor sit amet conse ctetur 
-adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-magna aliqua. Ut enim ad minim veniam.</strong></p>
-<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do 
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-voluptate velit esse cillum dolore.</p>
-</div></div>
-		</div>
-<!-- /MODULE Block cmsinfo -->
-</div></div></div>
+			<div class="shadow">
+				<div class="container">
+					<div class="clearfix">
+						<div id="fb-root" class=" fb_reset">
+							<div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
+								<div>
+									<iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="images/D6ZfFsLEB4F.htm" frameborder="0">
+									</iframe>
+								</div>
+							</div>
+							<div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
+								<div>
+									<iframe name="f3695094f3f98bc" allowtransparency="true" allowfullscreen="true" scrolling="no" style="display: none;" src="images/ping.htm" frameborder="0">
+									</iframe>
+								</div>
+							</div>
+						</div>
+						<div id="facebook_block" class="col-xs-4">
+							<h4>Follow us on facebook</h4>
+							<div class="facebook-fanbox">
+								<div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/prestashop" data-height="200" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=334341610034299&amp;color_scheme=light&amp;container_width=301&amp;header=false&amp;height=200&amp;href=https%3A%2F%2Fwww.facebook.com%2Fprestashop&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false">
+									<span style="vertical-align: bottom; width: 300px; height: 154px;">
+										<iframe name="f3b7ec536e6b68c" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" style="border: medium none; visibility: visible; width: 300px; height: 154px;" src="images/like_box.htm" class="" width="1000px" height="200px" frameborder="0">
+										</iframe>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!-- MODULE Block cmsinfo -->
+						<div id="cmsinfo_block">
+							<div class="col-xs-6"><h2>Custom Block 1</h2>
+								<ul>
+									<li>
+										<em class="icon-truck" id="icon-truck"></em>
+										<div class="type-text">
+											<h3>Lorem Ipsum</h3>
+											<p>Lorem ipsum dolor sit amet conse ctetur voluptate velit esse cillum dolore eu</p>
+										</div>
+									</li>
+									<li>
+										<em class="icon-phone" id="icon-phone"></em>
+										<div class="type-text">
+											<h3>Dolor Sit Amet</h3>
+											<p>Lorem ipsum dolor sit amet conse ctetur voluptate velit esse cillum dolore eu</p>
+										</div>
+									</li>
+									<li>
+										<em class="icon-credit-card" id="icon-credit-card"></em>
+										<div class="type-text">
+											<h3>Ctetur Voluptate</h3>
+											<p>Lorem ipsum dolor sit amet conse ctetur voluptate velit esse cillum dolore eu</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="col-xs-6"><h2>Custom Block 2</h2>
+								<div class="block">
+									<p>
+										<strong class="dark">Lorem ipsum dolor sit amet conse ctetur 
+										adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+										magna aliqua. Ut enim ad minim veniam.</strong>
+									</p>
+									<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do 
+									eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
+									minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+									ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+									voluptate velit esse cillum dolore.</p>
+								</div>
+							</div>
+						</div>
+					<!-- /MODULE Block cmsinfo -->
+					</div>
+				</div>
+			</div>
 
 			<!-- Footer -->
 			<div class="footer-container">
 				<footer id="footer" class="container">
 					<div class="row"><!-- Block Newsletter module-->
-<div id="newsletter_block_left" class="block">
-	<h4>Newsletter</h4>
-	<div class="block_content">
-		<form action="https://livedemo00.template-help.com/prestashop_49165/index.php" method="post">
-			<div class="form-group">
-				<input class="inputNew form-control grey newsletter-input" id="newsletter-input" name="email" size="18" value="Enter your e-mail" type="text">
-                <button type="submit" name="submitNewsletter" class="btn btn-default button button-small">
-                    <span>Ok</span>
-                </button>
-				<input name="action" value="0" type="hidden">
+						<div id="newsletter_block_left" class="block">
+							<h4>Newsletter</h4>
+							<div class="block_content">
+								<form action="https://livedemo00.template-help.com/prestashop_49165/index.php" method="post">
+									<div class="form-group">
+										<input class="inputNew form-control grey newsletter-input" id="newsletter-input" name="email" size="18" value="Enter your e-mail" type="text">
+						                <button type="submit" name="submitNewsletter" class="btn btn-default button button-small">
+						                    <span>Ok</span>
+						                </button>
+										<input name="action" value="0" type="hidden">
+									</div>
+								</form>
+							</div>
+						</div>
+						<!-- /Block Newsletter module-->
+						<section id="social_block">
+							<ul>
+											<li class="facebook">
+										<a target="_blank" href="#" title="Facebook">
+											<span>Facebook</span>
+										</a>
+									</li>
+													<li class="twitter">
+										<a target="_blank" href="#" title="Twitter">
+											<span>Twitter</span>
+										</a>
+									</li>
+													<li class="rss">
+										<a target="_blank" href="#" title="RSS">
+											<span>RSS</span>
+										</a>
+									</li>
+								                        	</ul>
+						    <h4>Follow us</h4>
+						</section>
+						<div class="clearfix"></div>
+						<!-- Block categories module -->
+						<section class="blockcategories_footer footer-block col-xs-12 col-sm-2">
+							<h4>Categories</h4>
+							<div class="category_footer toggle-footer" style="">
+								<div class="list">
+									<ul class="tree dhtml">
+																		<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Anklets
+							</a>
+									<ul>
+																		<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Vestibulum
+							</a>
+									<ul>
+																		<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Lorem ipsum dolor
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Sit amet conse
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Ctetur adipisicing elit
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Sed do eiusmod
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Tempor incididunt ut
+							</a>
+							</li>
+
+																						<li class="last">
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Labore et dolore
+							</a>
+							</li>
+
+															</ul>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Phasellus
+							</a>
+									<ul>
+																		<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Lorem ipsum dolor
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Sit amet conse
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Ctetur adipisicing elit
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Sed do eiusmod
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Tempor incididunt ut
+							</a>
+							</li>
+
+																						<li class="last">
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Labore et dolore
+							</a>
+							</li>
+
+															</ul>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Vestibulis
+							</a>
+									<ul>
+																		<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Lorem ipsum dolor
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Sit amet conse
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Ctetur adipisicing elit
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Sed do eiusmod
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Tempor incididunt ut
+							</a>
+							</li>
+
+																						<li class="last">
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Labore et dolore
+							</a>
+							</li>
+
+															</ul>
+							</li>
+
+																						<li class="last">
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Suspendisse
+							</a>
+									<ul>
+																		<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Lorem ipsum dolor
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Sit amet conse
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Ctetur adipisicing elit
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Sed do eiusmod
+							</a>
+							</li>
+
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Tempor incididunt ut
+							</a>
+							</li>
+
+																						<li class="last">
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Labore et dolore
+							</a>
+							</li>
+
+															</ul>
+							</li>
+
+															</ul>
+							</li>
+
+													
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Bracelets
+							</a>
+							</li>
+
+													
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Brooches
+							</a>
+							</li>
+
+													
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Earrings
+							</a>
+							</li>
+
+													
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Necklaces
+							</a>
+							</li>
+
+													
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Pendants
+							</a>
+							</li>
+
+													
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Piercing
+							</a>
+							</li>
+
+													
+																						<li>
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Rings
+							</a>
+							</li>
+
+													
+																						<li class="last">
+							<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
+								Watches
+							</a>
+							</li>
+							</ul>
+								</div>
+							</div> <!-- .category_footer -->
+						</section>
+					<!-- /Block categories module -->
+						<!-- MODULE Block footer -->
+						<section class="footer-block col-xs-12 col-sm-2" id="block_various_links_footer">
+							<h4>Information</h4>
+							<ul class="toggle-footer" style="">
+								<li class="item">
+									<a href="#" title="Specials">
+										Specials
+									</a>
+								</li>
+								<li class="item">
+									<a href="#" title="New products">
+										New products
+									</a>
+								</li>
+								<li class="item">
+									<a href="#" title="Best sellers">
+										Best sellers
+									</a>
+								</li>
+								<li class="item">
+									<a href="index-4.html" title="Our stores">
+										Our stores
+									</a>
+								</li>
+								<li class="item">
+									<a href="index-5.html" title="Contact us">
+										Contact us
+									</a>
+								</li>
+								<li class="item">
+									<a href="#" title="Pages configuration">
+										Pages configuration
+									</a>
+								</li>
+								<li>
+									<a href="#" title="Sitemap">
+										Sitemap
+									</a>
+								</li>
+							</ul>
+						</section>
+						<section class="bottom-footer col-xs-12">
+							<div>
+								© 2014 <a class="_blank" title="prestashop" href="#" target="_blank">Ecommerce software by PrestaShop™</a>
+							</div>
+						</section>
+					<!-- /MODULE Block footer -->
+
+					<!-- Block myaccount module -->
+					<section class="footer-block col-xs-12 col-sm-4">
+						<h4>
+					    	<a href="#" title="Manage my customer account" rel="nofollow">My account</a>
+					    </h4>
+						<div class="block_content toggle-footer" style="">
+							<ul class="bullet">
+								<li>
+					            	<a href="#" title="My orders" rel="nofollow">My orders</a>
+					            </li>
+								<li>
+					            	<a href="#" title="My merchandise returns" rel="nofollow">My merchandise returns</a>
+					            </li>
+					            <li>
+					            	<a href="#" title="My credit slips" rel="nofollow">My credit slips</a>
+					            </li>
+								<li>
+					            	<a href="#" title="My addresses" rel="nofollow">My addresses</a>
+					            </li>
+								<li>
+					            	<a href="#" title="Manage my personal information" rel="nofollow">My personal info</a>
+					            </li>
+								<li>
+					            	<a href="#" title="My vouchers" rel="nofollow">My vouchers</a>
+					            </li>
+					            			
+					        </ul>
+						</div>
+					</section>
+				<!-- /Block myaccount module -->
+
+				<!-- MODULE Block contact infos -->
+				<section id="block_contact_infos" class="footer-block col-xs-12 col-sm-4">
+					<div>
+				        <h4>Store Information</h4>
+				        <ul class="toggle-footer" style="">
+				                        	<li>
+				            		<i class="icon-map-marker"></i>
+				                    My Company
+				                    	                        	, 4578 Marmora Road, Glasgow D04 89GR
+				                                    	</li>
+				                                    	<li>
+				            		<i class="icon-phone"></i>
+				                    Call us now: 
+				            		<span>0123-456-789</span>
+				            	</li>
+				                                    	<li>
+				            		<i class="icon-envelope-alt"></i>
+				                    Email: 
+				            		<span><a href="#">info@demolink.org</a></span>
+				            	</li>
+				                    </ul>
+				    </div>
+				</section>
+			<!-- /MODULE Block contact infos -->
 			</div>
-		</form>
-	</div>
-</div>
-<!-- /Block Newsletter module-->
-<section id="social_block">
-	<ul>
-					<li class="facebook">
-				<a target="_blank" href="#" title="Facebook">
-					<span>Facebook</span>
-				</a>
-			</li>
-							<li class="twitter">
-				<a target="_blank" href="#" title="Twitter">
-					<span>Twitter</span>
-				</a>
-			</li>
-							<li class="rss">
-				<a target="_blank" href="#" title="RSS">
-					<span>RSS</span>
-				</a>
-			</li>
-		                        	</ul>
-    <h4>Follow us</h4>
-</section>
-<div class="clearfix"></div>
-<!-- Block categories module -->
-<section class="blockcategories_footer footer-block col-xs-12 col-sm-2">
-	<h4>Categories</h4>
-	<div class="category_footer toggle-footer" style="">
-		<div class="list">
-			<ul class="tree dhtml">
-												<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Anklets
-	</a>
-			<ul>
-												<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Vestibulum
-	</a>
-			<ul>
-												<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Lorem ipsum dolor
-	</a>
-	</li>
+		</footer>
+	</div><!-- #footer -->
+</div><!-- #page -->
+<script type="text/javascript">
+	var homeslider_loop = true;
+	var homeslider_pause = '3000';
+	var homeslider_speed = '500';
+	var homeslider_width = '1170';
 
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Sit amet conse
-	</a>
-	</li>
+</script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery-1.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery-migrate-1.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_005.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/tools.js"></script>
+<!--<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/global.js"></script>-->
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/10-bootstrap.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/15-jquery_002.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/15-jquery.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_004.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/products-comparison.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/ajax-cart.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_002.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_003.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/treeManagement.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blockfacebook.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blocknewsletter.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_006.js"></script>
+<!--<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blocksearch.js"></script>-->
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/homeslider.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/ajax-wishlist.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/hoverIntent.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/superfish-modified.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blocktopmenu.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/ga.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/homeslider.js"></script>
 
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Ctetur adipisicing elit
-	</a>
-	</li>
 
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Sed do eiusmod
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Tempor incididunt ut
-	</a>
-	</li>
-
-																<li class="last">
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Labore et dolore
-	</a>
-	</li>
-
-									</ul>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Phasellus
-	</a>
-			<ul>
-												<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Lorem ipsum dolor
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Sit amet conse
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Ctetur adipisicing elit
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Sed do eiusmod
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Tempor incididunt ut
-	</a>
-	</li>
-
-																<li class="last">
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Labore et dolore
-	</a>
-	</li>
-
-									</ul>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Vestibulis
-	</a>
-			<ul>
-												<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Lorem ipsum dolor
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Sit amet conse
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Ctetur adipisicing elit
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Sed do eiusmod
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Tempor incididunt ut
-	</a>
-	</li>
-
-																<li class="last">
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Labore et dolore
-	</a>
-	</li>
-
-									</ul>
-	</li>
-
-																<li class="last">
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Suspendisse
-	</a>
-			<ul>
-												<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Lorem ipsum dolor
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Sit amet conse
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Ctetur adipisicing elit
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Sed do eiusmod
-	</a>
-	</li>
-
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Tempor incididunt ut
-	</a>
-	</li>
-
-																<li class="last">
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Labore et dolore
-	</a>
-	</li>
-
-									</ul>
-	</li>
-
-									</ul>
-	</li>
-
-							
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Bracelets
-	</a>
-	</li>
-
-							
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Brooches
-	</a>
-	</li>
-
-							
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Earrings
-	</a>
-	</li>
-
-							
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Necklaces
-	</a>
-	</li>
-
-							
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Pendants
-	</a>
-	</li>
-
-							
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Piercing
-	</a>
-	</li>
-
-							
-																<li>
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Rings
-	</a>
-	</li>
-
-							
-																<li class="last">
-	<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-		Watches
-	</a>
-	</li>
-
-							
-										</ul>
-		</div>
-	</div> <!-- .category_footer -->
-</section>
-<!-- /Block categories module -->
-	<!-- MODULE Block footer -->
-	<section class="footer-block col-xs-12 col-sm-2" id="block_various_links_footer">
-		<h4>Information</h4>
-		<ul class="toggle-footer" style="">
-							<li class="item">
-					<a href="#" title="Specials">
-						Specials
-					</a>
-				</li>
-									<li class="item">
-				<a href="#" title="New products">
-					New products
-				</a>
-			</li>
-										<li class="item">
-					<a href="#" title="Best sellers">
-						Best sellers
-					</a>
-				</li>
-										<li class="item">
-					<a href="index-4.html" title="Our stores">
-						Our stores
-					</a>
-				</li>
-									<li class="item">
-				<a href="index-5.html" title="Contact us">
-					Contact us
-				</a>
-			</li>
-															<li class="item">
-						<a href="#" title="Pages configuration">
-							Pages configuration
-						</a>
-					</li>
-													<li>
-				<a href="#" title="Sitemap">
-					Sitemap
-				</a>
-			</li>
-					</ul>
-		
-	</section>
-		<section class="bottom-footer col-xs-12">
-		<div>
-			© 2014 <a class="_blank" title="prestashop" href="#" target="_blank">Ecommerce software by PrestaShop™</a>
-		</div>
-	</section>
-		<!-- /MODULE Block footer -->
-<!-- Block myaccount module -->
-<section class="footer-block col-xs-12 col-sm-4">
-	<h4>
-    	<a href="#" title="Manage my customer account" rel="nofollow">My account</a>
-    </h4>
-	<div class="block_content toggle-footer" style="">
-		<ul class="bullet">
-			<li>
-            	<a href="#" title="My orders" rel="nofollow">My orders</a>
-            </li>
-			            	<li>
-                	<a href="#" title="My merchandise returns" rel="nofollow">My merchandise returns</a>
-                </li>
-            			<li>
-            	<a href="#" title="My credit slips" rel="nofollow">My credit slips</a>
-            </li>
-			<li>
-            	<a href="#" title="My addresses" rel="nofollow">My addresses</a>
-            </li>
-			<li>
-            	<a href="#" title="Manage my personal information" rel="nofollow">My personal info</a>
-            </li>
-			            	<li>
-                	<a href="#" title="My vouchers" rel="nofollow">My vouchers</a>
-                </li>
-            			
-            		</ul>
-	</div>
-</section>
-<!-- /Block myaccount module -->
-<!-- MODULE Block contact infos -->
-<section id="block_contact_infos" class="footer-block col-xs-12 col-sm-4">
-	<div>
-        <h4>Store Information</h4>
-        <ul class="toggle-footer" style="">
-                        	<li>
-            		<i class="icon-map-marker"></i>
-                    My Company
-                    	                        	, 4578 Marmora Road, Glasgow D04 89GR
-                                    	</li>
-                                    	<li>
-            		<i class="icon-phone"></i>
-                    Call us now: 
-            		<span>0123-456-789</span>
-            	</li>
-                                    	<li>
-            		<i class="icon-envelope-alt"></i>
-                    Email: 
-            		<span><a href="#">info@demolink.org</a></span>
-            	</li>
-                    </ul>
-    </div>
-</section>
-<!-- /MODULE Block contact infos -->
-</div>
-				</footer>
-			</div><!-- #footer -->
-		</div><!-- #page -->
 @endsection
