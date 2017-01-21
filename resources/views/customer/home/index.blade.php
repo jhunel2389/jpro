@@ -52,7 +52,8 @@
 										</ul>
 									</form>
 								</div>
-							<!-- /Block currencies module --><!-- Block languages module -->
+							<!-- /Block currencies module -->
+							<!-- Block languages module -->
 								<div id="languages-block-top" class="languages-block">
 									<div class="current">
 										<span>English</span>
@@ -104,156 +105,8 @@
 									<img class="logo img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/new-store-1398154403.jpg" alt="Handmade" width="306" height="100">
 								</a>
 							</div>
-							<!-- MODULE Block cart -->
-							<div class="pull-right pad clearfix">
-								<div class="shopping_cart">
-									<a href="index-6.html" title="View my shopping cart" rel="nofollow">
-										<b>Cart</b>
-										<span class="ajax_cart_quantity">1</span>
-										<span class="ajax_cart_product_txt">Product</span>
-										<span class="ajax_cart_product_txt_s unvisible">Products</span>
-										<span class="ajax_cart_total">
-											$122.51
-										</span>
-										<span class="ajax_cart_no_product unvisible">0</span>
-									</a>
-									<div class="cart_block block exclusive" style="display: none;">
-										<div class="block_content">
-											<!-- block list of products -->
-											<div class="cart_block_list">
-												<dl class="products">
-													<dt data-id="cart_block_product_1_0_0" class="first_item">
-														<a class="cart-images" href="index-7.html" title="Crochet necklace - The boa friend"><img src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_cart_default.jpg" alt="Crochet necklace - The boa friend"></a>
-														<div class="cart-info">
-															<div class="product-name">
-																<span class="quantity-formated">
-				                                                	<span class="quantity">1</span>&nbsp;x&nbsp;
-				                                                </span>
-				                                                <a class="cart_block_product_name" href="index-7.html" title="Crochet necklace - The boa friend">Crochet...</a>
-															</div>
-															<span class="price">
-																$122.51
-															</span>
-														</div>
-														<span class="remove_link">
-															<a class="ajax_cart_block_remove_link" href="#" rel="nofollow" title="remove this product from my cart">&nbsp;</a>
-														</span>
-													</dt>
-												<!-- Customizable datas -->
-												</dl>
-												<p class="cart_block_no_products unvisible">
-													No products
-												</p>
-												<div class="cart-prices">
-													<div class="cart-prices-line first-line">
-														<span class="price cart_block_shipping_cost ajax_cart_shipping_cost">
-															$7.00
-														</span>
-														<span>
-															Shipping
-														</span>
-													</div>
-													<div class="cart-prices-line last-line">
-														<span class="price cart_block_total ajax_block_cart_total">$129.51</span>
-														<span>Total</span>
-													</div>
-												</div>
-												<p class="cart-buttons">
-													<a id="button_order_cart" class="btn btn-default button button-small" href="index-6.html" title="Check out" rel="nofollow">
-														<span>
-															Check out
-						                                    <i class="icon-chevron-right right"></i>
-														</span>
-													</a>
-												</p>
-											</div>
-										</div>
-									</div><!-- .cart_block -->
-								</div>
-							</div>
-
-							<div id="layer_cart">
-								<div class="clearfix">
-									<div class="layer_cart_product col-xs-12 col-md-6">
-										<span class="cross" title="Close window"></span>
-										<h2>
-											<i class="icon-ok"></i>
-							                Product successfully added to your shopping cart
-										</h2>
-										<div class="product-image-container layer_cart_img"></div>
-										<div class="layer_cart_product_info">
-											<span id="layer_cart_product_title" class="product-name"></span>
-											<span id="layer_cart_product_attributes"></span>
-											<div>
-												<strong class="dark">Quantity</strong>
-												<span id="layer_cart_product_quantity"></span>
-											</div>
-											<div>
-												<strong class="dark">Total</strong>
-												<span id="layer_cart_product_price"></span>
-											</div>
-										</div>
-									</div>
-									<div class="layer_cart_cart col-xs-12 col-md-6">
-										<h2>
-											<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
-											<span class="ajax_cart_product_txt_s  unvisible">
-												There are <span class="ajax_cart_quantity">1</span> items in your cart.
-											</span>
-											<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
-											<span class="ajax_cart_product_txt ">
-												There is 1 item in your cart.
-											</span>
-										</h2>
-
-										<div class="layer_cart_row">
-											<strong class="dark">
-												Total products
-												(tax excl.)
-											</strong>
-											<span class="ajax_block_products_total">
-												$122.51
-											</span>
-										</div>
-
-										<div class="layer_cart_row">
-											<strong class="dark">
-												Total shipping&nbsp;(tax excl.)
-											</strong>
-											<span class="ajax_cart_shipping_cost">
-												$7.00
-											</span>
-										</div>
-										<div class="layer_cart_row">	
-											<strong class="dark">
-												Total
-												(tax excl.)
-											</strong>
-											<span class="ajax_block_cart_total">
-												$129.51
-											</span>
-										</div>
-										<div class="button-container">	
-											<span class="continue btn btn-default button exclusive-medium" title="Continue shopping">
-												<span>
-													<i class="icon-chevron-left left"></i>
-							                        Continue shopping
-												</span>
-											</span>
-											<a class="btn btn-default button button-medium" href="#" title="Proceed to checkout" rel="nofollow">
-												<span>
-													Proceed to checkout
-							                        <i class="icon-chevron-right right"></i>
-												</span>
-											</a>	
-										</div>
-									</div>
-								</div>
-								<div class="crossseling"></div>
-							</div> <!-- #layer_cart -->
-							<div class="layer_cart_overlay"></div>
-
-							<!-- /MODULE Block cart --><!-- Block search module TOP -->
+							@include('customer.includes.blockCart')
+							<!-- Block search module TOP -->
 							<div id="search_block_top" class="clearfix">
 								<form id="searchbox" method="get" action="https://livedemo00.template-help.com/prestashop_49165/index.php?controller=search">
 									<input name="controller" value="search" type="hidden">
@@ -368,82 +221,7 @@
 							</li>
 						</ul>
 						<div class="tab-content">
-						    <!-- Products list -->
-							<ul id="blocknewproducts" class="product_list grid row blocknewproducts tab-pane active">
-								@foreach($newProducts as $newProduct)
-	                    			<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3">
-	                					<div class="product-container">
-	                    					<div class="left-block">
-	                        					<div class="product-image-container">
-	                            					<a class="product_img_link" href="index-7.html" title="Crochet necklace - The boa friend" itemprop="url">
-	                                					<img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/{{$newProduct['prod_image']}}" alt="Crochet necklace - The boa friend" title="Crochet necklace - The boa friend" itemprop="image">
-	                            					</a>
-	                                                <a class="quick-view" href="#" title="Quick view">
-					                                    <span>Quick view</span>
-					                                </a>
-	                                                <span class="new-box">
-	                                    				<span class="new-label">New</span>
-	                                				</span>
-	                                                <span class="sale-box">
-					                                    <span class="sale-label">Sale!</span>
-					                                </span>
-	                                            </div>
-	                    					</div>
-	                    					<div class="right-block">
-		                        				<h5 itemprop="name">
-		                                            <a class="product-name" href="index-7.html" title="Crochet necklace - The boa friend" itemprop="url">
-						                                <span class="list-name">{{$newProduct['prod_name']}}</span>
-						                                <span class="grid-name">{{$newProduct['prod_name']}}</span>
-						                            </a>
-		                        				</h5>
-					                        	<div class="comments_note" itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating">	
-													<div class="star_content clearfix">
-														<div class="star star_on"></div>
-														<div class="star star_on"></div>
-														<div class="star star_on"></div>
-														<div class="star"></div>
-														<div class="star"></div>
-														<meta itemprop="worstRating" content="0">
-														<meta itemprop="ratingValue" content="2">
-														<meta itemprop="bestRating" content="5">
-													</div>
-													<span class="nb-comments">1 Review(s)</span>
-												</div>
-						                        <p class="product-desc" itemprop="description">
-						                            <span class="list-desc">{{$newProduct['prod_description']}}</span>
-						                            <span class="grid-desc">{{$newProduct['prod_description']}}</span>
-						                        </p>
-		                                        <div itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" class="content_price">
-		                                            <span itemprop="price" class="price product-price product-price-new">
-		                       							{{$newProduct['prod_price_new']}}                               
-		                                    		</span>
-		                                			<meta itemprop="priceCurrency" content="1">
-		                                            <span class="old-price product-price">
-		                                        		{{$newProduct['prod_price_old']}}
-		                                    		</span>
-		                                            <span class="price-percent-reduction">{{$newProduct['prod_price_reduction']}}</span>
-		                                       	</div>
-		                                       	<div class="button-container">                          
-		                                            <a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="Add to cart" data-id-product="1">
-		                                            	<span>Add to cart</span>
-		                                        	</a>			
-		                                            <a itemprop="url" class="button lnk_view btn btn-default" href="#" title="View">
-		                                				<span>More</span>
-		                            				</a>
-		                        				</div>
-		                                        <div class="product-flags">
-		                                            <span class="online_only">Online only</span>                        
-		                                        </div>
-		                                        <span itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" class="availability">
-		                                            <span class="available-now">
-		                                            	<link itemprop="availability" href="https://schema.org/InStock">In Stock                          
-		                                            </span>
-		                                        </span>
-	                                        </div>
-	                                    </div><!-- .product-container> -->    
-	            					</li>
-	            				@endforeach
-        					</ul>
+						    @include('customer.includes.newProducts')
 						</div>
 					</div><!-- #center_column -->
 				</div><!-- .row -->
