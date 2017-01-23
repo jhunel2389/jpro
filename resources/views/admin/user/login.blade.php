@@ -27,7 +27,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b><img width="306" height="230" src="{{env('FILE_PATH_CUSTOM')}}img/logo2.JPG"></a>
+    <a href="#"><b><img width="306" height="100" src="{{env('FILE_PATH_CUSTOM')}}img/nlogo2.png"></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

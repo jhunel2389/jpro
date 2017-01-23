@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 	@section('head')
-		<title>Handmade</title>
 		<meta name="description" content="Shop powered by PrestaShop">
 		<meta name="generator" content="PrestaShop">
 		<meta name="robots" content="index,follow">

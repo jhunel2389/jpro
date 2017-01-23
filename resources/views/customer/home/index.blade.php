@@ -1,6 +1,6 @@
 @extends('layouts.cus_master')
 @section('addHead')
-  <title>Dashboard</title>
+  <title>dJems</title>
 @endsection
 
 @section('content')
@@ -102,7 +102,7 @@
 						<div class="row">
 							<div id="header_logo">
 								<a href="index.html" title="DJems">
-									<img class="logo img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/new-store-1398154403.jpg" alt="Handmade" width="306" height="100">
+									<img class="logo img-responsive" src="{{env('FILE_PATH_CUSTOM')}}img/nlogo2.png" alt="Handmade" width="306" height="100">
 								</a>
 							</div>
 							@include('customer.includes.blockCart')
