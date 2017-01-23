@@ -44,6 +44,10 @@ class ProductController extends Controller
                             ->with('category',$category);
     }
 
+    public function getProductByCategory()
+    {
+        return view('customer.category.index');
+    }
     public function addProduct(Request $request)
     {
         $product_name = $request->input('product_name');
