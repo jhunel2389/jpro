@@ -81,247 +81,190 @@
 		</div>
 		<div class="columns-container">
 			<div id="columns" class="container">
-				<div class="breadcrumb clearfix">
-					<a class="home" href="#" title="Return to Home">
-						<i class="icon-home"></i>
-					</a>
-					<span class="navigation-pipe">&gt;</span>
-					<span class="navigation_page">Anklets</span>
-				</div>
+				@include('customer.includes.cat_breadcrumb')
 				<div class="row">
 					<div id="top_column" class="center_column col-xs-12"></div>
 				</div>
 				<div class="row">
 					<div id="left_column" class="column col-xs-12 col-sm-3">
-		            	<!-- MODULE Block best sellers -->
-						<div id="best-sellers_block_right" class="block products_block">
-							<h4 class="title_block">
-						    	<a href="#" title="View a top sellers products">Top sellers</a>
-						    </h4>
-							<div class="block_content" style="">
-								<ul class="block_content products-block" style="">
-									<li class="clearfix">
-										<a href="#" title="" class="products-block-image content_img clearfix">
-											<img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/10-tm_small_default.jpg" alt="">
-										</a>
-										<div class="product-content">
-						                	<h5>
-						                    	<a class="product-name" href="#" title="">
-						                            Red Dichroic Bead Embroidered Earrings
-						                        </a>
-						                    </h5>
-						                    <p class="product-description">Proin venenatis quam non nunc placerat, ac posuere erat suscipit....</p>
-						                                            <div class="price-box">
-						                            <span class="price">$628.96</span>
-						                        </div>
-						                                    </div>
-									</li>
-									<li class="clearfix">
-										<a href="#" title="" class="products-block-image content_img clearfix">
-											<img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/28-tm_small_default.jpg" alt="">
-										</a>
-										<div class="product-content">
-						                	<h5>
-						                    	<a class="product-name" href="#" title="">
-						                            Beaded book lover Bracelet
-						                        </a>
-						                    </h5>
-						                    <p class="product-description">Nunc luctus dictum tortor, ac euismod dolor vulputate at. Donec accumsan...</p>
-						                                            <div class="price-box">
-						                            <span class="price">$928.96</span>
-						                        </div>
-						                                    </div>
-									</li>
-								</ul>
-								<div class="lnk">
-						        	<a href="#" title="All best sellers" class="btn btn-default button button-small">
-						            	<span>
-						                	All best sellers
-						                    <i class="icon-chevron-right right"></i>
-						               	</span>
-						            </a>
-						        </div>
-							</div>
-						</div>
-						<!-- /MODULE Block best sellers -->
-
-						<!-- Block CMS module -->
-						<section id="informations_block_left_1" class="block informations_block_left">
-							<p class="title_block">
-								<a href="#" title="Information">
-									Information				</a>
-							</p>
-							<div class="block_content list-block" style="">
-								<ul>
-									<li>
-										<a href="#" title="Delivery">
-											Delivery
-										</a>
-									</li>
-									<li>
-										<a href="#" title="Legal Notice">
-											Legal Notice
-										</a>
-									</li>
-									<li>
-										<a href="#" title="Terms and conditions of use">
-											Terms and conditions of use
-										</a>
-									</li>
-									<li>
-										<a href="#" title="About us">
-											About us
-										</a>
-									</li>
-									<li>
-										<a href="#" title="Secure payment">
-											Secure payment
-										</a>
-									</li>
-									<li>
-										<a href="index-4.html" title="Our stores">
-											Our stores
-										</a>
-									</li>
-								</ul>
-							</div>
-						</section>
-					<!-- /Block CMS module -->
-
-						<!-- MODULE Block new products -->
-						<div id="new-products_block_right" class="block products_block">
-							<h4 class="title_block">
-						    	<a href="#" title="New products">New products</a>
-						    </h4>
-						    <div class="block_content products-block" style="">
-						        <ul class="products">
-						            <li class="clearfix">
-						                <a class="products-block-image" href="#" title=""><img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_small_default.jpg" alt="Crochet necklace - The boa friend"></a>
-					                    <div class="product-content">
-				                        	<h5>
-				                            	<a class="product-name" href="index-7.html" title="Crochet necklace - The boa friend">Crochet necklace - The boa friend</a>
-				                            </h5>
-					                        <p class="product-description">Donec quis egestas neque. Integer mattis velit nisi, quis adipiscing...</p>
-					                        <div class="price-box">
-					                            <span class="price">$122.51</span>
-					                        </div>
-					                    </div>
-						            </li>
-						            <li class="clearfix">
-						                <a class="products-block-image" href="#" title=""><img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/10-tm_small_default.jpg" alt="Red Dichroic Bead Embroidered Earrings"></a>
-						                <div class="product-content">
-						                  	<h5>
-						                       	<a class="product-name" href="#" title="Red Dichroic Bead Embroidered Earrings">Red Dichroic Bead Embroidered Earrings</a>
-						                    </h5>
-						                   	<p class="product-description">Proin venenatis quam non nunc placerat, ac posuere erat suscipit....</p>
-						                    <div class="price-box">
-						                        <span class="price">$628.96</span>
-						                	</div>
-						                </div>
-						            </li>
-						       	</ul>
-						            <div>
-						                <a href="#" title="All new products" class="btn btn-default button button-small">
-						                	<span>
-						                    	All new products
-						                    	<i class="icon-chevron-right right"></i>
-						                    </span>
-						                </a>
-						            </div>
-						    </div>
-						</div>
-						<!-- /MODULE Block new products -->
-
-						<!-- MODULE Block specials -->
-						<div id="special_block_right" class="block">
-							<p class="title_block">
-						        <a href="#" title="Specials">
-						            Specials
-						        </a>
-						    </p>
-							<div class="block_content products-block" style="">
-						    	<ul>
-						        	<li class="clearfix">
-						            	<a class="products-block-image" href="#">
-						                    <img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_small_default.jpg" alt="" title="Crochet necklace - The boa friend">
-						                </a>
-						                <div class="product-content">
-						                	<h5>
-						                        <a class="product-name" href="index-7.html" title="Crochet necklace - The boa friend">
-						                            Crochet necklace - The boa friend
-						                        </a>
-						                    </h5>
-					                        <p class="product-description">
-					                            Donec quis egestas neque. Integer...
-					                        </p>
-					                        <div class="price-box">
-					                    	   	<span class="price special-price">$122.51</span>
-					                            <span class="price-percent-reduction">-5%</span>
-					                            <span class="old-price">$128.96</span>
-					                        </div>
-						                </div>
-						            </li>
-								</ul>
-								<div>
-									<a class="btn btn-default button button-small" href="#" title="All specials">
-						                <span>
-						                	All specials
-						                    <i class="icon-chevron-right right"></i>
-						                </span>
-						            </a>
-								</div>
-						    	</div>
-						</div>
-						<!-- /MODULE Block specials -->
+		            	@include('customer.includes.sidebar_topseller')
+						@include('customer.includes.sidebar_blockcms')
+						@include('customer.includes.sidebar_newproduct')
+						@include('customer.includes.sidebar_specialProduct')
 					</div>
 					<!-- #left_column -->
-				</div><!-- .row -->
-				</div><!-- #columns -->
-			</div><!-- .columns-container -->
 
-			<div class="shadow">
-				<div class="container">
-					<div class="clearfix">
-						@include("customer.includes.fbBlock")
-						@include("customer.includes.cmsBlock")
-					</div>
-				</div>
-			</div>
+					<!-- #center_column -->
+					<div id="center_column" class="center_column col-xs-12 col-sm-9">
+    					@include('customer.includes.cat_scene_desc')
+    					<h1 class="page-heading product-listing">
+				        	<span class="cat-name">Anklets&nbsp;</span>
+				            <span class="heading-counter">There are 20 products.</span>
+				        </h1>
+
+				        <div class="content_sortPagiBar clearfix">
+            				<div class="sortPagiBar clearfix">
+							    <ul class="display hidden-xs">
+							        <li class="display-title">View:</li>
+							        <li id="grid" class="selected">
+							            <a rel="nofollow" href="#" title="Grid">
+							                <i class="icon-th-large"></i>
+							                Grid
+							            </a>
+							        </li>
+							        <li id="list">
+							            <a rel="nofollow" href="#" title="List">
+							                <i class="icon-th-list"></i>
+							                List
+							            </a>
+							        </li>
+							    </ul>
+
+							    <!-- /Sort products -->
+							    <form id="productsSortForm" action="#" class="productsSortForm">
+							        <div class="select selector1">
+							            <label for="selectProductSort">Sort by</label>
+							            <div class="selector" id="uniform-selectProductSort" style="width: 192px;">
+							            <span style="width: 180px; -moz-user-select: none;">Product Name: A to Z</span>
+								            <select id="selectProductSort" class="selectProductSort form-control">
+								                <option value="name:asc">--</option>
+								                                    <option value="price:asc">Price: Lowest first</option>
+								                    <option value="price:desc">Price: Highest first</option>
+								                                <option value="name:asc" selected="selected">Product Name: A to Z</option>
+								                <option value="name:desc">Product Name: Z to A</option>
+								                                    <option value="quantity:desc">In stock</option>
+								                                <option value="reference:asc">Reference: Lowest first</option>
+								                <option value="reference:desc">Reference: Highest first</option>
+								            </select>
+							            </div>
+							        </div>
+							    </form>
+							    <!-- /Sort products -->
+
+							    <!-- nbr product/page -->
+								<form action="#" method="get" class="nbrItemPage">
+									<div class="clearfix selector1">
+										<label for="nb_item">Show</label>
+											<input name="id_lang" value="1" type="hidden">
+											<input name="controller" value="category" type="hidden">
+										<div class="selector" id="uniform-nb_item" style="width: 59px;"><span style="width: 47px; -moz-user-select: none;">12</span>
+											<select name="n" id="nb_item" class="form-control">
+															<option value="12" selected="selected">12</option>
+															<option value="24">24</option>
+											</select>
+										</div>
+										<span>per page</span>
+									</div>
+								</form>
+								<!-- /nbr product/page -->	
+							</div>
+
+							<div class="top-pagination-content clearfix">
+								<!-- Pagination -->
+								<div id="pagination" class="pagination clearfix">
+					    			<form class="showall" action="https://livedemo00.template-help.com/prestashop_49165/index.php?id_category=3&amp;controller=category&amp;id_lang=1" method="get">
+										<div>
+											<button type="submit" class="btn btn-default button exclusive-medium">
+							                	<span>Show all</span>
+							                </button>
+											<input name="id_lang" value="1" type="hidden">
+											<input name="controller" value="category" type="hidden">
+											<input name="n" id="nb_item" class="hidden" value="20">
+										</div>
+									</form>
+								
+				        			<ul class="pagination">
+										<li id="pagination_previous" class="disabled pagination_previous">
+											<span>
+												<i class="icon-chevron-left"></i> 
+					                            <b>Previous</b>
+											</span>
+										</li>
+										<li class="active current">
+											<span>
+												<span>1</span>
+											</span>
+										</li>
+										<li>
+											<a href="#">
+												<span>2</span>
+											</a>
+										</li>
+										<li id="pagination_next" class="pagination_next">
+											<a href="#">
+												<b>Next</b> <i class="icon-chevron-right"></i>
+											</a>
+										</li>
+									</ul>
+								</div>
+							    <div class="product-count">
+							    	Showing 1 - 12 of 20 items
+								</div>
+								<!-- /Pagination -->
+                			</div>
+						</div>
+
+						@include("customer.includes.cat_products")
+    				</div>
+					<!-- /center_column -->
+				</div><!-- .row -->
+			</div><!-- #columns -->
+		</div><!-- .columns-container -->
+
 		@include("customer.includes.footer")
 	</div><!-- #page -->
 <script type="text/javascript">
-	var homeslider_loop = true;
-	var homeslider_pause = '3000';
-	var homeslider_speed = '500';
-	var homeslider_width = '1170';
+	var CUSTOMIZE_TEXTFIELD = 1;
+	var FancyboxI18nClose = 'Close';
+	var FancyboxI18nNext = 'Next';
+	var FancyboxI18nPrev = 'Previous';
+	var added_to_wishlist = 'Added to your wishlist.';
+	var ajaxsearch = true;
+	var baseDir = 'https://livedemo00.template-help.com/prestashop_49165/';
+	var baseUri = 'https://livedemo00.template-help.com/prestashop_49165/index.php';
+	var blocklayeredSliderName = {"price":"price","weight":"weight"};
+	var blocksearch_type = 'top';
+	var comparator_max_item = 2;
+	var contentOnly = false;
+	var customizationIdMessage = 'Customization #';
+	var delete_txt = 'Delete';
+	var freeProductTranslation = 'Free!';
+	var freeShippingTranslation = 'Free shipping!';
+	var generated_date = 1484740873;
+	var id_lang = 1;
+	var img_dir = 'https://livedemo00.template-help.com/prestashop_49165/themes/theme956/img/';
+	var instantsearch = true;
+	var isGuest = 0;
+	var isLogged = 0;
+	var loggin_required = 'You must be logged in to manage your wishlist.';
+	var max_item = 'You cannot add more than 2 product(s) to the product comparison';
+	var min_item = 'Please select at least one product';
+	var mywishlist_url = 'https://livedemo00.template-help.com/prestashop_49165/index.php?fc=module&module=blockwishlist&controller=mywishlist&id_lang=1';
+	var nbItemsPerLine = 3;
+	var nbItemsPerLineMobile = 3;
+	var nbItemsPerLineTablet = 2;
+	var page_name = 'category';
+	var priceDisplayMethod = 1;
+	var priceDisplayPrecision = 2;
+	var quickView = true;
 
 </script>
+
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery-1.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery-migrate-1.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_005.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/tools.js"></script>
-<!--<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/global.js"></script>-->
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/global.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/10-bootstrap.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/15-jquery_002.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/15-jquery.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_004.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/products-comparison.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/ajax-cart.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_002.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_003.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/treeManagement.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blockfacebook.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blocknewsletter.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_003.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_004.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_002.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_007.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_010.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_008.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_009.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_006.js"></script>
-<!--<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blocksearch.js"></script>-->
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/homeslider.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/ajax-wishlist.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/hoverIntent.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/superfish-modified.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blocktopmenu.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/ga.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/homeslider.js"></script>
-
-
 @endsection

@@ -118,37 +118,34 @@
 		@include("customer.includes.footer")
 	</div><!-- #page -->
 <script type="text/javascript">
+	var CUSTOMIZE_TEXTFIELD = 1;
+	var FancyboxI18nClose = 'Close';
+	var FancyboxI18nNext = 'Next';
+	var FancyboxI18nPrev = 'Previous';
 	var homeslider_loop = true;
 	var homeslider_pause = '3000';
 	var homeslider_speed = '500';
 	var homeslider_width = '1170';
-
+	var quickView = true;
+	
 </script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery-1.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery-migrate-1.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_005.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/tools.js"></script>
-<!--<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/global.js"></script>-->
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/global.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/10-bootstrap.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/15-jquery_002.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/15-jquery.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_004.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/products-comparison.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/ajax-cart.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_002.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_003.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/treeManagement.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blockfacebook.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blocknewsletter.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_003.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_004.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_002.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_007.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_010.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_008.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_009.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_006.js"></script>
-<!--<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blocksearch.js"></script>-->
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/homeslider.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/ajax-wishlist.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/hoverIntent.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/superfish-modified.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blocktopmenu.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/ga.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/homeslider.js"></script>
 
 
