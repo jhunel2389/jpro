@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Redirect , Auth, App , DateTime, Image, Response;
+use Redirect , Auth, App , DateTime, File, Image, Response;
 use App\Models\User;
 use App\Models\Info;
 use App\Models\Product;
@@ -220,5 +220,27 @@ class ProductController extends Controller
         );
 
         return $response;
+    }
+
+    public function deleteImage(Request $request)
+    {
+        $filename = $request->input('filename');
+        $img = ProductImage::where('thumbnail_img','=',$filename)->first();
+        File::delete(env("FILE_PATH_INTERVENTION").'productImage/'.$img['img_file']);
+        File::delete(env("FILE_PATH_INTERVENTION").'productThumbnail/'.$img['thumbnail_img']);
+        if($img->delete()){
+                
+            return Response::json(array(
+                    "status" => "success",
+                    "message" => "Delete success.",
+                    "alert"   => "alert-success"
+                ));
+        }else{
+            return Response::json(array(
+                    "status" => "fail",
+                    "message" => "Delete fail.",
+                    "alert"   => "alert-danger",
+                ));
+        }
     }
 }

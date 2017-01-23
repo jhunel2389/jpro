@@ -30,6 +30,7 @@ Route::group(array('prefix' => '/admin'),function()
 				Route::post('/post_product',array('uses' => 'ProductController@addProduct', 'as' => 'addProduct')); 
 				Route::post('/update_product',array('uses' => 'ProductController@updateProduct', 'as' => 'updateProduct')); 
 				Route::post('/post_addPrice', array('uses' => 'ProductController@addPrice', 'as' => 'addPrice'));
+				Route::post('/img_delete', array('uses' => 'ProductController@deleteImage', 'as' => 'deleteImage'));
 			});
 
 		});

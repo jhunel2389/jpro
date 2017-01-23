@@ -2,7 +2,7 @@
 @section('addHead')
   <title>Dashboard</title>
   <style type="text/css">
-    #hover-cap-4col .thumbnail {
+    .hover-cap-4col .thumbnail {
  position:relative;
  overflow:hidden; 
 }
@@ -15,6 +15,9 @@
  width: 100%;
  height: 100%;
  color:#fff !important;
+}
+.noHover{
+    pointer-events: none;
 }
   </style>
 @endsection
@@ -158,13 +161,13 @@
                                       <input type="file" id="file" name="product_image[]" multiple="multiple" >\
                                     </div>\
                                     <div class="col-xs-12">\
-                                      <div id="hover-cap-4col">\
+                                      <div class="hover-cap-4col hover">\
                                         <div class="thumbnail">\
                                             <div class="caption">\
                                                 <h4>Do you want to remove this image?</h4>\
-                                                <button type="button" class="btn btn-block btn-default btn-sm">Yes</button>\
+                                                <button type="button" data-img="test" class="btn btn-block btn-default btn-sm btn_delete_img" style="width:50px;display: block; margin: 0 auto;text-align: center;">Yes</button>\
                                             </div>\
-                                            <img class="product_image_view" src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="...">\
+                                            <img class="product_image_view" src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="..." style="height:205px;">\
                                           </div>\
                                       </div>\
                                     </div>\
@@ -242,9 +245,59 @@
         }
       });
 
-      $(document).on("click",".thumbnail",function(e){
+      $(document).on("click",".tn_small",function(e){
         var img = $(this).data("img")
+        var filename = $(this).data("filename");
         $(".product_image_view").attr("src",img);
+        $('.btn_delete_img').data('img', filename);
+      });
+      
+
+      $(document).on("click",".btn_delete_img",function(e){
+        var filename = $(this).data("img");
+        var _token = $("input[name='_token']").val();
+        //alert(img);
+       /* $(".product_info_add").find(".modal-body").prepend('<div class="alert alert-danger alert-dismissible">\
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
+                                        <h4><i class="icon fa fa-ban"></i> Alert!</h4>\
+                                        Are you sure?\
+                                      </div>');*/
+
+        
+       $.ajax({
+          type: "POST",
+          url: 'http://jewerly.dev/admin/product/img_delete',
+          dataType: "json",
+          data: {'_token':_token,'filename':filename},
+          success:function(data){
+              //console.log(data);
+              $('.alert').fadeOut("slow",function(){ 
+                                                          $(this).remove(); 
+                                                       });
+            $(".product_info_add").find(".modal-body").prepend('<div class="alert '+data.alert+' alert-dismissible">\
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
+                                        <h4><i class="icon fa fa-ban"></i> Alert!</h4>\
+                                        '+data.message+'\
+                                      </div>');
+
+
+            $('[data-filename="'+filename+'"]').fadeOut("slow",function(){ 
+                                                          $(this).closest('.col-xs-4').remove(); 
+                                                       });
+            var count = $('.thumbnail').length;
+            //alert(count);
+            if(count == 2 ){
+              $(".product_image_view").attr("src",'{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png');
+              $('.hover').removeClass("hover-cap-4col").addClass("noHover");
+            }
+            else{
+              var img = $(".tn_small:first").data("img");
+              $(".product_image_view").attr("src",img);
+            }
+          },
+          error:function(){
+          }
+        });
       });
 
       $(document).on("click",".btn_cancel_product",function(e){
@@ -303,6 +356,7 @@
         {
           minimumResultsForSearch: -1
         });
+
         $.get('{{URL::Route('getProductInfo')}}',{ product: id}, function(data)
         {
           console.log(data);
@@ -324,21 +378,26 @@
             {
               var template = 
                             '<div class="col-xs-4">'+
-                              '<a href="javascript:void(0)" class="thumbnail tn_small" data-img="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'">'+
+                              '<a href="javascript:void(0)" class="thumbnail tn_small" data-img="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'" data-filename="'+data.product_image[i].thumbnail_img+'">'+
                                 '<img src="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'" alt="..." style="width: 40px;height: 40px;">'+
                               '</a>'+
                             '</div>';
             if(i == 0){
                 $(".product_image_view").attr("src",'{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'');
+                $('.btn_delete_img').data('img', data.product_image[i].thumbnail_img);
             }
             $('.product_image_list').append(template);
             }
+            $('.hover').removeClass("noHover").addClass("hover-cap-4col");
+          }
+          else{
+            $('.hover').removeClass("hover-cap-4col").addClass("noHover");
           }
 
         });
-
+        
         $("[rel='tooltip']").tooltip(); 
-        $('#hover-cap-4col .thumbnail').hover(
+        $('.hover-cap-4col').hover(
           function(){
             $(this).find('.caption').slideDown(250); //.fadeIn(250)
           },
