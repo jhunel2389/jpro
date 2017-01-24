@@ -19,6 +19,19 @@
     .noHover{
         pointer-events: none;
     }
+    .selected_img {
+      border:solid 1px red;
+      text-decoration:none;
+    }
+    .old_img {
+      border:solid 1px blue;
+    }
+    .selected_img,.selected_img:hover,.selected_img:click, .selected_img:visited{
+      border:none;
+      outline:none;
+      text-decoration:none;
+      color:inherit;
+    }
   </style>
 @endsection
 
@@ -163,10 +176,6 @@
                                     <div class="col-xs-12">\
                                       <div class="hover-cap-4col hover">\
                                         <div class="thumbnail">\
-                                            <div class="caption">\
-                                                <h4>Do you want to remove this image?</h4>\
-                                                <button type="button" data-img="test" class="btn btn-block btn-default btn-sm btn_delete_img" style="width:50px;display: block; margin: 0 auto;text-align: center;">Yes</button>\
-                                            </div>\
                                             <img class="product_image_view" src="{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png" alt="..." style="height:205px;">\
                                           </div>\
                                       </div>\
@@ -230,7 +239,7 @@
             {
               var template = 
               '<div class="col-xs-4 new_div">'+
-                '<a href="javascript:void(0)" class="thumbnail tn_small" data-img="'+e.target.result+'">'+
+                '<a href="javascript:void(0)" class="thumbnail tn_small selected_img" data-img="'+e.target.result+'">'+
                   '<img src="'+e.target.result+'" alt="..." style="width: 40px;height: 40px;">'+
                 '</a>'+
               '</div>';
@@ -248,8 +257,18 @@
       $(document).on("click",".tn_small",function(e){
         var img = $(this).data("img")
         var filename = $(this).data("filename");
-        $(".product_image_view").attr("src",img);
-        $('.btn_delete_img').data('img', filename);
+        if(!$(this).hasClass('selected_img')){
+          $('.hover').find('.thumbnail').prepend('<div class="caption">\
+                                                <h4>Do you want to remove this image?</h4>\
+                                                <button type="button" data-img="test" class="btn btn-block btn-default btn-sm btn_delete_img" style="width:50px;display: block; margin: 0 auto;text-align: center;">Yes</button>\
+                                            </div>');
+          $(".product_image_view").attr("src",img);
+          $('.btn_delete_img').data('img', filename);
+        }
+        else{
+          $('.caption').remove();
+        }
+        
       });
       
 
@@ -362,11 +381,16 @@
             {
               var template = 
                             '<div class="col-xs-4">'+
-                              '<a href="javascript:void(0)" class="thumbnail tn_small" data-img="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'" data-filename="'+data.product_image[i].thumbnail_img+'">'+
+                              '<a href="javascript:void(0)" class="thumbnail tn_small old_img" data-img="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'" data-filename="'+data.product_image[i].thumbnail_img+'">'+
                                 '<img src="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'" alt="..." style="width: 40px;height: 40px;">'+
                               '</a>'+
                             '</div>';
             if(i == 0){
+                
+                $('.hover').find('.thumbnail').prepend('<div class="caption">\
+                                                <h4>Do you want to remove this image?</h4>\
+                                                <button type="button" data-img="test" class="btn btn-block btn-default btn-sm btn_delete_img" style="width:50px;display: block; margin: 0 auto;text-align: center;">Yes</button>\
+                                            </div>');
                 $(".product_image_view").attr("src",'{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'');
                 $('.btn_delete_img').data('img', data.product_image[i].thumbnail_img);
             }
