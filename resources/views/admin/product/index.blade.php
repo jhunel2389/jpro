@@ -3,22 +3,22 @@
   <title>Dashboard</title>
   <style type="text/css">
     .hover-cap-4col .thumbnail {
- position:relative;
- overflow:hidden; 
-}
-.caption {
- display: none;
- position: absolute;
- top: 0;
- left: 0;
- background: rgba(0,0,0,0.4);
- width: 100%;
- height: 100%;
- color:#fff !important;
-}
-.noHover{
-    pointer-events: none;
-}
+     position:relative;
+     overflow:hidden; 
+    }
+    .caption {
+     display: none;
+     position: absolute;
+     top: 0;
+     left: 0;
+     background: rgba(0,0,0,0.4);
+     width: 100%;
+     height: 100%;
+     color:#fff !important;
+    }
+    .noHover{
+        pointer-events: none;
+    }
   </style>
 @endsection
 
@@ -211,8 +211,6 @@
         if (parseInt($(this).get(0).files.length) > set){
           $(this).wrap('<form>').closest('form').get(0).reset();
           $(this).unwrap();
-          //alert("You can only upload a maximum of 3 images");
-          
           $(".product_info_add").find(".modal-body").prepend('<div class="alert alert-danger alert-dismissible">\
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
                                         <h4><i class="icon fa fa-ban"></i> Alert!</h4>\
@@ -258,21 +256,12 @@
       $(document).on("click",".btn_delete_img",function(e){
         var filename = $(this).data("img");
         var _token = $("input[name='_token']").val();
-        //alert(img);
-       /* $(".product_info_add").find(".modal-body").prepend('<div class="alert alert-danger alert-dismissible">\
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
-                                        <h4><i class="icon fa fa-ban"></i> Alert!</h4>\
-                                        Are you sure?\
-                                      </div>');*/
-
-        
-       $.ajax({
+        $.ajax({
           type: "POST",
           url: 'http://jewerly.dev/admin/product/img_delete',
           dataType: "json",
           data: {'_token':_token,'filename':filename},
           success:function(data){
-              //console.log(data);
               $('.alert').fadeOut("slow",function(){ 
                                                           $(this).remove(); 
                                                        });
@@ -287,15 +276,9 @@
                                                           $(this).closest('.col-xs-4').remove(); 
                                                        });
             var count = $('.thumbnail').length;
-            //alert(count);
+            $(".product_image_view").attr("src",'{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png');
             if(count == 2 ){
-              $(".product_image_view").attr("src",'{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png');
               $('.hover').removeClass("hover-cap-4col").addClass("noHover");
-            }
-            else{
-              //var img = $(".tn_small:").data("img");
-             // $(".product_image_view").attr("src",img);
-              $(".product_image_view").attr("src",'{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png');
             }
           },
           error:function(){
@@ -354,7 +337,6 @@
         $(".product_info_add").find(".modal-body").append(product_fields);
         $(".btn_save").toggleClass('btn_save btn_edit').text('Update');
         $("#product_id").val(id);
-        //$("#form_product").attr("action", "{{ URL::Route('updateProduct') }}");
         $(".select2").select2(
         {
           minimumResultsForSearch: -1
@@ -362,7 +344,6 @@
 
         $.get('{{URL::Route('getProductInfo')}}',{ product: id}, function(data)
         {
-          console.log(data);
           $("#product_name").val(data.name);
           $("#product_description").val(data.description);
           if(data.price.length != 0){
@@ -411,13 +392,6 @@
       });
 
        $(document).on("click",".btn_edit",function(e){
-        /*var $fileUpload = $("#file");
-        if (parseInt($fileUpload.get(0).files.length)>3){
-          alert("You can only upload a maximum of 3 images");
-        }
-        else{
-          $(".product_info_add").find("form").find("button").click();
-        }*/
         $(".product_info_add").find("form").find("#submit_form").click();
       });
 
