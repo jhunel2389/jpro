@@ -34,7 +34,7 @@
 								@include('customer.includes.currencyMod')
 								@include('customer.includes.languageMod')
 								<div id="contact-link">
-									<a href="index-5.html" title="Contact us">Contact us</a>
+									<a href="{{ URL::Route('getContactUs') }}" title="Contact us">Contact us</a>
 								</div>
 								<span class="shop-phone">
 									<i class="icon-phone"></i>
@@ -146,6 +146,8 @@
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_008.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_009.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_006.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blocktopmenu.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/superfish-modified.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/homeslider.js"></script>
 
 

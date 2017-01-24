@@ -1,6 +1,7 @@
 @extends('layouts.cus_master')
 @section('addHead')
   <title>Anklets - dJems</title>
+  <link rel="stylesheet" href="{{env('FILE_PATH_CUSTOM')}}cus/css/contact-form.css" media="all">
 @endsection
 
 @section('content')
@@ -86,125 +87,65 @@
 					<div id="top_column" class="center_column col-xs-12"></div>
 				</div>
 				<div class="row">
-					<div id="left_column" class="column col-xs-12 col-sm-3">
-		            	@include('customer.includes.sidebar_topseller')
-						@include('customer.includes.sidebar_blockcms')
-						@include('customer.includes.sidebar_newproduct')
-						@include('customer.includes.sidebar_specialProduct')
-					</div>
-					<!-- #left_column -->
-
 					<!-- #center_column -->
-					<div id="center_column" class="center_column col-xs-12 col-sm-9">
-    					@include('customer.includes.cat_scene_desc')
-    					<h1 class="page-heading product-listing">
-				        	<span class="cat-name">Anklets&nbsp;</span>
-				            <span class="heading-counter">There are 20 products.</span>
-				        </h1>
-
-				        <div class="content_sortPagiBar clearfix">
-            				<div class="sortPagiBar clearfix">
-							    <ul class="display hidden-xs">
-							        <li class="display-title">View:</li>
-							        <li id="grid" class="selected">
-							            <a rel="nofollow" href="#" title="Grid">
-							                <i class="icon-th-large"></i>
-							                Grid
-							            </a>
-							        </li>
-							        <li id="list">
-							            <a rel="nofollow" href="#" title="List">
-							                <i class="icon-th-list"></i>
-							                List
-							            </a>
-							        </li>
-							    </ul>
-
-							    <!-- /Sort products -->
-							    <form id="productsSortForm" action="#" class="productsSortForm">
-							        <div class="select selector1">
-							            <label for="selectProductSort">Sort by</label>
-							            <div class="selector" id="uniform-selectProductSort" style="width: 192px;">
-							            <span style="width: 180px; -moz-user-select: none;">Product Name: A to Z</span>
-								            <select id="selectProductSort" class="selectProductSort form-control">
-								                <option value="name:asc">--</option>
-								                                    <option value="price:asc">Price: Lowest first</option>
-								                    <option value="price:desc">Price: Highest first</option>
-								                                <option value="name:asc" selected="selected">Product Name: A to Z</option>
-								                <option value="name:desc">Product Name: Z to A</option>
-								                                    <option value="quantity:desc">In stock</option>
-								                                <option value="reference:asc">Reference: Lowest first</option>
-								                <option value="reference:desc">Reference: Highest first</option>
-								            </select>
-							            </div>
-							        </div>
-							    </form>
-							    <!-- /Sort products -->
-
-							    <!-- nbr product/page -->
-								<form action="#" method="get" class="nbrItemPage">
-									<div class="clearfix selector1">
-										<label for="nb_item">Show</label>
-											<input name="id_lang" value="1" type="hidden">
-											<input name="controller" value="category" type="hidden">
-										<div class="selector" id="uniform-nb_item" style="width: 59px;"><span style="width: 47px; -moz-user-select: none;">12</span>
-											<select name="n" id="nb_item" class="form-control">
-															<option value="12" selected="selected">12</option>
-															<option value="24">24</option>
-											</select>
-										</div>
-										<span>per page</span>
-									</div>
-								</form>
-								<!-- /nbr product/page -->	
-							</div>
-
-							<div class="top-pagination-content clearfix">
-								<!-- Pagination -->
-								<div id="pagination" class="pagination clearfix">
-					    			<form class="showall" action="https://livedemo00.template-help.com/prestashop_49165/index.php?id_category=3&amp;controller=category&amp;id_lang=1" method="get">
-										<div>
-											<button type="submit" class="btn btn-default button exclusive-medium">
-							                	<span>Show all</span>
-							                </button>
-											<input name="id_lang" value="1" type="hidden">
-											<input name="controller" value="category" type="hidden">
-											<input name="n" id="nb_item" class="hidden" value="20">
-										</div>
-									</form>
-								
-				        			<ul class="pagination">
-										<li id="pagination_previous" class="disabled pagination_previous">
-											<span>
-												<i class="icon-chevron-left"></i> 
-					                            <b>Previous</b>
-											</span>
-										</li>
-										<li class="active current">
-											<span>
-												<span>1</span>
-											</span>
-										</li>
-										<li>
-											<a href="#">
-												<span>2</span>
-											</a>
-										</li>
-										<li id="pagination_next" class="pagination_next">
-											<a href="#">
-												<b>Next</b> <i class="icon-chevron-right"></i>
-											</a>
-										</li>
-									</ul>
+					<div id="center_column" class="center_column col-xs-12 col-sm-12">
+    					<h1 class="page-heading bottom-indent">Customer service - Contact us</h1>
+	    					<form action="/prestashop_49165/index.php?controller=contact" method="post" class="contact-form-box" enctype="multipart/form-data">
+								<fieldset>
+	        					<h3 class="page-subheading">send a message</h3>
+						        <div class="clearfix">
+						            <div class="col-xs-12 col-md-3">
+						                <div class="form-group selector1">
+						                    <label for="id_contact">Subject Heading</label>
+					                        <div class="selector" id="uniform-id_contact" style="width: 268px;">
+						                        <span style="width: 256px; -moz-user-select: none;">-- Choose --</span>
+						                        <select id="id_contact" class="form-control" name="id_contact">
+						                        	<option value="0" selected="selected">-- Choose --</option>
+						                            <option value="2">Customer service</option>
+						                            <option value="1">Webmaster</option>
+						                        </select>
+					                        </div>
+						                </div>
+	                    				<p id="desc_contact0" class="desc_contact">&nbsp;</p>
+	                                    <p id="desc_contact2" class="desc_contact contact-title" style="display:none;">
+				                            <i class="icon-comment-alt"></i>
+				                            For any question about a product, an order
+				                        </p>
+	                                    <p id="desc_contact1" class="desc_contact contact-title" style="display:none;">
+				                            <i class="icon-comment-alt"></i>
+				                            If a technical problem occurs on this website
+				                        </p>
+	                                    <p class="form-group">
+	                    					<label for="email">Email address</label>
+	                                        <input class="form-control grey validate" id="email" name="from" data-validate="isEmail" type="text">
+	                                    </p>
+	                                    <div class="form-group selector1">
+	                            			<label>Order reference</label>
+	                                        <input class="form-control grey" name="id_order" id="id_order" type="text">
+	                                    </div>
+	                                    <p class="form-group">
+					                        <label for="fileUpload">Attach File</label>
+					                        <input name="MAX_FILE_SIZE" value="2000000" type="hidden">
+					                        <div class="uploader" id="uniform-fileUpload"><input name="fileUpload" id="fileUpload" class="form-control" type="file"><span class="filename" style="-moz-user-select: none;">No file selected</span><span class="action" style="-moz-user-select: none;">Choose File</span></div>
+					                    </p>
+	                            	</div>
+						            <div class="col-xs-12 col-md-9">
+						                <div class="form-group">
+						                    <label for="message">Message</label>
+						                    <textarea class="form-control" id="message" name="message"></textarea>
+						                </div>
+						            </div>
+	        					</div>
+						        <div class="submit">
+						            <button type="submit" name="submitMessage" id="submitMessage" class="button btn btn-default button-medium">
+						            	<span>
+						                	Send
+						                    <i class="icon-chevron-right right"></i>
+						                </span>
+						            </button>
 								</div>
-							    <div class="product-count">
-							    	Showing 1 - 12 of 20 items
-								</div>
-								<!-- /Pagination -->
-                			</div>
-						</div>
-
-						@include("customer.includes.cat_products")
+							</fieldset>
+						</form>
     				</div>
 					<!-- /center_column -->
 				</div><!-- .row -->
@@ -269,4 +210,5 @@
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_006.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blocktopmenu.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/superfish-modified.js"></script>
+<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/contact-form.js"></script>
 @endsection
