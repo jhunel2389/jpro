@@ -174,7 +174,7 @@
                                   </div>\
                                 </div>\
                               </div>\
-                              <button type="submit" hidden></button>\
+                              <button type="submit" hidden id="submit_form"></button>\
                             </form>';
       function modalForm()
       {
@@ -317,7 +317,7 @@
           alert("You can only upload a maximum of 3 images");
         }
         else{
-          $(".product_info_add").find("form").find("button").click();
+          $(".product_info_add").find("form").find("#submit_form").click();
         }
       });
 
@@ -418,7 +418,7 @@
         else{
           $(".product_info_add").find("form").find("button").click();
         }*/
-        $(".product_info_add").find("form").find("button").click();
+        $(".product_info_add").find("form").find("#submit_form").click();
       });
 
       $(document).on("keydown","#input_price",function(e){
