@@ -203,6 +203,8 @@
       });
 
       $(document).on("change","#file",function(e){
+        $("div.new_div").remove();
+        $('.hover').removeClass("noHover").addClass("hover-cap-4col");
         var count = $('.thumbnail').length;
         var set = 4 - parseInt(count);
 
@@ -229,7 +231,7 @@
             reader.onload = function(e)
             {
               var template = 
-              '<div class="col-xs-4">'+
+              '<div class="col-xs-4 new_div">'+
                 '<a href="javascript:void(0)" class="thumbnail tn_small" data-img="'+e.target.result+'">'+
                   '<img src="'+e.target.result+'" alt="..." style="width: 40px;height: 40px;">'+
                 '</a>'+
@@ -291,8 +293,9 @@
               $('.hover').removeClass("hover-cap-4col").addClass("noHover");
             }
             else{
-              var img = $(".tn_small:first").data("img");
-              $(".product_image_view").attr("src",img);
+              //var img = $(".tn_small:").data("img");
+             // $(".product_image_view").attr("src",img);
+              $(".product_image_view").attr("src",'{{env('FILE_PATH_CUSTOM')}}img/placeholder-image.png');
             }
           },
           error:function(){

@@ -40,6 +40,7 @@ class ProductController extends Controller
         $products = App::make("App\Http\Controllers\ProductController")->newProduct();
         return view('customer.category.index')->with('products',$products);
     }
+
     public function addProduct(Request $request)
     {
         $product_name = $request->input('product_name');
@@ -70,10 +71,12 @@ class ProductController extends Controller
                     $tn_name = date_format($date, 'U').str_random(110).'.'.$image->getClientOriginalExtension();
                     $iname = date_format($date, 'U').str_random(110).'.'.$image->getClientOriginalExtension();
                     $data = getimagesize($image->getRealPath());
+                    $path1 = public_path('productImage/' . $iname);
+                    $path2 = public_path('productThumbnail/' . $tn_name);
                     $newResizing = App::make('App\Http\Controllers\GlobalController')->imageResized($data[0],$data[1],750);
-                    $move = Image::make($image->getRealPath())->resize($newResizing['width'],$newResizing['height'])->save(env("FILE_PATH_INTERVENTION").'productImage/'.$iname);
+                    $move = Image::make($image->getRealPath())->resize($newResizing['width'],$newResizing['height'])->save($path1);
                     $newResizingTN = App::make('App\Http\Controllers\GlobalController')->imageResized($data[0],$data[1],260);
-                    $move_tn = Image::make($image->getRealPath())->resize($newResizingTN['width'],$newResizingTN['height'])->save(env("FILE_PATH_INTERVENTION").'productThumbnail/'.$tn_name);
+                    $move_tn = Image::make($image->getRealPath())->resize($newResizingTN['width'],$newResizingTN['height'])->save($path2);
                     if($move && $move_tn){
                         $addProductImage = new ProductImage();
                         $addProductImage['prod_id'] = $add['id'];
