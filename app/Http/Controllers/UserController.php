@@ -73,7 +73,7 @@ class UserController extends Controller {
                 $user_Info['email'] = $email;
                 if($user_Info -> save())
                 {
-                    return Redirect::Route('getLogin')->with('success','Your account has been created successfully and is ready to use');
+                    return Redirect::Route('getLogin')->with('success','Your account has been created successfully and is ready to use.');
                 }   
             }
         }
