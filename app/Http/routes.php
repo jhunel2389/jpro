@@ -35,6 +35,17 @@ Route::group(array('prefix' => '/admin'),function()
 			});
 
 		});
+
+		Route::group(array('prefix' => '/category'),function()
+		{
+			Route::get('/', array('uses' => 'ProductController@category','as' => 'getCategory'));
+			Route::get('/getCategoryInfo', array('uses' => 'ProductController@getCategoryInfo', 'as' => 'getCategoryInfo'));
+			Route::group(array('before' => 'csrf'), function()
+			{
+				Route::post('/post_category',array('uses' => 'ProductController@addCategory', 'as' => 'addCategory')); 
+			});
+
+		});
 	
 		Route::group(array('prefix' => '/uam'),function()
 		{

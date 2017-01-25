@@ -26,12 +26,25 @@ class ProductController extends Controller
         $userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
         $fullname = Info::getFullname(Auth::User()['id']);
         $allProducts = Product::all();
-        $category = ProductCategory::all();
+        $category = ProductCategory::getActiveCategory();
         return view('admin.product.index')
             ->with("userInfo",$userInfo)
                 ->with("fullname",$fullname)
                     ->with('mt','pt')
                         ->with('allProducts',$allProducts)
+                            ->with('category',$category);
+    }
+
+    public function category()
+    {
+        $userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
+        $fullname = Info::getFullname(Auth::User()['id']);
+        $category = ProductCategory::all();
+        return view('admin.product.category')
+            ->with("userInfo",$userInfo)
+                ->with("fullname",$fullname)
+                    ->with('mt','fm')
+                        ->with('cc','pc')
                             ->with('category',$category);
     }
 
@@ -140,11 +153,6 @@ class ProductController extends Controller
         ));
     }
 
-    public function updateProduct(Request $request)
-    {
-        return 1;
-    }
-
     public function newProduct()
     {
         $response = array(
@@ -237,5 +245,36 @@ class ProductController extends Controller
                     "alert"   => "alert-danger",
                 ));
         }
+    }
+
+    public function addCategory(Request $request)
+    {
+        $category_id = $request->input('category_id');
+        $name = $request->input('category_name');
+        $description = $request->input('category_description');
+        $slug = $request->input('category_slug');
+        $status = $request->input('category_status');
+        if(empty($category_id)){
+            $add = new ProductCategory();
+            $session_message = "Category created.";
+        }
+        else{
+            $add = ProductCategory::find($category_id);
+            $session_message = "Category updated.";
+        }
+        $add['name'] = $name;
+        $add['description'] = $description;
+        $add['status'] = empty($status) ? 0 : $status;
+        $add['slug'] = $slug;
+        if($add->save())
+        {
+            return Redirect::Route('getCategory')->with('success',$session_message);
+        }
+    }
+
+    public function getCategoryInfo(Request $request)
+    {
+        $id = $request->input('category');
+        return ProductCategory::find($id);
     }
 }

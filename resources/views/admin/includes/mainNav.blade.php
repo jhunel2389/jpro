@@ -47,7 +47,7 @@
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-                <li class="{{ $mt == "fm" ? (($cc == "pc") ? "active" : "") : ""}}"><a href="{{ URL::Route('home') }}"><i class="fa fa-globe"></i> Product Category</a></li>
+                <li class="{{ $mt == "fm" ? (($cc == "pc") ? "active" : "") : ""}}"><a href="{{ URL::Route('getCategory') }}"><i class="fa fa-globe"></i> Product Category</a></li>
           </ul>
         </li>
 
