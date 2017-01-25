@@ -19,7 +19,7 @@ class UserController extends Controller {
 
 	public function getLogin()
 	{
-		return View('admin.user.login');
+		return (!Auth::Check()) ? View('admin.user.login') : Redirect()->back();
 	}
 
 	public function getRegister()
@@ -111,16 +111,12 @@ class UserController extends Controller {
 				}
 				else
 				{
-					$adminLvl = ['1','2','3'];
-					if(in_array(Auth::User()['isAdmin'],$adminLvl))
+					if(Auth::User()['isAdmin'])
 					{
 						//App::make("App\Http\Controllers\GlobalController")->auditTrail("user",Auth::User()['id'],"Login");
-						return 1;
-					}
-					else
-					{
 						Auth::logout();
 					}
+					return 1;
 				}
 				
 			}

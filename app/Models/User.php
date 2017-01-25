@@ -25,7 +25,7 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return ($this -> isAdmin != 0);
+        return ($this -> isAdmin != 1);
     }
 
     public function adminUsers()

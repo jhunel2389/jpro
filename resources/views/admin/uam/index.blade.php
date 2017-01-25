@@ -101,7 +101,7 @@
                                     <div class="form-group">\
                                           <label>User Name</label>\
                                           <select class="form-control select2" style="width: 100%;" id="product_category" name="product_category" required>\
-                                           	<option value="1">Staff</option>\
+                                           	<option value="1">Visitor</option>\
                                             <option value="2">Admin</option>\
                                             <option value="3">Super Admin</option>\
                                           </select>\
@@ -109,7 +109,7 @@
                                     <div class="form-group">\
                                           <label>Access Level</label>\
                                           <select class="form-control select2" style="width: 100%;" id="product_category" name="product_category" required>\
-                                           	<option value="1">Staff</option>\
+                                           	<option value="1">Visitor</option>\
                                             <option value="2">Admin</option>\
                                             <option value="3">Super Admin</option>\
                                           </select>\
