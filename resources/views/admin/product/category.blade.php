@@ -175,6 +175,7 @@
       $(".category_info").find(".modal-body").append(product_fields);
       $(".btn_save").toggleClass('btn_save btn_edit').text('Update');
       $("#category_id").val(id);
+      $('#category_status').prop("disabled", false);
       $.get('{{URL::Route('getCategoryInfo')}}',{ category: id}, function(data)
       {
           $("#category_name").val(data.name);
