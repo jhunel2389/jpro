@@ -94,40 +94,11 @@
 								<fieldset>
 	        					<h3 class="page-subheading">send a message</h3>
 						        <div class="clearfix">
-						            <div class="col-xs-12 col-md-3">
-						                <div class="form-group selector1">
-						                    <label for="id_contact">Subject Heading</label>
-					                        <div class="selector" id="uniform-id_contact" style="width: 268px;">
-						                        <span style="width: 256px; -moz-user-select: none;">-- Choose --</span>
-						                        <select id="id_contact" class="form-control" name="id_contact">
-						                        	<option value="0" selected="selected">-- Choose --</option>
-						                            <option value="2">Customer service</option>
-						                            <option value="1">Webmaster</option>
-						                        </select>
-					                        </div>
-						                </div>
-	                    				<p id="desc_contact0" class="desc_contact">&nbsp;</p>
-	                                    <p id="desc_contact2" class="desc_contact contact-title" style="display:none;">
-				                            <i class="icon-comment-alt"></i>
-				                            For any question about a product, an order
-				                        </p>
-	                                    <p id="desc_contact1" class="desc_contact contact-title" style="display:none;">
-				                            <i class="icon-comment-alt"></i>
-				                            If a technical problem occurs on this website
-				                        </p>
+						            <div class="col-xs-12 col-md-3"> 
 	                                    <p class="form-group">
 	                    					<label for="email">Email address</label>
 	                                        <input class="form-control grey validate" id="email" name="from" data-validate="isEmail" type="text">
 	                                    </p>
-	                                    <div class="form-group selector1">
-	                            			<label>Order reference</label>
-	                                        <input class="form-control grey" name="id_order" id="id_order" type="text">
-	                                    </div>
-	                                    <p class="form-group">
-					                        <label for="fileUpload">Attach File</label>
-					                        <input name="MAX_FILE_SIZE" value="2000000" type="hidden">
-					                        <div class="uploader" id="uniform-fileUpload"><input name="fileUpload" id="fileUpload" class="form-control" type="file"><span class="filename" style="-moz-user-select: none;">No file selected</span><span class="action" style="-moz-user-select: none;">Choose File</span></div>
-					                    </p>
 	                            	</div>
 						            <div class="col-xs-12 col-md-9">
 						                <div class="form-group">
