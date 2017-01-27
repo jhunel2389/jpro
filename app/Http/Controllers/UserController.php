@@ -115,15 +115,19 @@ class UserController extends Controller {
 					{
 						//App::make("App\Http\Controllers\GlobalController")->auditTrail("user",Auth::User()['id'],"Login");
 						Auth::logout();
+						return  Response::json(array(
+				                    'status'  => 'fail',
+				                    'message'  => "You're not allowed here.",
+			                    ));
 					}
 					return 1;
 				}
 				
 			}
 			return  Response::json(array(
-                    'status'  => 'fail',
-                    'message'  => 'You input invalid credentials. Please Try again.',
-                ));
+	                    'status'  => 'fail',
+	                    'message'  => 'You input invalid credentials. Please Try again.',
+	                ));
 		}
 	}
 
