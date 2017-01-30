@@ -6,8 +6,10 @@
     margin: 0;
     padding: 0;
   }
-  .pagination li {
-    height: 12px;
+  .pagination li span,.pagination li a{
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
   }
   </style>
 @endsection
@@ -106,11 +108,7 @@
                 <!-- /.btn-group -->
                 <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
                 <div class="pull-right">
-                  1-50/200
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                  </div>
+                  {!! $mails->render() !!}
                   <!-- /.btn-group -->
                 </div>
                 <!-- /.pull-right -->
@@ -172,6 +170,7 @@
 	@include('admin.includes.settingSidebar')
   <script>
     $(function () {
+      //$('.pagination').find('li').find('span').addClass("btn-sm");
       //Enable iCheck plugin for checkboxes
       //iCheck for checkbox and radio inputs
       $('.mailbox-messages input[type="checkbox"]').iCheck({
