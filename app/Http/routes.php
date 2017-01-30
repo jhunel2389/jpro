@@ -46,6 +46,15 @@ Route::group(array('prefix' => '/admin'),function()
 			});
 
 		});
+
+		Route::group(array('prefix' => '/mail'),function()
+		{
+			Route::get('/', array('uses' => 'MailController@index','as' => 'getMail'));
+			Route::group(array('before' => 'csrf'), function()
+			{
+			});
+
+		});
 	
 		Route::group(array('prefix' => '/uam'),function()
 		{

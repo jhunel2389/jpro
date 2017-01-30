@@ -67,6 +67,11 @@
             <i class="fa fa-gears"></i> <span>Accounts Management</span> <i class="fa pull-right"></i>
           </a>
         </li>
+        <li class="{{ ($mt == "ml") ? "active" : ""}} treeview">
+          <a href="{{ URL::Route('getMail') }}">
+            <i class="fa fa-envelope"></i> <span>Mail</span> <i class="fa pull-right"></i>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

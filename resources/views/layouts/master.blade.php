@@ -156,6 +156,8 @@
 	<script src="{{env('FILE_PATH_CUSTOM')}}plugins/datatables/dataTables.bootstrap.min.js"></script>
 	<!-- Select2 -->
 	<script src="{{env('FILE_PATH_CUSTOM')}}plugins/select2/select2.full.min.js"></script>
+	<!-- iCheck -->
+	<script src="{{env('FILE_PATH_CUSTOM')}}plugins/iCheck/icheck.min.js"></script>
 
 </body>
 </html>
