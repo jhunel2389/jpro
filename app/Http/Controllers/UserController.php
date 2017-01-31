@@ -111,7 +111,7 @@ class UserController extends Controller {
 				}
 				else
 				{
-					if(Auth::User()['isAdmin'])
+					if(Auth::User()['isAdmin'] == 1)
 					{
 						//App::make("App\Http\Controllers\GlobalController")->auditTrail("user",Auth::User()['id'],"Login");
 						Auth::logout();
