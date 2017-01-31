@@ -23,7 +23,9 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-       $products = App::make("App\Http\Controllers\ProductController")->newProduct();
-        return view('customer.contact_us.index')->with('products',$products);
+        $categories =  App::make("App\Http\Controllers\GlobalController")->activeCategories();
+        $products = App::make("App\Http\Controllers\ProductController")->newProduct();
+        return view('customer.contact_us.index')->with('products',$products)
+                                                    ->with('categories',$categories);
     }
 }
