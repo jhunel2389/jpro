@@ -50,6 +50,7 @@ Route::group(array('prefix' => '/admin'),function()
 		Route::group(array('prefix' => '/mail'),function()
 		{
 			Route::get('/', array('uses' => 'MailController@index','as' => 'getMail'));
+			Route::get('/read-mail/{type}/{id}', array('uses' => 'MailController@getReadMailView', 'as' => 'getReadMailView'));
 			Route::group(array('before' => 'csrf'), function()
 			{
 			});

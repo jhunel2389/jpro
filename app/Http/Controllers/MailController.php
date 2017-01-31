@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App, Auth;
+use App, Auth, View;
 use App\Models\Info;
 use App\Models\ContactUs;
 
@@ -30,8 +30,34 @@ class MailController extends Controller
 	{
 		return  count(ContactUs::where('read','=',0)->get());
 	}
+
 	public function unreadTrashCount()
 	{
 		return  count(ContactUs::where('read','=',0)->where('isTrash','=',1)->get());
 	}
+
+    public function getReadMailView($type,$id)
+    {
+        $userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
+        $fullname = Info::getFullname(Auth::User()['id']);
+        $mail = ContactUs::find($id);
+        $mail['read'] = 1;
+        $mail->save();
+        if($type == "inbox"){
+            $count = count(ContactUs::where('isTrash','=',0)->get());
+        }
+        else{
+            $count = count(ContactUs::where('isTrash','=',1)->get());
+        }
+        
+        return View::make('admin.mail.readMail')
+                ->with("userInfo",$userInfo)
+                    ->with("fullname",$fullname)
+                         ->with('mt',"ml")
+                            ->with('mm',$type)
+                                ->with('mail',$mail)
+                                    ->with('count',$count)
+                                        ->with('unreadMailCount',$this->unreadMailCount())
+                                            ->with('unreadTrashCount',$this->unreadTrashCount());
+    }
 }
