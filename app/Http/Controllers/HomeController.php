@@ -44,6 +44,7 @@ class HomeController extends Controller
         $categories =  App::make("App\Http\Controllers\GlobalController")->activeCategories();
         $newProducts = App::make("App\Http\Controllers\ProductController")->newProduct();
         return View("customer.home.index")->with('newProducts',$newProducts)
-                                                ->with('categories',$categories);
+                                                ->with('categories',$categories)
+                                                    ->with('cat_name','');
     }
 }

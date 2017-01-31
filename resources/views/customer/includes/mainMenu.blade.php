@@ -2,8 +2,8 @@
 								<div class="cat-title">Categories</div>
 								<ul class="sf-menu clearfix menu-content">
 									@foreach($categories as $category)
-										<li class="">
-											<a href="{{ URL::Route('getProductByCategory') }}" title="{{$category['name']}}">{{$category['name']}}</a>
+										<li class="{{ ($category['slug'] == $cat_name) ? 'sfHoverForce' : ''}}">
+											<a href="{{ URL::Route('getProductByCategory', $category['slug']) }}" title="{{$category['name']}}">{{$category['name']}}</a>
 										</li>
 									@endforeach
 								</ul>

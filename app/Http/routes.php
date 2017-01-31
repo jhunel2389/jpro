@@ -12,7 +12,7 @@
 */
 
 Route::get('/', array('uses' =>'HomeController@cusIndex', 'as' => 'cusIndex'));
-Route::get('/category', array('uses' =>'ProductController@getProductByCategory', 'as' => 'getProductByCategory'));
+Route::get('/category/{name}', array('uses' =>'ProductController@getProductByCategory', 'as' => 'getProductByCategory'));
 Route::get('/contact-us', array('uses' =>'ContactUsController@index', 'as' => 'getContactUs'));
 
 Route::group(array('prefix' => '/admin'),function()

@@ -1,4 +1,4 @@
-<!-- Block languages module -->
+<!-- Block languages module
 								<div id="languages-block-top" class="languages-block">
 									<div class="current">
 										<span>English</span>
@@ -29,4 +29,4 @@
 										</li>
 									</ul>
 								</div>
-								<!-- /Block languages module -->
+								Block languages module -->
