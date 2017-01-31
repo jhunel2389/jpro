@@ -42,6 +42,8 @@
 
 		<link href="{{env('FILE_PATH_CUSTOM')}}cus/css/css.css" rel="stylesheet" type="text/css">
 		<link href="{{env('FILE_PATH_CUSTOM')}}cus/css/css_002.css" rel="stylesheet" type="text/css">
+		<!-- jQuery 2.2.0 -->
+		<script src="{{env('FILE_PATH_CUSTOM')}}plugins/jQuery/jQuery-2.2.0.min.js"></script>
 		<!--[if IE 8]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>

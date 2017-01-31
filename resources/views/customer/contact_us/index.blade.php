@@ -2,6 +2,8 @@
 @section('addHead')
   <title>Anklets - dJems</title>
   <link rel="stylesheet" href="{{env('FILE_PATH_CUSTOM')}}cus/css/contact-form.css" media="all">
+  <!-- jQuery 2.2.0 -->
+	<script src="{{env('FILE_PATH_CUSTOM')}}plugins/jQuery/jQuery-2.2.0.min.js"></script>
 @endsection
 
 @section('content')
@@ -90,20 +92,33 @@
 					<!-- #center_column -->
 					<div id="center_column" class="center_column col-xs-12 col-sm-12">
     					<h1 class="page-heading bottom-indent">Customer service - Contact us</h1>
-	    					<form action="/prestashop_49165/index.php?controller=contact" method="post" class="contact-form-box" enctype="multipart/form-data">
+	    					<form action="{{ URL::Route('cs_message') }}" method="post" class="contact-form-box" enctype="multipart/form-data">
+	    						{{ csrf_field() }}
 								<fieldset>
 	        					<h3 class="page-subheading">send a message</h3>
 						        <div class="clearfix">
 						            <div class="col-xs-12 col-md-3"> 
+						            	<p class="form-group">
+	                    					<label for="name">Name</label>
+	                                        <input class="form-control grey validate" id="name" name="name" data-validate="isEmail" type="text" required>
+	                                    </p>
 	                                    <p class="form-group">
 	                    					<label for="email">Email address</label>
-	                                        <input class="form-control grey validate" id="email" name="from" data-validate="isEmail" type="text">
+	                                        <input class="form-control grey validate" id="email" name="email" data-validate="isEmail" type="email" required>
+	                                    </p>
+	                                    <p class="form-group">
+	                    					<label for="company">Company</label>
+	                                        <input class="form-control grey validate" id="company" name="company" data-validate="isEmail" type="text" required>
 	                                    </p>
 	                            	</div>
 						            <div class="col-xs-12 col-md-9">
+						            	<div class="form-group">
+						                    <label for="subject">Subject</label>
+						                    <input class="form-control grey validate" id="subject" name="subject" data-validate="isEmail" type="text" required>
+						                </div>
 						                <div class="form-group">
 						                    <label for="message">Message</label>
-						                    <textarea class="form-control" id="message" name="message"></textarea>
+						                    <textarea class="form-control" id="message" name="message" required></textarea>
 						                </div>
 						            </div>
 	        					</div>
@@ -125,6 +140,18 @@
 
 		@include("customer.includes.footer")
 	</div><!-- #page -->
+	@if(Session::has('success'))
+
+		<script type="text/javascript">
+		var message =  "{{Session::get('success')}}";
+		alert(message);
+		</script>
+	@elseif (Session::has('fail'))
+		<script type="text/javascript">
+			var message =  "{{Session::get('success')}}";
+			alert(message);
+		</script>
+	@endif
 <script type="text/javascript">
 	var CUSTOMIZE_TEXTFIELD = 1;
 	var FancyboxI18nClose = 'Close';

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App, Auth, View;
+use App, Auth, View, Redirect;
 use App\Models\Info;
 use App\Models\ContactUs;
 
@@ -59,5 +59,28 @@ class MailController extends Controller
                                     ->with('count',$count)
                                         ->with('unreadMailCount',$this->unreadMailCount())
                                             ->with('unreadTrashCount',$this->unreadTrashCount());
+    }
+
+    public function postMessage(Request $request)
+    {
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $company = $request->input('company');
+        $subject = $request->input('subject');
+        $message = $request->input('message');
+
+        $data = new ContactUs();
+        $data['name']       = $name;
+        $data['email']      = $email;
+        $data['company']    = $company;
+        $data['subject']    = $subject;
+        $data['message']    = $message;
+        if($data -> save())
+        {
+            return Redirect::Route('getContactUs')->with('success','Message sent.');
+        }
+        else{
+
+        }
     }
 }

@@ -53,6 +53,7 @@ Route::group(array('prefix' => '/admin'),function()
 			Route::get('/read-mail/{type}/{id}', array('uses' => 'MailController@getReadMailView', 'as' => 'getReadMailView'));
 			Route::group(array('before' => 'csrf'), function()
 			{
+				Route::post('/post_message',array('uses' => 'MailController@postMessage', 'as' => 'cs_message')); 
 			});
 
 		});
