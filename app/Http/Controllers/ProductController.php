@@ -50,8 +50,10 @@ class ProductController extends Controller
 
     public function getProductByCategory()
     {
+        $categories =  App::make("App\Http\Controllers\GlobalController")->activeCategories();
         $products = App::make("App\Http\Controllers\ProductController")->newProduct();
-        return view('customer.category.index')->with('products',$products);
+        return view('customer.category.index')->with('products',$products)
+                                                    ->with('categories',$categories);
     }
 
     public function addProduct(Request $request)

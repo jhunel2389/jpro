@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Info;
 use App\Models\User;
+use App\Models\ProductCategory;
 use Auth;
 use DB;
 use Input;
@@ -53,5 +54,11 @@ class GlobalController extends Controller {
 					"height" => intval($height * ((100-$percentagetoLess) / 100)),
 				);
 		}
+	}
+
+	//get all active categories
+	public function activeCategories()
+	{
+		return ProductCategory::whereStatus(1)->get();
 	}
 }

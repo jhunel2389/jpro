@@ -41,7 +41,9 @@ class HomeController extends Controller
 
     public function cusIndex()
     {
+        $categories =  App::make("App\Http\Controllers\GlobalController")->activeCategories();
         $newProducts = App::make("App\Http\Controllers\ProductController")->newProduct();
-        return View("customer.home.index")->with('newProducts',$newProducts);
+        return View("customer.home.index")->with('newProducts',$newProducts)
+                                                ->with('categories',$categories);
     }
 }
