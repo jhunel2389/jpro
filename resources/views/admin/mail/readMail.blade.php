@@ -49,8 +49,11 @@
               <div class="box-body no-padding">
                 <div class="mailbox-read-info">
                   <h3>Message Subject Is Placed Here</h3>
-                  <h5>From: support@almsaeedstudio.com
-                    <span class="mailbox-read-time pull-right">15 Feb. 2015 11:03 PM</span></h5>
+                  <h5>From: {{$mail['email']}}
+                    <?php $time = \Carbon\Carbon::createFromTimeStamp(strtotime($mail['created_at']))->toDayDateTimeString(); 
+                      $read = $mail['read'] == 1 ? "text-yellow" : "";
+                    ?>
+                    <span class="mailbox-read-time pull-right">{{$time}}</span></h5>
                 </div>
                 <!-- /.mailbox-read-info -->
                 <div class="mailbox-controls with-border text-center">
