@@ -1,6 +1,8 @@
 @extends('layouts.cus_master')
 @section('addHead')
   <title>Product - dJems</title>
+  <link rel="stylesheet" href="{{env('FILE_PATH_CUSTOM')}}cus/css/product.css" media="all">
+<link rel="stylesheet" href="{{env('FILE_PATH_CUSTOM')}}cus/css/print.css" media="print">
 @endsection
 
 @section('content')

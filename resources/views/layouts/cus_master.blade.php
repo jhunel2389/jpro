@@ -35,7 +35,7 @@
 			<link rel="stylesheet" href="{{env('FILE_PATH_CUSTOM')}}cus/css/blocktopmenu.css" media="all">
 			<link rel="stylesheet" href="{{env('FILE_PATH_CUSTOM')}}cus/css/superfish-modified.css" media="all">
 			<link rel="stylesheet" href="{{env('FILE_PATH_CUSTOM')}}cus/css/font-awesome.css">
-			    
+			
     
     
     
