@@ -57,6 +57,15 @@ class ProductController extends Controller
                                                         ->with('cat_name',$name);
     }
 
+    public function getByProduct($name)
+    {
+        $categories =  App::make("App\Http\Controllers\GlobalController")->activeCategories();
+        $products = App::make("App\Http\Controllers\ProductController")->newProduct();
+        return view('customer.product.index')->with('products',$products)
+                                                    ->with('categories',$categories)
+                                                        ->with('cat_name',$name);
+    }
+
     public function addProduct(Request $request)
     {
         $product_name = $request->input('product_name');
