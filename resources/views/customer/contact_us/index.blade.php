@@ -86,6 +86,7 @@
 			<div id="columns" class="container">
 				@include('customer.includes.cat_breadcrumb')
 				<div class="row">
+					<div id="cu_prompt"></div>
 					<div id="top_column" class="center_column col-xs-12"></div>
 				</div>
 				<div class="row">
@@ -140,18 +141,37 @@
 
 		@include("customer.includes.footer")
 	</div><!-- #page -->
+	<script type="text/javascript">
+		function removeAlert()
+		{
+			$(".alert").fadeOut(300, function(){ 
+			    $(this).remove();
+			});
+		}
+	</script>
 	@if(Session::has('success'))
 
 		<script type="text/javascript">
 		var message =  "{{Session::get('success')}}";
-		alert(message);
+		//alert(message);
+		$("#cu_prompt").append('<div class="alert alert-success alert-dismissible">\
+		                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
+		                '+message+'\
+		            </div>');
+
+		setTimeout(removeAlert, 3000);
 		</script>
 	@elseif (Session::has('fail'))
 		<script type="text/javascript">
-			var message =  "{{Session::get('success')}}";
-			alert(message);
+			var message =  "{{Session::get('fail')}}";
+			$("#cu_prompt").append('<div class="alert alert-danger alert-dismissible">\
+		                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
+		                '+message+'\
+		            </div>');
+			setTimeout(removeAlert, 3000);
 		</script>
 	@endif
+	
 <script type="text/javascript">
 	var CUSTOMIZE_TEXTFIELD = 1;
 	var FancyboxI18nClose = 'Close';
