@@ -215,7 +215,7 @@
         $("div.new_div").remove();
         $('.hover').removeClass("noHover").addClass("hover-cap-4col");
         var count = $('.thumbnail').length;
-        var set = 4 - parseInt(count);
+        var set = 6 - parseInt(count);
 
         if (parseInt($(this).get(0).files.length) > set){
           $(this).wrap('<form>').closest('form').get(0).reset();
@@ -223,7 +223,7 @@
           $(".product_info_add").find(".modal-body").prepend('<div class="alert alert-danger alert-dismissible">\
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
                                         <h4><i class="icon fa fa-ban"></i> Alert!</h4>\
-                                        You can only upload a maximum of 3 images. Need '+set+' more.\
+                                        You can only upload a maximum of 5 images. Need '+set+' more.\
                                       </div>');
         }
         else{
