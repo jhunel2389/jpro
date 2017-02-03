@@ -139,9 +139,9 @@
                                         <div class="form-group ">\
                                           <label for="product_name">Add price</label>\
                                           <div class="input-group">\
-                                            <input id="input_price" name="input_price" type="text" placeholder="enter ..." class="form-control" aria-label="..." maxlength="7" >\
+                                            <input id="input_price" name="input_price" type="text" placeholder="enter ..." class="form-control" aria-label="..." maxlength="7" disabled>\
                                             <div class="input-group-btn">\
-                                              <button style="height:34px;" type="button" data-id="" class="btn btn-default btn_addPrice" >\
+                                              <button style="height:34px;" type="button" data-id="" class="btn btn-default btn_addPrice" disabled>\
                                                 <i class="fa fa-plus" aria-hidden="true"></i>\
                                               </button>\
                                             </div>\
@@ -159,7 +159,7 @@
                                       <div class="col-md-6">\
                                         <div class="form-group">\
                                           <label>Choose price</label>\
-                                          <select class="form-control select2" style="width: 100%;" id="product_price" name="product_price" required>\
+                                          <select class="form-control select2" style="width: 100%;" id="product_price" name="product_price" disabled>\
                                           </select>\
                                         </div>\
                                       </div>\
@@ -326,7 +326,7 @@
       $(document).on("click",".btn_addPrice",function(){
         var amount = $('#input_price').val();
         var _token = $("input[name='_token']").val();
-        var product_id = 0;
+        var product_id = $("#product_id").val();
         if(amount != ''){
           $.ajax({
             type: "POST",
@@ -402,6 +402,9 @@
             $('.hover').removeClass("hover-cap-4col").addClass("noHover");
           }
 
+          $('#product_price').prop("disabled", false);
+          $('#input_price').prop("disabled", false);
+          $('.btn_addPrice').prop("disabled", false);
         });
         
         $("[rel='tooltip']").tooltip(); 
