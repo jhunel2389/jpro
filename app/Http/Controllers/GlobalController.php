@@ -85,4 +85,23 @@ class GlobalController extends Controller {
 			return null;
 		}
 	}
+
+	public function productByCategory($cid)
+	{
+		$getProducts = Product::where('pro_cat_id',"=",$cid)->get();//pluck('id')->toArray();
+		$response = array();
+
+		foreach ($getProducts as $getProduct) {
+				$response[] = array(
+	                "prod_name" => $getProduct["name"],
+	                "prod_image" => "2-tm_home_default.jpg",
+	                "prod_description" => $getProduct["description"],
+	                "prod_price_new" => "$122.51",
+	                "prod_price_old" => "$128.96",
+	                "prod_price_reduction" => "-5%",
+	            );
+			}
+            
+		return $response;
+	}
 }
