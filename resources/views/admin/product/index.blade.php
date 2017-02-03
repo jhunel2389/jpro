@@ -336,10 +336,11 @@
         var amount = $('#input_price').val();
         var _token = $("input[name='_token']").val();
         var product_id = $("#product_id").val();
+
         if(amount != ''){
           $.ajax({
             type: "POST",
-            url: 'http://jewerly.dev/admin/product/post_addPrice',
+            url: "{{URL::Route('addPrice')}}",
             dataType: "json",
             data: {'_token':_token,'amount':amount, 'id':product_id},
             success:function(data){
