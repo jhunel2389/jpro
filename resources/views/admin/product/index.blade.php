@@ -76,6 +76,7 @@
                   <th>Id</th>
                   <th>Product name</th>
                   <th>Description</th>
+                  <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -84,6 +85,7 @@
                       <td>{{$product['id']}}</td>
                       <td>{{$product['name']}}</td>
                       <td>{{$product['description']}}</td>
+                      <td>{{($product['status'] == "1") ?  "Live" :  "Disabled"}}</td>
                     </tr>
                   @endforeach
                 </tbody>
@@ -159,7 +161,14 @@
                                       <div class="col-md-6">\
                                         <div class="form-group">\
                                           <label>Choose price</label>\
-                                          <select class="form-control select2" style="width: 100%;" id="product_price" name="product_price" disabled>\
+                                          <select class="form-control select2" style="width: 100%;" id="product_price" name="product_price" disabled required>\
+                                          </select>\
+                                        </div>\
+                                        <div class="form-group">\
+                                          <label>Status</label>\
+                                          <select class="form-control select2" style="width: 100%;" id="status" name="status" disabled required>\
+                                            <option value="1">Live</option>\
+                                            <option value="0" selected>Disabled</option>\
                                           </select>\
                                         </div>\
                                       </div>\
@@ -373,6 +382,9 @@
             $('#product_price')
                       .val(data.current_price) //select option of select2
                       .trigger("change"); //apply to select2
+            $('#status')
+                      .val(data.status) //select option of select2
+                      .trigger("change"); //apply to select2
           }
 
           if(data.product_image.length != 0)
@@ -405,6 +417,7 @@
           $('#product_price').prop("disabled", false);
           $('#input_price').prop("disabled", false);
           $('.btn_addPrice').prop("disabled", false);
+          $('#status').prop("disabled", false);
         });
         
         $("[rel='tooltip']").tooltip(); 

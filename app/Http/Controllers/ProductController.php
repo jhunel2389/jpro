@@ -74,6 +74,7 @@ class ProductController extends Controller
         $product_price = $request->input('product_price');
         $images = $request->file('product_image');
         $product_id = $request->input('product_id');
+        $status = $request->input('status');
         if(empty($product_id)){
             $add = new Product();
             $session_message = "Product created.";
@@ -82,14 +83,13 @@ class ProductController extends Controller
             $add = Product::find($product_id);
             $session_message = "Product updated.";
             $updatePrice = ProductPrice::updatePrice($product_price,$product_id);
-           // $updatePrice = ProductPrice::updatePrice($product_price,$product_id,Auth::User()['id'])
         }
         $add['name'] = $product_name;
         $add['pro_cat_id'] = $product_category;
         $add['description'] = $product_description;
+        $add['status'] = $status;
         if($add->save())
         {
-            //$updatePrice = ProductPrice::updatePrice($product_price,$add['id'],Auth::User()['id']);
             if (!empty(array_filter($images)))
             {
                 foreach($images as $image)
@@ -164,6 +164,7 @@ class ProductController extends Controller
             "price"         => $price,
             "current_price" => !empty($current_price) ? $current_price['id'] : "",
             "product_image"        => !empty($images) ? $images : "",
+            "status"        => $product['status'],
         ));
     }
 
