@@ -3,7 +3,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Info;
 use App\Models\User;
+use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductPrice;
+use App\Models\ProductImage;
 use Auth;
 use DB;
 use Input;
@@ -60,5 +63,26 @@ class GlobalController extends Controller {
 	public function activeCategories()
 	{
 		return ProductCategory::whereStatus(1)->get();
+	}
+
+	public function productInfo($pid)
+	{
+		$productInfo = Product::find($pid);
+		$productPrice = ProductPrice::where('prod_id','=',$pid)->where('status','=',1)->first();
+		$productImage = ProductImage::where('prod_id','=',$pid)->where('status','=',1)->get();
+
+		if (!empty($productInfo) && !empty($productPrice) && !empty($productPrice))
+		{
+			return array(
+				"prod_name" => $productInfo['name'],
+				"prod_description" => $productInfo['description'],
+				"prod_price" => $productPrice['price'],
+				"prod_image" => $productImage,
+			);
+		}
+		else
+		{
+			return null;
+		}
 	}
 }

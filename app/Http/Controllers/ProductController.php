@@ -98,9 +98,9 @@ class ProductController extends Controller
                     $data = getimagesize($image->getRealPath());
                     $path1 = public_path('productImage/' . $iname);
                     $path2 = public_path('productThumbnail/' . $tn_name);
-                    $newResizing = App::make('App\Http\Controllers\GlobalController')->imageResized($data[0],$data[1],750);
+                    $newResizing = App::make('App\Http\Controllers\GlobalController')->imageResized($data[0],$data[1],270);
                     $move = Image::make($image->getRealPath())->resize($newResizing['width'],$newResizing['height'])->save($path1);
-                    $newResizingTN = App::make('App\Http\Controllers\GlobalController')->imageResized($data[0],$data[1],260);
+                    $newResizingTN = App::make('App\Http\Controllers\GlobalController')->imageResized($data[0],$data[1],98);
                     $move_tn = Image::make($image->getRealPath())->resize($newResizingTN['width'],$newResizingTN['height'])->save($path2);
                     if($move && $move_tn){
                         $addProductImage = new ProductImage();
