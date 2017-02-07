@@ -46,6 +46,7 @@
                   <th>Firstname</th>
                   <th>Lastname</th>
                   <th>Email</th>
+                  <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -55,6 +56,13 @@
                       <td>{{$user['first_name']}}</td>
                       <td>{{$user['last_name']}}</td>
                       <td>{{$user['email']}}</td>
+                      @if($user['isAdmin'] == 1)
+                      	<td data-id="{{$user['isAdmin']}}">Visitor</td>
+                      @elseif($user['isAdmin'] == 2)
+                      	<td data-id="{{$user['isAdmin']}}">Admin</td>
+                      @else
+						<td data-id="{{$user['isAdmin']}}">Super admin</td>
+                      @endif
                     </tr>
                   @endforeach
                 </tbody>

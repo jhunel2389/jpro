@@ -152,7 +152,9 @@ class UserController extends Controller {
 		$user = new User();
 		$userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
         $fullname = Info::getFullname(Auth::User()['id']);
-        $users = Info::whereIn('user_id',$user->adminUsers())->get();
+        $users = Info::whereIn('user_id',$user->adminUsers())
+        		->join('users', 'user_info.user_id', '=', 'users.id')
+        			->get();
         $newUsers = Info::whereIn('user_id',$user->newUserList())->get();
 		return view('admin.uam.index')
             ->with("userInfo",$userInfo)
