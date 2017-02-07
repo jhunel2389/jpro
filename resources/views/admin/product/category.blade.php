@@ -109,11 +109,11 @@
                                   <div class="col-md-12">\
                                     <div class="form-group">\
                                       <label for="category_name">Category name</label>\
-                                      <input type="text" class="form-control input-sm" id="category_name" name="category_name" placeholder="Enter category name" maxlength="25" required>\
+                                      <textarea class="form-control input-sm" rows="3" id="category_name" name="category_name" style=" resize: none;" required></textarea>\
                                     </div>\
                                     <div class="form-group">\
-                                      <label for="category_description">Category Description</label>\
-                                      <input type="text" class="form-control input-sm" id="category_description" name="category_description" placeholder="Enter category description" maxlength="25" required>\
+                                      <label>Category Description</label>\
+                                      <textarea class="form-control" rows="3" placeholder="Enter ..." id="category_description" name="category_description"></textarea>\
                                     </div>\
                                     <div class="form-group">\
                                       <label for="category_slug">Category Slug</label>\
