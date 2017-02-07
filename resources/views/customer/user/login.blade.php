@@ -1,6 +1,10 @@
 @extends('layouts.cus_master')
 @section('addHead')
-  <title>dJems</title>
+  <title>Sign in - dJems</title>
+
+  <link rel="stylesheet" href="{{env('FILE_PATH_CUSTOM')}}cus/css/contact-form.css" media="all">
+  <!-- jQuery 2.2.0 -->
+	<script src="{{env('FILE_PATH_CUSTOM')}}plugins/jQuery/jQuery-2.2.0.min.js"></script>
 @endsection
 
 @section('content')
@@ -73,54 +77,130 @@
 		</div>
 		<div class="columns-container">
 			<div id="columns" class="container">
+				@include('customer.includes.cat_breadcrumb')
 				<div class="row">
-					<div id="top_column" class="center_column col-xs-12">
-						@include('customer.includes.homeSlider')
-					</div>
+					<div id="cu_prompt"></div>
+					<div id="top_column" class="center_column col-xs-12"></div>
 				</div>
 				<div class="row">
-					<div id="center_column" class="center_column col-xs-12 col-sm-12">
-		            	<ul id="home-page-tabs" class="nav nav-tabs clearfix">
-							<li class="active">
-								<a data-toggle="tab" href="#" class="blocknewproducts" title="New arrivals">New arrivals</a>
-							</li>
-							<li>
-								<a data-toggle="tab" href="#" class="homefeatured" title="Popular">Popular</a>
-							</li>
-							<li>
-								<a data-toggle="tab" href="#" class="blockbestsellers" title="Best Sellers">Best Sellers</a>
-							</li>
-						</ul>
-						<div class="tab-content">
-						    @include('customer.includes.newProducts')
-						</div>
-					</div><!-- #center_column -->
-				</div><!-- .row -->
-				</div><!-- #columns -->
-			</div><!-- .columns-container -->
+					<div id="left_column" class="column col-xs-12 col-sm-3">
+		            	@include('customer.includes.sidebar_topseller')
+						@include('customer.includes.sidebar_blockcms')
+						@include('customer.includes.sidebar_newproduct')
+						@include('customer.includes.sidebar_specialProduct')
+					</div>
+					<!-- #left_column -->
 
-			<div class="shadow">
-				<div class="container">
-					<div class="clearfix">
-						@include("customer.includes.fbBlock")
-						@include("customer.includes.cmsBlock")
-					</div>
-				</div>
-			</div>
+					<!-- #center_column -->
+					<div id="center_column" class="center_column col-xs-12 col-sm-9">
+    					<h1 class="page-heading bottom-indent">Customer - Sign in</h1>
+	    					<form action="{{ URL::Route('cs_message') }}" method="post" class="contact-form-box" enctype="multipart/form-data">
+	    						{{ csrf_field() }}
+								<fieldset>
+	        					<h3 class="page-subheading">Sign in Customer Account</h3>
+						        <div class="clearfix">
+						            <div class="col-xs-12 col-md-3"> 
+						            	<p class="form-group">
+	                    					<label for="email">Email</label>
+	                                        <input class="form-control grey" id="email" name="email" type="text" required>
+	                                    </p>
+	                                    <p class="form-group">
+	                    					<label for="password">Password</label>
+	                                        <input class="form-control grey" id="passwords" name="passwords" type="password" required>
+	                                    </p>
+
+	                                    <p class="checkbox icheck">
+								            <label for="chk_remember"></label>
+								        	<input type="checkbox" id="chk_remember"> Remember Me
+								        </p>
+	                            	</div>
+	        					</div>
+						        <div class="submit">
+						            <button type="submit" name="submitLogin" id="submitLogin" onClick="validateCreds(); return false;" class="button btn btn-default button-medium">
+						            	<span>
+						                	Sign in
+						                    <i class="icon-chevron-right right"></i>
+						                </span>
+						            </button>
+								</div>
+							</fieldset>
+						</form>
+    				</div>
+					<!-- /center_column -->
+				</div><!-- .row -->
+			</div><!-- #columns -->
+		</div><!-- .columns-container -->
+
 		@include("customer.includes.footer")
 	</div><!-- #page -->
 <script type="text/javascript">
+	$(document).keypress(function(e) {
+	    if(e.which == 13) {
+	       validateCreds()
+	    }
+	});
+	
+	function validateCreds()
+    {
+        $_token = "{{ csrf_token() }}";
+        $email = $("#email").val();
+        $pass = $("#passwords").val();
+        $source = "client";
+        $remember = $("#chk_remember").is(":checked");
+        $.post('{{URL::Route('postLogin')}}', { _token: $_token, txtUsername: $email , txtPassword: $pass ,remember: $remember,source: $source}, function(data)
+        {
+            if(data == 1)
+            {
+                window.location.replace('{{URL::Route('cusIndex')}}');
+            }
+            else
+            {
+            	
+            	$("#cu_prompt").append('<div class="alert alert-danger alert-dismissible">\
+		                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
+		                '+data.message+'\
+		            </div>');
+            }
+            //console.log(data);
+        });
+    }
+
 	var CUSTOMIZE_TEXTFIELD = 1;
 	var FancyboxI18nClose = 'Close';
 	var FancyboxI18nNext = 'Next';
 	var FancyboxI18nPrev = 'Previous';
-	var homeslider_loop = true;
-	var homeslider_pause = '3000';
-	var homeslider_speed = '500';
-	var homeslider_width = '1170';
+	var added_to_wishlist = 'Added to your wishlist.';
+	var ajaxsearch = true;
+	var baseDir = 'https://livedemo00.template-help.com/prestashop_49165/';
+	var baseUri = 'https://livedemo00.template-help.com/prestashop_49165/index.php';
+	var blocklayeredSliderName = {"price":"price","weight":"weight"};
+	var blocksearch_type = 'top';
+	var comparator_max_item = 2;
+	var contentOnly = false;
+	var customizationIdMessage = 'Customization #';
+	var delete_txt = 'Delete';
+	var freeProductTranslation = 'Free!';
+	var freeShippingTranslation = 'Free shipping!';
+	var generated_date = 1484740873;
+	var id_lang = 1;
+	var img_dir = 'https://livedemo00.template-help.com/prestashop_49165/themes/theme956/img/';
+	var instantsearch = true;
+	var isGuest = 0;
+	var isLogged = 0;
+	var loggin_required = 'You must be logged in to manage your wishlist.';
+	var max_item = 'You cannot add more than 2 product(s) to the product comparison';
+	var min_item = 'Please select at least one product';
+	var mywishlist_url = 'https://livedemo00.template-help.com/prestashop_49165/index.php?fc=module&module=blockwishlist&controller=mywishlist&id_lang=1';
+	var nbItemsPerLine = 3;
+	var nbItemsPerLineMobile = 3;
+	var nbItemsPerLineTablet = 2;
+	var page_name = 'category';
+	var priceDisplayMethod = 1;
+	var priceDisplayPrecision = 2;
 	var quickView = true;
-	
+
 </script>
+
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery-1.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery-migrate-1.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_005.js"></script>
@@ -140,7 +220,4 @@
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/jquery_006.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/blocktopmenu.js"></script>
 <script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/superfish-modified.js"></script>
-<script type="text/javascript" src="{{env('FILE_PATH_CUSTOM')}}cus/js/homeslider.js"></script>
-
-
 @endsection

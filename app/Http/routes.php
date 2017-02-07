@@ -15,7 +15,7 @@ Route::get('/', array('uses' =>'HomeController@cusIndex', 'as' => 'cusIndex'));
 Route::get('/category/{name}', array('uses' =>'ProductController@getProductByCategory', 'as' => 'getProductByCategory'));
 Route::get('/product/{name}', array('uses' =>'ProductController@getByProduct', 'as' => 'getByProduct'));
 Route::get('/contact-us', array('uses' =>'ContactUsController@index', 'as' => 'getContactUs'));
-
+Route::get('/sign-in', array('uses' =>'UserController@getCusLogin', 'as' => 'getCusLogin'));
 Route::group(array('prefix' => '/admin'),function()
 {
 	Route::get('/', array('uses' =>'HomeController@index', 'as' => 'home'));

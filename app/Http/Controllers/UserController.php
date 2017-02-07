@@ -27,6 +27,15 @@ class UserController extends Controller {
 		return View('admin.user.register');
 	}
 
+	public function getCusLogin()
+	{
+		$categories =  App::make("App\Http\Controllers\GlobalController")->activeCategories();
+        $products = App::make("App\Http\Controllers\ProductController")->newProduct();
+		return View('customer.user.login')->with('products',$products)
+                                                ->with('categories',$categories)
+                                                    ->with('cat_name','');
+	}
+
 	public function postRegister()
 	{
 		$rules = array( 

@@ -24,15 +24,7 @@
 					<div class="container">
 						<div class="row">
 							<nav>
-							<!-- Block user information module NAV  -->
-								<div class="header_user_info">
-									<a class="login" href="#" rel="nofollow" title="Login to your customer account">
-										Sign in
-									</a>
-								</div>
-							    <div class="header_user_info">
-							    	<a href="#" title="View my customer account" rel="nofollow">Your Account</a>
-							    </div>
+								@include('customer.includes.usermenu')
 							<!-- /Block usmodule NAV -->
 								@include('customer.includes.currencyMod')
 								@include('customer.includes.languageMod')
