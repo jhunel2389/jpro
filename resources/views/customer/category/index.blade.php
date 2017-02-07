@@ -90,7 +90,7 @@
 					<div id="center_column" class="center_column col-xs-12 col-sm-9">
     					@include('customer.includes.cat_scene_desc')
     					<h1 class="page-heading product-listing">
-				        	<span class="cat-name">Anklets&nbsp;</span>
+				        	<span class="cat-name">{{$dis_name}}&nbsp;</span>
 				            <span class="heading-counter">There are 20 products.</span>
 				        </h1>
 

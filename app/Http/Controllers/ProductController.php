@@ -51,10 +51,13 @@ class ProductController extends Controller
     public function getProductByCategory($name)
     {
         $categories =  App::make("App\Http\Controllers\GlobalController")->activeCategories();
-        $products = App::make("App\Http\Controllers\GlobalController")->productByCategory(1);
+        $prodCat = ProductCategory::where('slug','=',$name)->first();
+        $products = App::make("App\Http\Controllers\GlobalController")->productByCategory($prodCat['id']);
         return view('customer.category.index')->with('products',$products)
                                                     ->with('categories',$categories)
-                                                        ->with('cat_name',$name);
+                                                        ->with('cat_name',$name)
+                                                            ->with('dis_name',$prodCat['name'])
+                                                                ->with('dis_desc',$prodCat['description']);
     }
 
     public function getByProduct($name)
