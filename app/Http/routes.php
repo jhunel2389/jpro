@@ -64,6 +64,10 @@ Route::group(array('prefix' => '/admin'),function()
 			Route::group(array('before' => 'auth'), function()
 			{
 				Route::get('/getUAL', array('uses' => 'UserController@getUAL', 'as' => 'getUAL','middleware' => 'auth'));
+				Route::group(array('before' => 'csrf'), function()
+				{
+					Route::post('/updateUser',array('uses' => 'UserController@updateUser', 'as' => 'updateUser')); 
+				});
 			});
 		});
 		

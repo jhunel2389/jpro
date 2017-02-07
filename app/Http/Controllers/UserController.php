@@ -153,11 +153,28 @@ class UserController extends Controller {
 		$userInfo = App::make("App\Http\Controllers\GlobalController")->userInfoList(Auth::User()['id']);
         $fullname = Info::getFullname(Auth::User()['id']);
         $users = Info::whereIn('user_id',$user->adminUsers())->get();
+        $newUsers = Info::whereIn('user_id',$user->newUserList())->get();
 		return view('admin.uam.index')
             ->with("userInfo",$userInfo)
                 ->with("fullname",$fullname)
                 	->with("users",$users)
 	                    ->with('cc','ual')
-	                    	->with('mt','uam');
+	                    	->with('mt','uam')
+	                    		->with('newUsers',$newUsers);
+	}
+
+	public function updateUser(Request $request)
+	{
+        $user 		= Request::get('user');
+        $status 	= Request::get('status');
+        $newUser 	= User::find($user);
+        $newUser['isAdmin'] = $status;
+        if($newUser->save())
+        {
+        	return Redirect::Route('getUAL')->with('success','Update success.');
+        }
+        else{
+        	return Redirect::Route('getUAL')->with('fail','Update success.');
+        }
 	}
 }

@@ -25,7 +25,7 @@
 	    <section class="content">
 	    	 <div class="box box-primary">
             <div class="box-header">
-              <h3 class="box-title">Product List</h3>
+              <h3 class="box-title"></h3>
               <div class="box-tools pull-right">
                   <button class="btn btn-primary btn-sm add_product" type="button">
                     <i class="fa fa-plus"></i>
@@ -93,22 +93,22 @@
 	      });
 	  	});
 
-		var product_fields = '<form id="form_product" role="form" method="POST" action="{{ URL::Route('addProduct') }}" enctype ="multipart/form-data">\
+		var product_fields = '<form id="form_product" role="form" method="POST" action="{{ URL::Route('updateUser') }}" enctype ="multipart/form-data">\
                               <input type="hidden" name="_token" value="{{ csrf_token() }}" >\
                               <div class="box-body">\
                                 <div class="row">\
                                   <div class="col-md-12">\
                                     <div class="form-group">\
                                           <label>User Name</label>\
-                                          <select class="form-control select2" style="width: 100%;" id="product_category" name="product_category" required>\
-                                           	<option value="1">Visitor</option>\
-                                            <option value="2">Admin</option>\
-                                            <option value="3">Super Admin</option>\
+                                          <select class="form-control select2" style="width: 100%;" id="user" name="user" required>\
+                                           	@foreach($newUsers as $newUser)
+                                           	<option value="{{$newUser['user_id']}}">{{$newUser['first_name']}}, {{$newUser['last_name']}}</option>\
+                                           	@endforeach
                                           </select>\
                                     </div>\
                                     <div class="form-group">\
                                           <label>Access Level</label>\
-                                          <select class="form-control select2" style="width: 100%;" id="product_category" name="product_category" required>\
+                                          <select class="form-control select2" style="width: 100%;" id="status" name="status" required>\
                                            	<option value="1">Visitor</option>\
                                             <option value="2">Admin</option>\
                                             <option value="3">Super Admin</option>\
