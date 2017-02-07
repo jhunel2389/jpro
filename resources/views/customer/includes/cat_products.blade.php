@@ -1,5 +1,10 @@
 <!-- Products list -->
 	<ul class="product_list grid row">
+		@if(empty($products))
+			<li class="ajax_block_product col-xs-12 col-sm-6 col-md-12">
+				<span class="list-name">No Product Available</span>
+			</li>
+		@endif
 		@foreach($products as $product)
 			<li class="ajax_block_product col-xs-12 col-sm-6 col-md-4">
 				<div class="product-container" itemscope="" itemtype="https://schema.org/Product">
