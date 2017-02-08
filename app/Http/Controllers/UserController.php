@@ -27,13 +27,24 @@ class UserController extends Controller {
 		return View('admin.user.register');
 	}
 
+	public function getCusRegister()
+	{
+		$categories =  App::make("App\Http\Controllers\GlobalController")->activeCategories();
+        $products = App::make("App\Http\Controllers\ProductController")->newProduct();
+		return View('customer.user.register')->with('products',$products)
+                                                ->with('categories',$categories)
+                                                    ->with('cat_name','')
+                                                    	->with('br_name','Register');
+	}
+
 	public function getCusLogin()
 	{
 		$categories =  App::make("App\Http\Controllers\GlobalController")->activeCategories();
         $products = App::make("App\Http\Controllers\ProductController")->newProduct();
 		return View('customer.user.login')->with('products',$products)
                                                 ->with('categories',$categories)
-                                                    ->with('cat_name','');
+                                                    ->with('cat_name','')
+                                                    	->with('br_name','Sign in');
 	}
 
 	public function postRegister()

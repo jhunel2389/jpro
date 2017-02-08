@@ -57,7 +57,8 @@ class ProductController extends Controller
                                                     ->with('categories',$categories)
                                                         ->with('cat_name',$name)
                                                             ->with('dis_name',$prodCat['name'])
-                                                                ->with('dis_desc',$prodCat['description']);
+                                                                ->with('dis_desc',$prodCat['description'])
+                                                                    ->with('br_name',$prodCat['name']);
     }
 
     public function getByProduct($name)

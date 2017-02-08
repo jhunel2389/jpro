@@ -16,14 +16,15 @@ Route::get('/category/{name}', array('uses' =>'ProductController@getProductByCat
 Route::get('/product/{name}', array('uses' =>'ProductController@getByProduct', 'as' => 'getByProduct'));
 Route::get('/contact-us', array('uses' =>'ContactUsController@index', 'as' => 'getContactUs'));
 Route::get('/sign-in', array('uses' =>'UserController@getCusLogin', 'as' => 'getCusLogin'));
+Route::get('/register', array('uses' =>'UserController@getCusRegister', 'as' => 'getCusRegister'));
 Route::group(array('prefix' => '/admin'),function()
 {
-	Route::get('/', array('uses' =>'HomeController@index', 'as' => 'home'));
+	Route::get('/', array('uses' =>'HomeController@index', 'as' => 'home','middleware' => 'admin'));
 
 	Route::group(array('before' => 'auth'), function()
 	{
 
-		Route::group(array('prefix' => '/product'),function()
+		Route::group(array('prefix' => '/product','middleware' => 'admin'),function()
 		{
 			Route::get('/', array('uses' => 'ProductController@index','as' => 'getProduct'));
 			Route::get('/getProductInfo', array('uses' => 'ProductController@getProductInfo', 'as' => 'getProductInfo'));
@@ -37,7 +38,7 @@ Route::group(array('prefix' => '/admin'),function()
 
 		});
 
-		Route::group(array('prefix' => '/category'),function()
+		Route::group(array('prefix' => '/category','middleware' => 'admin'),function()
 		{
 			Route::get('/', array('uses' => 'ProductController@category','as' => 'getCategory'));
 			Route::get('/getCategoryInfo', array('uses' => 'ProductController@getCategoryInfo', 'as' => 'getCategoryInfo'));
@@ -48,7 +49,7 @@ Route::group(array('prefix' => '/admin'),function()
 
 		});
 
-		Route::group(array('prefix' => '/mail'),function()
+		Route::group(array('prefix' => '/mail','middleware' => 'admin'),function()
 		{
 			Route::get('/', array('uses' => 'MailController@index','as' => 'getMail'));
 			Route::get('/read-mail/{type}/{id}', array('uses' => 'MailController@getReadMailView', 'as' => 'getReadMailView'));
@@ -59,7 +60,7 @@ Route::group(array('prefix' => '/admin'),function()
 
 		});
 	
-		Route::group(array('prefix' => '/uam'),function()
+		Route::group(array('prefix' => '/uam','middleware' => 'admin'),function()
 		{
 			Route::group(array('before' => 'auth'), function()
 			{

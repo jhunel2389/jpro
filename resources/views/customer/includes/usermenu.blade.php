@@ -14,4 +14,9 @@
 			Sign in
 		</a>
 	</div>
+	<div class="header_user_info">
+		<a class="login" href="{{ URL::Route('getCusRegister')}}" rel="nofollow" title="Register to customer account">
+			Register
+		</a>
+	</div>
 @endif
