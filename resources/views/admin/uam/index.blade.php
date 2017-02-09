@@ -57,11 +57,11 @@
                       <td>{{$user['last_name']}}</td>
                       <td>{{$user['email']}}</td>
                       @if($user['isAdmin'] == 1)
-                      	<td data-id="{{$user['isAdmin']}}">Visitor</td>
+                      	<td class="status" data-id="{{$user['isAdmin']}}">Visitor</td>
                       @elseif($user['isAdmin'] == 2)
-                      	<td data-id="{{$user['isAdmin']}}">Admin</td>
+                      	<td class="status" data-id="{{$user['isAdmin']}}">Admin</td>
                       @else
-						<td data-id="{{$user['isAdmin']}}">Super admin</td>
+						<td class="status" data-id="{{$user['isAdmin']}}">Super admin</td>
                       @endif
                     </tr>
                   @endforeach
@@ -99,9 +99,8 @@
 	          $('#editProduct').prop("disabled", false);
 	        }
 	      });
-	  	});
 
-		var product_fields = '<form id="form_product" role="form" method="POST" action="{{ URL::Route('updateUser') }}" enctype ="multipart/form-data">\
+	      var product_fields = '<form id="form_product" role="form" method="POST" action="{{ URL::Route('updateUser') }}" enctype ="multipart/form-data">\
                               <input type="hidden" name="_token" value="{{ csrf_token() }}" >\
                               <div class="box-body">\
                                 <div class="row">\
@@ -128,39 +127,64 @@
                               <button type="submit" hidden></button>\
                             </form>';
 
-		function modalForm()
-		{
-			$('body').append('<div class="modal fade product_info_add" role="dialog" data-keyboard="true" data-backdrop="static">\
-			                    <div class="modal-dialog">\
-			                      <div class="modal-content">\
-			                        <div class="modal-body">\
-			                        </div>\
-			                        <div class="modal-footer">\
-			                          <button type="button" class="btn btn-primary btn_save">Save</button>\
-			                          <button type="button" class="btn btn-default pull-right btn_cancel_product">Cancel</button>\
-			                        </div>\
-			                      </div>\
-			                    </div>\
-			                  </div>');
-		}
+			function modalForm()
+			{
+				$('body').append('<div class="modal fade uam_info" role="dialog" data-keyboard="true" data-backdrop="static">\
+				                    <div class="modal-dialog">\
+				                      <div class="modal-content">\
+				                        <div class="modal-body">\
+				                        </div>\
+				                        <div class="modal-footer">\
+				                          <button type="button" class="btn btn-primary btn_save">Save</button>\
+				                          <button type="button" class="btn btn-default pull-right btn_cancel_product">Cancel</button>\
+				                        </div>\
+				                      </div>\
+				                    </div>\
+				                  </div>');
+			}
 
-		$(document).on("click",".add_product",function(){
-			modalForm();
-				$(".product_info_add").find(".modal-body").append(product_fields);
-				$('.product_info_add').modal('show');
-				$(".select2").select2();
-		});
+			$(document).on("click",".add_product",function(){
+				modalForm();
+					$(".uam_info").find(".modal-body").append(product_fields);
+					$('.uam_info').modal('show');
+					$(".select2").select2();
+			});
 
-		$(document).on("click",".btn_cancel_product",function(e){
-			$('.product_info_add').modal('hide');
-		});
+			$(document).on("click",".btn_cancel_product",function(e){
+				$('.uam_info').modal('hide');
+			});
 
-		$(document).on("hidden.bs.modal",".product_info_add",function(){
-			$(this).remove();
-		});
+			$(document).on("hidden.bs.modal",".uam_info",function(){
+				$(this).remove();
+			});
 
-		$(document).on("click",".btn_save",function(e){
-			$(".product_info_add").find("form").find("button").click();
-		});
+			$(document).on("click",".btn_save ",function(e){
+				$(".uam_info").find("form").find("button").click();
+			});
+
+			$(document).on("click","#editProduct",function(){
+				var id = table.cell('.active', 0).data();
+				var fname = table.cell('.active', 1).data();
+				var lname = table.cell('.active', 2).data();
+        		modalForm();
+        		$('.uam_info').modal('show');
+        		$(".uam_info").find(".modal-body").append(product_fields);
+        		$(".btn_save").text('Update');
+        		$("#user").append('<option value="'+id+'">'+fname+', '+lname+'</option>');
+        		var status = $('#tbl_product tbody').find('.active').find('.status').data("id");
+        		$('#status')
+                      .val(status) //select option of select2
+                      .trigger("change");
+        		$(".select2").select2(
+		        {
+		          minimumResultsForSearch: -1
+		        });
+			});
+
+	  	});
+
+		
+
+		
 	</script>
 @endsection
