@@ -264,7 +264,9 @@
       });
 
       $(document).on("click",".tn_small",function(e){
-        var img = $(this).data("img")
+        var id = $(this).data("id");
+        var featured = $(this).data("featured");
+        var img = $(this).data("img");
         var filename = $(this).data("filename");
         if(!$(this).hasClass('selected_img')){
           $('.hover').find('.thumbnail').prepend('<div class="caption">\
@@ -273,11 +275,17 @@
                                             </div>');
           $(".product_image_view").attr("src",img);
           $('.btn_delete_img').data('img', filename);
+          $('.mailbox-star').data('id', id);
+          if(featured == 1){
+            $('.mailbox-star').find("a > i").removeClass("fa-star-o").addClass("fa-star");
+          }
+          else{
+            $('.mailbox-star').find("a > i").removeClass("fa-star").addClass("fa-star-o");
+          }
         }
         else{
           $('.caption').remove();
         }
-        
       });
       
 
@@ -394,7 +402,7 @@
             {
               var template = 
                             '<div class="col-xs-4">'+
-                              '<a href="javascript:void(0)" class="thumbnail tn_small old_img" data-img="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'" data-filename="'+data.product_image[i].thumbnail_img+'">'+
+                              '<a href="javascript:void(0)" class="thumbnail tn_small old_img" data-featured="'+data.product_image[i].primary_featured+'" data-id="'+data.product_image[i].id+'" data-img="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'" data-filename="'+data.product_image[i].thumbnail_img+'">'+
                                 '<img src="{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'" alt="..." style="width: 40px;height: 40px;">'+
                               '</a>'+
                             '</div>';
@@ -403,9 +411,17 @@
                 $('.hover').find('.thumbnail').prepend('<div class="caption">\
                                                 <h4>Do you want to remove this image?</h4>\
                                                 <button type="button" data-img="test" class="btn btn-block btn-default btn-sm btn_delete_img" style="width:50px;display: block; margin: 0 auto;text-align: center;">Yes</button>\
+                                                <div data-id="'+data.product_image[i].id+'" class="mailbox-star" style="width:50px;display: block; margin: 0 auto;text-align: center;padding-top: 30px;"><a href="javascript:void(0)"></a></div>\
                                             </div>');
                 $(".product_image_view").attr("src",'{{env('FILE_PATH_CUSTOM')}}productThumbnail/'+data.product_image[i].thumbnail_img+'');
                 $('.btn_delete_img').data('img', data.product_image[i].thumbnail_img);
+                if(data.product_image[i].primary_featured == 0)
+                {
+                  $(".caption").find("a").append('<i class="fa fa-star-o text-yellow" style="font-size: 250%;"></i>');
+                }
+                else{
+                  $(".caption").find("a").append('<i class="fa fa-star text-yellow" style="font-size: 250%;"></i>');
+                }
             }
             $('.product_image_list').append(template);
             }
@@ -436,6 +452,51 @@
         $(".product_info_add").find("form").find("#submit_form").click();
       });
 
+      $(document).on("click",".mailbox-star",function(e){
+        e.preventDefault();
+        var id = $(this).data("id");
+        var product = $("#product_id").val();
+        //detect type
+        var $this = $(this).find("a > i");
+        var fa = $this.hasClass("fa");
+        var status = confirm("Make it featured?");
+        var _token = "{{ csrf_token() }}";
+        if(status)
+        {
+          if (fa) {
+            if($this.hasClass("fa-star")){
+              $value = 0;
+            } 
+            else{
+              $value = 1;
+            }
+            $.post('{{URL::Route('updateFeatured')}}',{ _token: _token, image_id: id, product_id: product, value : $value}, function(data)
+            {
+              if(data.status == "success"){
+                $this.toggleClass("fa-star");
+                $this.toggleClass("fa-star-o");
+                $('.tn_small').data('featured', 0);
+                $('.product_image_list').find("[data-featured='" + id + "']").data('featured', 1);
+                $(".product_info_add").find(".modal-body").prepend('<div class="alert alert-success alert-dismissible">\
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
+                                        <h4><i class="icon fa fa-check"></i> Alert!</h4>\
+                                        '+data.message+'\
+                                      </div>');
+              }
+              else{
+                $(".product_info_add").find(".modal-body").prepend('<div class="alert alert-warning alert-dismissible">\
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
+                                        <h4><i class="icon fa fa-warning"></i> Alert!</h4>\
+                                        '+data.message+'\
+                                      </div>');
+              }
+              setTimeout(removeAlert, 3000);
+            });
+           
+          }
+        }
+      });
+
       $(document).on("keydown","#input_price",function(e){
         // Allow: backspace, delete, tab, escape, enter and .
         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
@@ -451,6 +512,12 @@
             e.preventDefault();
         }
       });
+      function removeAlert()
+      {
+        $(".alert").fadeOut(300, function(){ 
+            $(this).remove();
+        });
+      }
 		});
 	</script>
 @endsection

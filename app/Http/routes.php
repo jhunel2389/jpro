@@ -34,6 +34,7 @@ Route::group(array('prefix' => '/admin'),function()
 				Route::post('/update_product',array('uses' => 'ProductController@updateProduct', 'as' => 'updateProduct')); 
 				Route::post('/post_addPrice', array('uses' => 'ProductController@addPrice', 'as' => 'addPrice'));
 				Route::post('/img_delete', array('uses' => 'ProductController@deleteImage', 'as' => 'deleteImage'));
+				Route::post('/updateFeatured', array('uses' => 'ProductController@updateFeatured', 'as' => 'updateFeatured'));
 			});
 
 		});

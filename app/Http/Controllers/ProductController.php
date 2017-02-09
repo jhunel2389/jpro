@@ -161,7 +161,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $price = ProductPrice::where('prod_id','=',$id)->get();
         $current_price = ProductPrice::where('prod_id','=',$id)->where('status','=',1)->first();
-        $images = ProductImage::where('prod_id','=',$id)->get(array('thumbnail_img','id'));
+        $images = ProductImage::where('prod_id','=',$id)->get(array('thumbnail_img','id','primary_featured'));
         return Response::json(array(
             "name"          => $product['name'],
             "description"   => $product['description'],
@@ -170,6 +170,29 @@ class ProductController extends Controller
             "product_image"        => !empty($images) ? $images : "",
             "status"        => $product['status'],
         ));
+    }
+
+    public function updateFeatured(Request $request)
+    {
+        $id = $request->input('image_id');
+        $product = $request->input('product_id');
+        $value = $request->input('value');
+        $affectedRows = ProductImage::where('prod_id', '=', $product)
+                                ->where('primary_featured', '=', 1)
+                                    ->update(array('primary_featured' => 0));
+        $update = ProductImage::find($id);
+        $update['primary_featured'] = $value;
+        if($update->save())
+        {
+            return Response::json(array(
+                "status" => "success",
+                "message" => "Update success.",
+            )); 
+        }
+        return Response::json(array(
+                "status" => "fail",
+                "message" => "Update fail.",
+            ));  
     }
 
     public function newProduct()
