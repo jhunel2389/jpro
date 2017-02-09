@@ -25,16 +25,16 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return ($this -> isAdmin == 1);
+        return ($this -> isAdmin);
     }
 
     public function adminUsers()
     {
-        return $this->where('isAdmin','!=',0)->select(array('id'))->get();
+        return $this->where('isAdmin','!=',1)->select(array('id'))->get();
     }
 
     public function newUserList()
     {
-        return $this->where('isAdmin','=',0)->select(array('id'))->get();
+        return $this->where('isAdmin','=',1)->select(array('id'))->get();
     }
 }

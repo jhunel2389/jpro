@@ -19,7 +19,7 @@ Route::get('/sign-in', array('uses' =>'UserController@getCusLogin', 'as' => 'get
 Route::get('/register', array('uses' =>'UserController@getCusRegister', 'as' => 'getCusRegister'));
 Route::group(array('prefix' => '/admin'),function()
 {
-	Route::get('/', array('uses' =>'HomeController@index', 'as' => 'home','middleware' => 'admin'));
+	Route::get('/', array('uses' =>'HomeController@index', 'as' => 'home'));
 
 	Route::group(array('before' => 'auth'), function()
 	{
@@ -67,7 +67,7 @@ Route::group(array('prefix' => '/admin'),function()
 				Route::get('/getUAL', array('uses' => 'UserController@getUAL', 'as' => 'getUAL','middleware' => 'auth'));
 				Route::group(array('before' => 'csrf'), function()
 				{
-					Route::post('/updateUser',array('uses' => 'UserController@updateUser', 'as' => 'updateUser')); 
+					Route::post('/updateUser',array('uses' => 'UserController@updateUser', 'as' => 'updateUser','middleware' => 'superAdmin')); 
 				});
 			});
 		});
