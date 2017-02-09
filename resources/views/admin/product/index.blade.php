@@ -32,6 +32,9 @@
       text-decoration:none;
       color:inherit;
     }
+    .selected_img:hover{
+      color: red;
+    }
   </style>
 @endsection
 
@@ -222,7 +225,8 @@
 
       $(document).on("change","#file",function(e){
         $("div.new_div").remove();
-        $('.hover').removeClass("noHover").addClass("hover-cap-4col");
+        //$('.hover').removeClass("noHover").addClass("hover-cap-4col");
+        $('.hover').removeClass("hover-cap-4col").addClass("noHover");
         var count = $('.thumbnail').length;
         var set = 6 - parseInt(count);
 
@@ -268,10 +272,13 @@
         var featured = $(this).data("featured");
         var img = $(this).data("img");
         var filename = $(this).data("filename");
+
         if(!$(this).hasClass('selected_img')){
+          $('.hover').removeClass("noHover").addClass("hover-cap-4col");
           $('.hover').find('.thumbnail').prepend('<div class="caption">\
                                                 <h4>Do you want to remove this image?</h4>\
                                                 <button type="button" data-img="test" class="btn btn-block btn-default btn-sm btn_delete_img" style="width:50px;display: block; margin: 0 auto;text-align: center;">Yes</button>\
+                                                <div data-id="'+id+'" class="mailbox-star" style="width:50px;display: block; margin: 0 auto;text-align: center;padding-top: 30px;"><a href="javascript:void(0)"><i class="fa  text-yellow" style="font-size: 250%;"></a></div>\
                                             </div>');
           $(".product_image_view").attr("src",img);
           $('.btn_delete_img').data('img', filename);
@@ -316,6 +323,7 @@
             if(count == 2 ){
               $('.hover').removeClass("hover-cap-4col").addClass("noHover");
             }
+            $('.hover').removeClass("hover-cap-4col").addClass("noHover");
           },
           error:function(){
           }
