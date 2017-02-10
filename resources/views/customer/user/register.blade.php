@@ -93,11 +93,11 @@
 
 					<!-- #center_column -->
 					<div id="center_column" class="center_column col-xs-12 col-sm-9">
-    					<h1 class="page-heading bottom-indent">Customer - Sign in</h1>
+    					<h1 class="page-heading bottom-indent">Customer - Register</h1>
 	    					<form action="{{ URL::Route('cs_message') }}" method="post" class="contact-form-box" enctype="multipart/form-data">
 	    						{{ csrf_field() }}
 								<fieldset>
-	        					<h3 class="page-subheading">Sign in Customer Account</h3>
+	        					<h3 class="page-subheading">Register Customer Account</h3>
 						        <div class="clearfix">
 						            <div class="col-xs-12 col-md-3"> 
 						            	<p class="form-group">
