@@ -64,10 +64,12 @@ class ProductController extends Controller
     public function getByProduct($name)
     {
         $categories =  App::make("App\Http\Controllers\GlobalController")->activeCategories();
-        $products = App::make("App\Http\Controllers\ProductController")->newProduct();
+        $productInfo = Product::where("name","=",$name)->where('status','=',1)->first();
+        $products = App::make("App\Http\Controllers\GlobalController")->productInfo($productInfo['id']);
         return view('customer.product.index')->with('products',$products)
                                                     ->with('categories',$categories)
-                                                        ->with('cat_name',$name);
+                                                        ->with('cat_name',$name)
+                                                            ->with('br_name',$name);
     }
 
     public function addProduct(Request $request)

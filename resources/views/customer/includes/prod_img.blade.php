@@ -2,16 +2,16 @@
 							<div class="pb-left-column col-xs-12  col-sm-4 col-md-5">
 								<!-- product img-->        
 								<div id="image-block" class="clearfix">
-            						<span class="new-box no-print">
+            						<!--<span class="new-box no-print">
 										<span class="new-label">New</span>
 									</span>
 									<span class="sale-box no-print">
 										<span class="sale-label">Sale!</span>
-									</span>
+									</span>-->
 									<span id="view_full_size">
 										<a class="jqzoom" title="" rel="gal1" href="#" itemprop="url" style="outline-style: none; text-decoration: none;">
 											<div class="zoomPad">
-												<img itemprop="image" src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_large_default.jpg" title="Crochet necklace - The boa friend" alt="Crochet necklace - The boa friend" style="opacity: 1;">
+												<img itemprop="image" src="{{env('FILE_PATH_CUSTOM').$products['prod_image']}}" title="Crochet necklace - The boa friend" alt="Crochet necklace - The boa friend" style="opacity: 1;">
 												<div class="zoomPup" style="width: 349px; height: 349px; position: absolute; display: none; border-width: 1px; left: 108px; top: -1px;">
 												</div>
 												<div class="zoomWindow" style="position: absolute; z-index: 5001; cursor: default; left: 0px; top: 0px; display: none;">
@@ -34,26 +34,13 @@
 									</span>
 									<div id="thumbs_list">
 										<ul id="thumbs_list_frame" style="width: 864px;">
-											<li id="thumbnail_111">
-												<a href="#" rel="" title="Crochet necklace - The boa friend">
-													<img class="img-responsive" id="thumb_2" src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_cart_default.jpg" alt="Crochet necklace - The boa friend" title="Crochet necklace - The boa friend" itemprop="image" width="80" height="80">
-												</a>
-											</li>
-											<li id="thumbnail_111">
-												<a href="#" rel="" title="Crochet necklace - The boa friend">
-													<img class="img-responsive" id="thumb_2" src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_cart_default.jpg" alt="Crochet necklace - The boa friend" title="Crochet necklace - The boa friend" itemprop="image" width="80" height="80">
-												</a>
-											</li>
-											<li id="thumbnail_111">
-												<a href="#" rel="" title="Crochet necklace - The boa friend">
-													<img class="img-responsive" id="thumb_2" src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_cart_default.jpg" alt="Crochet necklace - The boa friend" title="Crochet necklace - The boa friend" itemprop="image" width="80" height="80">
-												</a>
-											</li>
-											<li id="thumbnail_111">
-												<a href="#" rel="" title="Crochet necklace - The boa friend">
-													<img class="img-responsive" id="thumb_2" src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_cart_default.jpg" alt="Crochet necklace - The boa friend" title="Crochet necklace - The boa friend" itemprop="image" width="80" height="80">
-												</a>
-											</li>
+											@foreach($products['prod_thumb_img'] as $thumbImg)
+												<li id="thumbnail_111">
+													<a href="#" rel="" title="{{$products['prod_name']}}">
+														<img class="img-responsive" id="thumb_2" src="{{env('FILE_PATH_CUSTOM')}}productThumbnail/{{$thumbImg['thumbnail_img']}}"" alt="{{$products['prod_name']}}" title="{{$products['prod_name']}}" itemprop="image" width="80" height="80">
+													</a>
+												</li>
+											@endforeach
 										</ul>
 									</div> <!-- end thumbs_list -->
 									

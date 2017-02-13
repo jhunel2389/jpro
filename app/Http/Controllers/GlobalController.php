@@ -69,15 +69,16 @@ class GlobalController extends Controller {
 	{
 		$productInfo = Product::find($pid);
 		$productPrice = ProductPrice::where('prod_id','=',$pid)->where('status','=',1)->first();
-		$productImage = ProductImage::where('prod_id','=',$pid)->where('status','=',1)->get();
-
+		$productImage = ProductImage::where('prod_id','=',$pid)->where('status','=',0)->where('primary_featured','=',1)->first();
+		$productThumbimg = ProductImage::where('prod_id','=',$pid)->select(array('thumbnail_img'))->get();
 		if (!empty($productInfo) && !empty($productPrice) && !empty($productPrice))
 		{
 			return array(
 				"prod_name" => $productInfo['name'],
 				"prod_description" => $productInfo['description'],
-				"prod_price" => $productPrice['price'],
-				"prod_image" => $productImage,
+				"prod_price" => "$".number_format($productPrice['price'], 2, '.', ''),
+				"prod_image" => "productImage/".$productImage['img_file'],
+				"prod_thumb_img" => $productThumbimg, 
 			);
 		}
 		else
@@ -88,20 +89,20 @@ class GlobalController extends Controller {
 
 	public function productByCategory($cid)
 	{
-		$getProducts = Product::where('pro_cat_id',"=",$cid)->get();//pluck('id')->toArray();
+		$getProducts = Product::where('pro_cat_id',"=",$cid)->where('status',"=",1)->get();//pluck('id')->toArray();
 		$response = array();
 
 		foreach ($getProducts as $getProduct) {
+				$productPrice = ProductPrice::where('prod_id','=',$getProduct['id'])->where('status','=',1)->first();
 				$response[] = array(
 	                "prod_name" => $getProduct["name"],
 	                "prod_image" => "2-tm_home_default.jpg",
 	                "prod_description" => $getProduct["description"],
-	                "prod_price_new" => "$122.51",
-	                "prod_price_old" => "$128.96",
-	                "prod_price_reduction" => "-5%",
+	                "prod_price_new" => "$".number_format((empty($productPrice) ? "0" : $productPrice['price']), 2, '.', ''),
+	                "prod_price_old" => "$".number_format((empty($productPrice) ? "0" : "0"), 2, '.', ''),
+	                "prod_price_reduction" => "0%",
 	            );
 			}
-            
 		return $response;
 	}
 }

@@ -10,12 +10,12 @@
 				<div class="product-container" itemscope="" itemtype="https://schema.org/Product">
 					<div class="left-block">
 	    				<div class="product-image-container">
-	                        <a class="product_img_link" href="#" title="Beaded book lover Bracelet" itemprop="url">
+	                        <a class="product_img_link" href="{{ URL::Route('getByProduct', $product['prod_name']) }}" title="$product['prod_name']) }}" itemprop="url">
 	                            <img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/{{$product['prod_image']}}" alt="Beaded book lover Bracelet" title="Beaded book lover Bracelet" itemprop="image">
 	                        </a>
-	                        <a class="quick-view" href="#" rel="#" title="Quick view">
+	                        <!--<a class="quick-view" href="{{ URL::Route('getByProduct', $product['prod_name']) }}" rel="#" title="Quick view">
 	                            <span>Quick view</span>
-	                        </a>
+	                        </a>-->
 	                        <span class="new-box">
 	                            <span class="new-label">New</span>
 	                        </span>
@@ -41,7 +41,7 @@
 	                        <a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="Add to cart" data-id-product="4">
 	                            <span>Add to cart</span>
 	                        </a>
-	                        <a itemprop="url" class="button lnk_view btn btn-default" href="#" title="View">
+	                        <a class="button lnk_view btn btn-default" href="{{ URL::Route('getByProduct', $product['prod_name']) }}" title="View">
 	                            <span>More</span>
 	                        </a>
 	                    </div>

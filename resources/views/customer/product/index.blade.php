@@ -94,7 +94,7 @@
         					<!-- center infos -->
 							<div class="pb-center-column col-xs-12  col-sm-4">
 								<p class="online_only">Online only</p>	
-								<h1 itemprop="name">Crochet necklace - The boa friend</h1>
+								<h1 itemprop="name">{{$products['prod_name']}}</h1>
 								<p id="product_reference" style="display: none;">
 									<label>Model </label>
 									<span class="editable" itemprop="sku"></span>
@@ -105,9 +105,7 @@
 								</p>
 								<div id="short_description_block">
 									<div id="short_description_content" class="rte align_justify" itemprop="description">
-										<p>Donec quis egestas neque. Integer mattis velit nisi, quis adipiscing augue 
-											sollicitudin id. In accumsan, sapien ut accumsan vehicula, tortor risus 
-											sollicitudin diam, quis eleifend metus dolor in augue.</p>
+										<p>{{$products['prod_description']}}</p>
 									</div>
 									<p class="buttons_bottom_block">
 										<a href="#" class="button">
@@ -117,11 +115,11 @@
 								</div> <!-- end short_description_block -->
 										
 								<!-- number of item in stock -->
-								<p id="pQuantityAvailable">
+								<!--<p id="pQuantityAvailable">
 									<span id="quantityAvailable">99</span>
 									<span style="display: none;" id="quantityAvailableTxt">Item</span>
 									<span id="quantityAvailableTxtMultiple">Items</span>
-								</p>
+								</p>-->
 								
 								<!-- availability -->
 								<p id="availability_statut" style="display: none;">
@@ -207,39 +205,6 @@
 									augue.</p>
 														</div>
 													</div><!-- .product -->
-													<div class="send_friend_form_content col-xs-12 col-sm-6" id="send_friend_form_content">
-														<div id="send_friend_form_error"></div>
-														<div id="send_friend_form_success"></div>
-														<div class="form_container">
-															<p class="intro_form">
-																Recipient :
-															</p>
-															<p class="text">
-																<label for="friend_name">
-																	Name of your friend <sup class="required">*</sup> :
-																</label>
-																<input id="friend_name" name="friend_name" type="text">
-															</p>
-															<p class="text">
-																<label for="friend_email">
-																	E-mail address of your friend <sup class="required">*</sup> :
-																</label>
-																<input id="friend_email" name="friend_email" type="text">
-															</p>
-															<p class="txt_required">
-																<sup class="required">*</sup> Required fields
-															</p>
-														</div>
-														<p class="submit">
-															<button id="sendEmail" class="btn button button-small" name="sendEmail" type="submit">
-																<span>Send</span>
-															</button>&nbsp;
-															or&nbsp;
-															<a class="closefb" href="#" title="Cancel">
-																Cancel
-															</a>
-														</p>
-													</div> <!-- .send_friend_form_content -->
 												</div>
 											</div>
 										</div>
@@ -270,17 +235,16 @@
 												<div class="price">
 													<p class="our_price_display" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
 														<link itemprop="availability" href="https://schema.org/InStock">					
-														<span id="our_price_display" itemprop="price">$122.51</span>
+														<span id="our_price_display" itemprop="price">{{$products['prod_price']}}</span>
 															<!---->
 														<meta itemprop="priceCurrency" content="USD">
 													</p>
-													<p id="reduction_percent">
+													<!--<p id="reduction_percent">
 														<span id="reduction_percent_display">-5%</span>
 													</p>
 													<p id="old_price">
 														<span id="old_price_display">$128.96</span>
-														<!--  -->
-													</p>
+													</p>-->
 												</div> <!-- end prices -->
 												<p id="reduction_amount" style="display:none">
 													<span id="reduction_amount_display"></span>
@@ -345,14 +309,7 @@
 	        			<!-- More info -->
 						<section class="page-product-box">
 							<h3 class="page-product-heading">More info</h3>									<!-- full description -->
-								<div class="rte"><p>Pellentesque habitant morbi tristique senectus 
-			et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum 
-			primis in faucibus orci luctus et ultrices posuere cubilia Curae; Class 
-			aptent taciti sociosqu ad litora torquent per conubia nostra, per 
-			inceptos himenaeos. Nam pretium massa id orci luctus placerat. Morbi ut 
-			justo lorem. Aenean consequat at mauris id elementum. Integer 
-			ullamcorper sem et neque pellentesque fringilla. Nam semper leo eu 
-			ligula scelerisque tincidunt.</p></div>
+								<div class="rte"><p>{{$products['prod_description']}}</p></div>
 						</section>
 						<!--end  More info -->
 					

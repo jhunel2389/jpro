@@ -27,6 +27,7 @@ class ContactUsController extends Controller
         $products = App::make("App\Http\Controllers\ProductController")->newProduct();
         return view('customer.contact_us.index')->with('products',$products)
                                                     ->with('categories',$categories)
-                                                        ->with('cat_name','');
+                                                        ->with('cat_name','')
+                                                            ->with('br_name','Contact Us');
     }
 }
