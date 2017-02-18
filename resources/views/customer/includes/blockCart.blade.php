@@ -1,7 +1,7 @@
 <!-- MODULE Block cart -->
 							<div class="pull-right pad clearfix">
 								<div class="shopping_cart">
-									<a href="index-6.html" title="View my shopping cart" rel="nofollow">
+									<a href="{{ URL::Route('getCheckout') }}" title="View my shopping cart" rel="nofollow">
 										<b>Cart</b>
 										<span class="ajax_cart_quantity">1</span>
 										<span class="ajax_cart_product_txt">Product</span>
