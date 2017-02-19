@@ -89,20 +89,43 @@ class GlobalController extends Controller {
 
 	public function productByCategory($cid)
 	{
-		$getProducts = Product::where('pro_cat_id',"=",$cid)->where('status',"=",1)->get();//pluck('id')->toArray();
-		$response = array();
+		$getProducts = Product::where('pro_cat_id',"=",$cid)->where('status',"=",1)->select(array('id'))->get();//pluck('id')->toArray();
+		return $this->generateBatchProdData($getProducts);
+	}
 
-		foreach ($getProducts as $getProduct) {
-				$productPrice = ProductPrice::where('prod_id','=',$getProduct['id'])->where('status','=',1)->first();
+	public function topNewProduct($take)
+	{
+		$response = array();
+		$topNewProduct = Product::take($take)->orderBy('created_at','desc')->get();
+		foreach ($topNewProduct as $topNewProducti) {
+			$images = ProductImage::where('prod_id','=',$topNewProducti['id'])->orderByRaw("RAND()")->first();
+			$proPrice = ProductPrice::where('prod_id','=',$topNewProducti['id'])->where('status','=',1)->first();
+			$response[] = array(
+				"productInfo" => $topNewProducti,
+				"productPrice" => (!empty($proPrice)) ? '&#8369; '.number_format($proPrice['price'], 2) : "Price N/A" ,
+				"pro_img" => $images
+			);
+		}
+		return $response;
+	}
+
+	public function generateBatchProdData($pids)
+	{
+		$response = array();
+		foreach ($pids as $pid) {
+				$productPrice = ProductPrice::where('prod_id','=',$pid['id'])->where('status','=',1)->first();
+				$productImage = ProductImage::where('prod_id','=',$pid['id'])->where('status','=',0)->where('primary_featured','=',1)->first();
+				$productInfo = Product::find($pid);
 				$response[] = array(
-	                "prod_name" => $getProduct["name"],
-	                "prod_image" => "2-tm_home_default.jpg",
-	                "prod_description" => $getProduct["description"],
+	                "prod_name" => $productInfo["name"],
+	                "prod_image" => "productImage/".$productImage['img_file'],//"2-tm_home_default.jpg",
+	                "prod_description" => $productInfo["description"],
 	                "prod_price_new" => "$".number_format((empty($productPrice) ? "0" : $productPrice['price']), 2, '.', ''),
 	                "prod_price_old" => "$".number_format((empty($productPrice) ? "0" : "0"), 2, '.', ''),
 	                "prod_price_reduction" => "0%",
 	            );
 			}
+
 		return $response;
 	}
 }
