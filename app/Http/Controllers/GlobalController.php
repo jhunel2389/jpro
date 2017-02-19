@@ -96,7 +96,7 @@ class GlobalController extends Controller {
 	public function topNewProduct($take)
 	{
 		$response = array();
-		$topNewProduct = Product::take($take)->orderBy('created_at','desc')->get();
+		$topNewProduct = Product::take($take)->where('status',"=",1)->orderBy('created_at','desc')->select(array('id'))->get();
 		foreach ($topNewProduct as $topNewProducti) {
 			$images = ProductImage::where('prod_id','=',$topNewProducti['id'])->orderByRaw("RAND()")->first();
 			$proPrice = ProductPrice::where('prod_id','=',$topNewProducti['id'])->where('status','=',1)->first();
@@ -115,7 +115,7 @@ class GlobalController extends Controller {
 		foreach ($pids as $pid) {
 				$productPrice = ProductPrice::where('prod_id','=',$pid['id'])->where('status','=',1)->first();
 				$productImage = ProductImage::where('prod_id','=',$pid['id'])->where('status','=',0)->where('primary_featured','=',1)->first();
-				$productInfo = Product::find($pid);
+				$productInfo = Product::find($pid['id']);
 				$response[] = array(
 	                "prod_name" => $productInfo["name"],
 	                "prod_image" => "productImage/".$productImage['img_file'],//"2-tm_home_default.jpg",
