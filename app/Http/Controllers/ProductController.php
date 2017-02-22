@@ -103,18 +103,23 @@ class ProductController extends Controller
                     $date = new DateTime();
                     $tn_name = date_format($date, 'U').str_random(110).'.'.$image->getClientOriginalExtension();
                     $iname = date_format($date, 'U').str_random(110).'.'.$image->getClientOriginalExtension();
+                    $md_name = date_format($date, 'U').str_random(110).'.'.$image->getClientOriginalExtension();
                     $data = getimagesize($image->getRealPath());
                     $path1 = public_path('productImage/' . $iname);
                     $path2 = public_path('productThumbnail/' . $tn_name);
+                    $path3 = public_path('productImageMid/' . $md_name);
                     $newResizing = App::make('App\Http\Controllers\GlobalController')->imageResized($data[0],$data[1],458);
                     $move = Image::make($image->getRealPath())->resize($newResizing['width'],$newResizing['height'])->save($path1);
                     $newResizingTN = App::make('App\Http\Controllers\GlobalController')->imageResized($data[0],$data[1],80);
                     $move_tn = Image::make($image->getRealPath())->resize($newResizingTN['width'],$newResizingTN['height'])->save($path2);
+                    $newResizingMd = App::make('App\Http\Controllers\GlobalController')->imageResized($data[0],$data[1],125);
+                    $move_md = Image::make($image->getRealPath())->resize($newResizingMd['width'],$newResizingMd['height'])->save($path3);
                     if($move && $move_tn){
                         $addProductImage = new ProductImage();
                         $addProductImage['prod_id'] = $add['id'];
                         $addProductImage['img_file'] = $iname;
                         $addProductImage['thumbnail_img'] = $tn_name;
+                        $addProductImage['mid_img'] = $md_name;
                         $addProductImage['uploader_id'] = Auth::User()['id'];
                         if(!$addProductImage->save()){
                             
@@ -275,6 +280,7 @@ class ProductController extends Controller
         $img = ProductImage::where('thumbnail_img','=',$filename)->first();
         File::delete(env("FILE_PATH_INTERVENTION").'productImage/'.$img['img_file']);
         File::delete(env("FILE_PATH_INTERVENTION").'productThumbnail/'.$img['thumbnail_img']);
+        File::delete(env("FILE_PATH_INTERVENTION").'productImageMid/'.$img['mid_img']);
         if($img->delete()){
                 
             return Response::json(array(

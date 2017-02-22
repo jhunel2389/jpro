@@ -78,6 +78,7 @@ class GlobalController extends Controller {
 				"prod_description" => $productInfo['description'],
 				"prod_price" => "$".number_format($productPrice['price'], 2, '.', ''),
 				"prod_image" => "productImage/".$productImage['img_file'],
+				"prod_image_tn" => "productImage/".$productImage['thumbnail_img'],
 				"prod_thumb_img" => $productThumbimg, 
 			);
 		}
@@ -95,18 +96,8 @@ class GlobalController extends Controller {
 
 	public function topNewProduct($take)
 	{
-		$response = array();
 		$topNewProduct = Product::take($take)->where('status',"=",1)->orderBy('created_at','desc')->select(array('id'))->get();
-		foreach ($topNewProduct as $topNewProducti) {
-			$images = ProductImage::where('prod_id','=',$topNewProducti['id'])->orderByRaw("RAND()")->first();
-			$proPrice = ProductPrice::where('prod_id','=',$topNewProducti['id'])->where('status','=',1)->first();
-			$response[] = array(
-				"productInfo" => $topNewProducti,
-				"productPrice" => (!empty($proPrice)) ? '&#8369; '.number_format($proPrice['price'], 2) : "Price N/A" ,
-				"pro_img" => $images
-			);
-		}
-		return $response;
+		return $this->generateBatchProdData($topNewProduct);
 	}
 
 	public function generateBatchProdData($pids)
@@ -119,6 +110,8 @@ class GlobalController extends Controller {
 				$response[] = array(
 	                "prod_name" => $productInfo["name"],
 	                "prod_image" => "productImage/".$productImage['img_file'],//"2-tm_home_default.jpg",
+	                "prod_image_tn" => "productThumbnail/".$productImage['thumbnail_img'],
+	                "prod_image_mid" => "productImageMid/".$productImage['mid_img'],
 	                "prod_description" => $productInfo["description"],
 	                "prod_price_new" => "$".number_format((empty($productPrice) ? "0" : $productPrice['price']), 2, '.', ''),
 	                "prod_price_old" => "$".number_format((empty($productPrice) ? "0" : "0"), 2, '.', ''),

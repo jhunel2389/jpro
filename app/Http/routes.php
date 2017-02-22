@@ -91,7 +91,10 @@ Route::group(array('prefix' => '/admin'),function()
 	
 });
 
-
+Route::group(array('prefix' => '/ajax'),function()
+{
+	Route::get('/topNewProduct/{take}', array('uses' => 'GlobalController@topNewProduct', 'as' => 'topNewProduct'));
+});
 /*Route::auth();
 
 Route::get('/home', 'HomeController@index');

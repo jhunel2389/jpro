@@ -5,30 +5,20 @@
 						    </h4>
 						    <div class="block_content products-block" style="">
 						        <ul class="products">
-						            <li class="clearfix">
-						                <a class="products-block-image" href="#" title=""><img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_small_default.jpg" alt="Crochet necklace - The boa friend"></a>
-					                    <div class="product-content">
-				                        	<h5>
-				                            	<a class="product-name" href="index-7.html" title="Crochet necklace - The boa friend">Crochet necklace - The boa friend</a>
-				                            </h5>
-					                        <p class="product-description">Donec quis egestas neque. Integer mattis velit nisi, quis adipiscing...</p>
-					                        <div class="price-box">
-					                            <span class="price">$122.51</span>
-					                        </div>
-					                    </div>
-						            </li>
-						            <li class="clearfix">
-						                <a class="products-block-image" href="#" title=""><img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/10-tm_small_default.jpg" alt="Red Dichroic Bead Embroidered Earrings"></a>
-						                <div class="product-content">
-						                  	<h5>
-						                       	<a class="product-name" href="#" title="Red Dichroic Bead Embroidered Earrings">Red Dichroic Bead Embroidered Earrings</a>
-						                    </h5>
-						                   	<p class="product-description">Proin venenatis quam non nunc placerat, ac posuere erat suscipit....</p>
-						                    <div class="price-box">
-						                        <span class="price">$628.96</span>
-						                	</div>
-						                </div>
-						            </li>
+						        	@foreach(App::make("App\Http\Controllers\GlobalController")->topNewProduct(5) as $newProduct)
+							            <li class="clearfix">
+							                <a class="products-block-image" href="{{ URL::Route('getByProduct', $newProduct['prod_name']) }}" title="{{$newProduct['prod_name']}}"><img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM').$newProduct['prod_image_mid']}}" alt="Crochet necklace - The boa friend"></a>
+						                    <div class="product-content">
+					                        	<h5>
+					                            	<a class="product-name" href="{{ URL::Route('getByProduct', $newProduct['prod_name']) }}" title="{{$newProduct['prod_name']}}">{{$newProduct['prod_name']}}</a>
+					                            </h5>
+						                        <p class="product-description">{{$newProduct['prod_description']}}</p>
+						                        <div class="price-box">
+						                            <span class="price">{{$newProduct['prod_price_new']}}</span>
+						                        </div>
+						                    </div>
+							            </li>
+						            @endforeach
 						       	</ul>
 						            <div>
 						                <a href="#" title="All new products" class="btn btn-default button button-small">
