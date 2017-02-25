@@ -68,9 +68,11 @@
 		@endforeach
 	</ul>
 	<script type="text/javascript">
-		   	function addToCart($pid){
-		   		
-		        alert($pid);
-		        //promptMsg('success',"test");
+		   	function addToCart(pid){
+		   		var _token = "{{ csrf_token() }}";
+		   		$.post('{{URL::Route('addToCart')}}',{ _token: _token, pid: pid}, function(data)
+	            {
+	            	promptMsg(data.success,data.message);
+	            });
 		    }
 	</script>

@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductPrice;
 use App\Models\ProductImage;
+use App\Models\ProductOnCart;
 use Auth;
 use DB;
 use Input;
@@ -121,5 +122,10 @@ class GlobalController extends Controller {
 			}
 
 		return $response;
+	}
+
+	public function onCartList()
+	{
+		$onCartList = ProductOnCart::where('cus_id','=',Auth::User()['id'])->get();
 	}
 }

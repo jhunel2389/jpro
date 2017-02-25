@@ -12,6 +12,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\ProductCategory;
 use App\Models\ProductPrice;
+use App\Models\ProductOnCart;
 
 class ProductController extends Controller
 {
@@ -328,8 +329,27 @@ class ProductController extends Controller
         return ProductCategory::find($id);
     }
 
-    public function addToCart($pid)
+    public function addToCart(Request $request)
     {
-        
+        $pid = $request->input('pid');
+        if(Auth::Check())
+        {
+            $addTocart = new ProductOnCart();
+            $addTocart['prod_id'] = $pid;
+            $addTocart['cus_id'] = Auth::User()['id'];
+            $addTocart['qty'] = 1;
+            $addTocart['ip_address'] = $_SERVER['REMOTE_ADDR'];
+            if($addTocart->save())
+            {
+                return Response::json(array(
+                    "status" => "success",
+                    "message" => "Successfully added to your cart.",
+                ));
+            }
+        }
+        return Response::json(array(
+                    "status" => "fail",
+                    "message" => "Ops!!! Something wrong adding you item to your cart. Please try again.",
+                ));
     }
 }
