@@ -108,6 +108,7 @@ class GlobalController extends Controller {
 				$productImage = ProductImage::where('prod_id','=',$pid['id'])->where('status','=',0)->where('primary_featured','=',1)->first();
 				$productInfo = Product::find($pid['id']);
 				$response[] = array(
+					"prod_id"	=> $productInfo["id"],
 	                "prod_name" => $productInfo["name"],
 	                "prod_image" => "productImage/".$productImage['img_file'],//"2-tm_home_default.jpg",
 	                "prod_image_tn" => "productThumbnail/".$productImage['thumbnail_img'],

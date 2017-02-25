@@ -327,4 +327,9 @@ class ProductController extends Controller
         $id = $request->input('category');
         return ProductCategory::find($id);
     }
+
+    public function addToCart($pid)
+    {
+        
+    }
 }

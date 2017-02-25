@@ -38,7 +38,14 @@
 			
     
     
-    
+    	<!-- jQuery 2.2.0 -->
+		<script src="{{env('FILE_PATH_CUSTOM')}}plugins/jQuery/jQuery-2.2.0.min.js"></script>
+		<!-- jQuery UI 1.11.4 -->
+		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<link rel="stylesheet" href="{{env('FILE_PATH_CUSTOM')}}bootstrap/css/bootstrap.min.css">
+		<!-- Bootstrap 3.3.6 -->
+		<script src="{{env('FILE_PATH_CUSTOM')}}bootstrap/js/bootstrap.min.js"></script>
 
 		<link href="{{env('FILE_PATH_CUSTOM')}}cus/css/css.css" rel="stylesheet" type="text/css">
 		<link href="{{env('FILE_PATH_CUSTOM')}}cus/css/css_002.css" rel="stylesheet" type="text/css">
@@ -57,5 +64,40 @@
 
 <body class="index hide-left-column hide-right-column lang_en">
 	@yield('content')
+	<div class="modal fade" tabindex="-1" role="dialog" id="prompt_modal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-body">
+	        <p id="mdl_msg"></p>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<script type="text/javascript">
+		function promptMsg($result,$message)
+		{
+			$("#mdl_msg").text($message);
+			$("#prompt_modal").removeClass("modal-danger");
+			$("#prompt_modal").removeClass("modal-success");
+			if($result == "success"){
+				$("#prompt_modal").addClass("modal-success");
+			}
+			else
+			{
+				$("#prompt_modal").addClass("modal-danger");
+			}
+
+			$("#prompt_modal").modal("show");
+		}
+	</script>
+	@if(Session::has('success'))
+		<script type="text/javascript">
+			promptMsg('success',"{{Session::get('success')}}");
+		</script>
+	@elseif (Session::has('fail'))
+		<script type="text/javascript">
+			promptMsg('fail',"{{Session::get('fail')}}");
+		</script>
+	@endif
 </body>
 </html>

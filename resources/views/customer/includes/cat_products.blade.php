@@ -38,7 +38,7 @@
 	                		<meta itemprop="priceCurrency" content="1">
 	                    </div>
 	                    <div class="button-container">
-	                        <a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="Add to cart" data-id-product="4">
+	                        <a class="button ajax_add_to_cart_button btn btn-default" href="javascript:void(0)" onclick="addToCart({{$product['prod_id']}});" title="Add to cart" data-id-product="4">
 	                            <span>Add to cart</span>
 	                        </a>
 	                        <a class="button lnk_view btn btn-default" href="{{ URL::Route('getByProduct', $product['prod_name']) }}" title="View">
@@ -67,3 +67,10 @@
 			</li>
 		@endforeach
 	</ul>
+	<script type="text/javascript">
+		   	function addToCart($pid){
+		   		
+		        alert($pid);
+		        //promptMsg('success',"test");
+		    }
+	</script>

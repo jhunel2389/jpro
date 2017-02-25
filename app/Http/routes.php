@@ -94,6 +94,10 @@ Route::group(array('prefix' => '/admin'),function()
 Route::group(array('prefix' => '/ajax'),function()
 {
 	Route::get('/topNewProduct/{take}', array('uses' => 'GlobalController@topNewProduct', 'as' => 'topNewProduct'));
+		Route::group(array('before' => 'csrf'), function()
+		{
+			Route::post('/addToCart/{pid}', array('uses' => 'ProductController@addToCart', 'as' => 'addToCart'));
+		});
 });
 /*Route::auth();
 

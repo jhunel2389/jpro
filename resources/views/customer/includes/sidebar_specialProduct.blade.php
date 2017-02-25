@@ -1,4 +1,4 @@
-<!-- MODULE Block specials -->
+<!-- MODULE Block specials 
 						<div id="special_block_right" class="block">
 							<p class="title_block">
 						        <a href="#" title="Specials">
@@ -38,4 +38,4 @@
 								</div>
 						    	</div>
 						</div>
-						<!-- /MODULE Block specials -->
+						MODULE Block specials -->
