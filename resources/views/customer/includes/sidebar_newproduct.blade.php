@@ -7,7 +7,7 @@
 						        <ul class="products">
 						        	@foreach(App::make("App\Http\Controllers\GlobalController")->topNewProduct(5) as $newProduct)
 							            <li class="clearfix">
-							                <a class="products-block-image" href="{{ URL::Route('getByProduct', $newProduct['prod_name']) }}" title="{{$newProduct['prod_name']}}"><img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM').$newProduct['prod_image_mid']}}" alt="Crochet necklace - The boa friend"></a>
+							                <a class="products-block-image" href="{{ URL::Route('getByProduct', $newProduct['prod_name']) }}" title="{{$newProduct['prod_name']}}"><img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM').$newProduct['prod_image_mid']}}" alt="{{$newProduct['prod_name']}}"></a>
 						                    <div class="product-content">
 					                        	<h5>
 					                            	<a class="product-name" href="{{ URL::Route('getByProduct', $newProduct['prod_name']) }}" title="{{$newProduct['prod_name']}}">{{$newProduct['prod_name']}}</a>

@@ -126,6 +126,27 @@ class GlobalController extends Controller {
 
 	public function onCartList()
 	{
-		$onCartList = ProductOnCart::where('cus_id','=',Auth::User()['id'])->get();
+		$onCartLists = ProductOnCart::where('cus_id','=',Auth::User()['id'])->get();
+		
+		$response = array();
+		foreach ($onCartLists as $onCartList) {
+				$productPrice = ProductPrice::where('prod_id','=',$onCartList['prod_id'])->where('status','=',1)->first();
+				$productImage = ProductImage::where('prod_id','=',$onCartList['prod_id'])->where('status','=',0)->where('primary_featured','=',1)->first();
+				$productInfo = Product::find($onCartList['prod_id']);
+				$response[] = array(
+					"onCart_id" => $onCartList['id'],
+					"prod_id"	=> $productInfo["id"],
+	                "prod_name" => $productInfo["name"],
+	                "prod_image" => "productImage/".$productImage['img_file'],//"2-tm_home_default.jpg",
+	                "prod_image_tn" => "productThumbnail/".$productImage['thumbnail_img'],
+	                "prod_image_mid" => "productImageMid/".$productImage['mid_img'],
+	                "prod_description" => $productInfo["description"],
+	                "prod_price_new" => "$".number_format((empty($productPrice) ? "0" : $productPrice['price']), 2, '.', ''),
+	                "prod_price_old" => "$".number_format((empty($productPrice) ? "0" : "0"), 2, '.', ''),
+	                "prod_price_reduction" => "0%",
+	            );
+			}
+
+		return $response;
 	}
 }

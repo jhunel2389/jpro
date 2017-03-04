@@ -15,29 +15,34 @@
 										<div class="block_content">
 											<!-- block list of products -->
 											<div class="cart_block_list">
-												<dl class="products">
-													<dt data-id="cart_block_product_1_0_0" class="first_item">
-														<a class="cart-images" href="index-7.html" title="Crochet necklace - The boa friend"><img src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_cart_default.jpg" alt="Crochet necklace - The boa friend"></a>
-														<div class="cart-info">
-															<div class="product-name">
-																<span class="quantity-formated">
-				                                                	<span class="quantity">1</span>&nbsp;x&nbsp;
-				                                                </span>
-				                                                <a class="cart_block_product_name" href="index-7.html" title="Crochet necklace - The boa friend">Crochet...</a>
-															</div>
-															<span class="price">
-																$122.51
-															</span>
-														</div>
-														<span class="remove_link">
-															<a class="ajax_cart_block_remove_link" href="#" rel="nofollow" title="remove this product from my cart">&nbsp;</a>
-														</span>
-													</dt>
-												<!-- Customizable datas -->
-												</dl>
-												<p class="cart_block_no_products unvisible">
-													No products
-												</p>
+												@if(!empty(App::make("App\Http\Controllers\GlobalController")->onCartList()))
+													@foreach(App::make("App\Http\Controllers\GlobalController")->onCartList() as $onCartList)
+														<dl class="products">
+															<dt data-id="cart_block_product_1_0_0" class="first_item">
+																<a class="cart-images" href="index-7.html" title="$onCartList['prod_name'])"><img src="{{env('FILE_PATH_CUSTOM').$onCartList['prod_image_mid']}}" alt="{{$onCartList['prod_name']}}"></a>
+																<div class="cart-info">
+																	<div class="product-name">
+																		<span class="quantity-formated">
+						                                                	<span class="quantity">1</span>&nbsp;x&nbsp;
+						                                                </span>
+						                                                <a class="cart_block_product_name" href="index-7.html" title="Crochet necklace - The boa friend">{{$onCartList['prod_name']}}</a>
+																	</div>
+																	<span class="price">
+																		{{$onCartList['prod_price_new']}}
+																	</span>
+																</div>
+																<span class="remove_link">
+																	<a class="ajax_cart_block_remove_link" href="javascript:void(0)" onclick="removeToCart({{$onCartList['onCart_id']}});" rel="nofollow" title="remove this product from my cart">&nbsp;</a>
+																</span>
+															</dt>
+														<!-- Customizable datas -->
+														</dl>
+													@endforeach
+												@else
+													<p class="cart_block_no_products">
+														No products
+													</p>
+												@endif
 												<div class="cart-prices">
 													<div class="cart-prices-line first-line">
 														<span class="price cart_block_shipping_cost ajax_cart_shipping_cost">
@@ -66,7 +71,7 @@
 								</div>
 							</div>
 
-							<div id="layer_cart">
+							<!--<div id="layer_cart">
 								<div class="clearfix">
 									<div class="layer_cart_product col-xs-12 col-md-6">
 										<span class="cross" title="Close window"></span>
@@ -90,11 +95,11 @@
 									</div>
 									<div class="layer_cart_cart col-xs-12 col-md-6">
 										<h2>
-											<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
+											<!-- Plural Case [both cases are needed because page may be updated in Javascript]
 											<span class="ajax_cart_product_txt_s  unvisible">
 												There are <span class="ajax_cart_quantity">1</span> items in your cart.
 											</span>
-											<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
+											<!-- Singular Case [both cases are needed because page may be updated in Javascript]
 											<span class="ajax_cart_product_txt ">
 												There is 1 item in your cart.
 											</span>
@@ -144,7 +149,26 @@
 									</div>
 								</div>
 								<div class="crossseling"></div>
-							</div> <!-- #layer_cart -->
+							</div> #layer_cart -->
 							<div class="layer_cart_overlay"></div>
 
 							<!-- /MODULE Block cart -->
+
+							<script type="text/javascript">
+								   	function removeToCart(pid){
+								   		
+								   		var _token = "{{ csrf_token() }}";
+								   		$.post('{{URL::Route('removeToCart')}}',{ _token: _token, pid: pid}, function(data)
+							            {
+							            	if(data.status = "fail")
+							            	{
+							            		promptMsg(data.status,data.message);	
+							            	}
+							            	else
+							            	{
+							            		promptMsg(data.status,data.message);
+							            		window.location.replace('{{URL::Route('cusIndex')}}');
+							            	}
+							            });
+								    }
+							</script>

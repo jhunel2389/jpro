@@ -97,6 +97,7 @@ Route::group(array('prefix' => '/ajax'),function()
 		Route::group(array('before' => 'csrf'), function()
 		{
 			Route::post('/addToCart', array('uses' => 'ProductController@addToCart', 'as' => 'addToCart'));
+			Route::post('/removeToCart', array('uses' => 'ProductController@removeToCart', 'as' => 'removeToCart'));
 		});
 });
 /*Route::auth();

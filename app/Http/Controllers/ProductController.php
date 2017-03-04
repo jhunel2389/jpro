@@ -349,7 +349,28 @@ class ProductController extends Controller
         }
         return Response::json(array(
                     "status" => "fail",
-                    "message" => "Ops!!! Something wrong adding you item to your cart. Please try again.",
+                    "message" => "Ops!!! Something wrong adding your item to your cart. Please try again.",
                 ));
+    }
+
+    public function removeToCart(Request $request)
+    {
+        $pid = $request->input('pid');
+        $removeToCart = ProductOnCart::find($pid);
+        
+        if($removeToCart->delete())
+        {
+            return Response::json(array(
+                    "status" => "success",
+                    "message" => "Successfully remove to your cart.",
+                ));
+        }
+        else
+        {
+            return Response::json(array(
+                    "status" => "fail",
+                    "message" => "Ops!!! Something wrong removing your item to your cart. Please try again.",
+                ));
+        }
     }
 }

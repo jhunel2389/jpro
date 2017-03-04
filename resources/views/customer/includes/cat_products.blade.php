@@ -72,7 +72,7 @@
 		   		var _token = "{{ csrf_token() }}";
 		   		$.post('{{URL::Route('addToCart')}}',{ _token: _token, pid: pid}, function(data)
 	            {
-	            	promptMsg(data.success,data.message);
+	            	promptMsg(data.status,data.message);
 	            });
 		    }
 	</script>
