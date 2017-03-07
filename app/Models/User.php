@@ -37,4 +37,9 @@ class User extends Authenticatable
     {
         return $this->where('isAdmin','=',0)->select(array('id'))->get();
     }
+
+    public function cart()
+    {
+        return $this->hasMany('App\Models\ProductOnCart', 'cus_id');
+    }
 }

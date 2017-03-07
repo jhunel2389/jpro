@@ -10,8 +10,8 @@
 				<div class="product-container" itemscope="" itemtype="https://schema.org/Product">
 					<div class="left-block">
 	    				<div class="product-image-container">
-	                        <a class="product_img_link" href="{{ URL::Route('getByProduct', $product['prod_name']) }}" title="$product['prod_name']) }}" itemprop="url">
-	                            <img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}{{$product['prod_image']}}" alt="Beaded book lover Bracelet" title="Beaded book lover Bracelet" itemprop="image">
+	                        <a class="product_img_link" href="{{$product['prod_url']}}" title="$product['prod_name'])}}" itemprop="url">
+	                            <img class="replace-2x img-responsive" src="{{$product['prod_image']}}" alt="$product['prod_name'])}}" title="$product['prod_name'])}}" itemprop="image">
 	                        </a>
 	                        <!--<a class="quick-view" href="{{ URL::Route('getByProduct', $product['prod_name']) }}" rel="#" title="Quick view">
 	                            <span>Quick view</span>

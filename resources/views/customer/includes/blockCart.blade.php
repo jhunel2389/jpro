@@ -3,7 +3,7 @@
 								<div class="shopping_cart">
 									<a href="{{ URL::Route('getCheckout') }}" title="View my shopping cart" rel="nofollow">
 										<b>Cart</b>
-										<span class="ajax_cart_quantity">1</span>
+										<span class="ajax_cart_quantity">{{Auth::User()->cart()->sum('qty')}}</span>
 										<span class="ajax_cart_product_txt">Product</span>
 										<span class="ajax_cart_product_txt_s unvisible">Products</span>
 										<span class="ajax_cart_total">
@@ -19,13 +19,13 @@
 													@foreach(App::make("App\Http\Controllers\GlobalController")->onCartList() as $onCartList)
 														<dl class="products">
 															<dt data-id="cart_block_product_1_0_0" class="first_item">
-																<a class="cart-images" href="index-7.html" title="$onCartList['prod_name'])"><img src="{{env('FILE_PATH_CUSTOM').$onCartList['prod_image_mid']}}" alt="{{$onCartList['prod_name']}}"></a>
+																<a class="cart-images" href="{{$onCartList['prod_url']}}" title="{{$onCartList['prod_name']}}"><img src="{{$onCartList['prod_image_mid']}}" alt="{{$onCartList['prod_name']}}"></a>
 																<div class="cart-info">
 																	<div class="product-name">
 																		<span class="quantity-formated">
 						                                                	<span class="quantity">1</span>&nbsp;x&nbsp;
 						                                                </span>
-						                                                <a class="cart_block_product_name" href="index-7.html" title="Crochet necklace - The boa friend">{{$onCartList['prod_name']}}</a>
+						                                                <a class="cart_block_product_name" href="{{$onCartList['prod_url']}}" title="{{$onCartList['prod_name']}}">{{$onCartList['prod_name']}}</a>
 																	</div>
 																	<span class="price">
 																		{{$onCartList['prod_price_new']}}
@@ -58,7 +58,7 @@
 													</div>
 												</div>
 												<p class="cart-buttons">
-													<a id="button_order_cart" class="btn btn-default button button-small" href="index-6.html" title="Check out" rel="nofollow">
+													<a id="button_order_cart" class="btn btn-default button button-small" href="{{ URL::Route('getCheckout') }}" title="Check out" rel="nofollow">
 														<span>
 															Check out
 						                                    <i class="icon-chevron-right right"></i>
@@ -160,7 +160,7 @@
 								   		var _token = "{{ csrf_token() }}";
 								   		$.post('{{URL::Route('removeToCart')}}',{ _token: _token, pid: pid}, function(data)
 							            {
-							            	if(data.status = "fail")
+							            	if(data.status == "fail")
 							            	{
 							            		promptMsg(data.status,data.message);	
 							            	}

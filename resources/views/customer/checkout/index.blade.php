@@ -179,57 +179,61 @@
 								</tfoot>
 
 								<tbody>
-									<tr id="product_1_0_0_0" class="cart_item last_item first_item address_0 odd">
-										<td class="cart_product">
-											<a href="index-7.html"><img src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_small_default.jpg" alt="Crochet necklace - The boa friend"></a>
-										</td>
-										<td class="cart_description">
-											<p class="product-name">
-					        					<a href="index-7.html">Crochet necklace - The boa friend</a>
-					       					</p>
-					        			</td>
-										<td class="cart_avail">
-							        		<span class="label label-success">In Stock
-							                                                </span>
-							       		</td>
-										<td class="cart_unit" data-title="Unit price">
-											<span class="price" id="product_price_1_0_0">
-											 	<span class="price special-price">$122.51</span>
-											   	<span class="price-percent-reduction small">
-									            	-5%
-									        	</span>
-												<span class="old-price">$128.96</span>
-											</span>
-										</td>
+									@if(!empty(App::make("App\Http\Controllers\GlobalController")->onCartList()))
+										@foreach(App::make("App\Http\Controllers\GlobalController")->onCartList() as $onCartList)
+											<tr id="product_1_0_0_0" class="cart_item last_item first_item address_0 odd">
+												<td class="cart_product">
+													<a href="{{$onCartList['prod_url']}}"><img src="{{env('FILE_PATH_CUSTOM')}}cus/images/2-tm_small_default.jpg" alt="Crochet necklace - The boa friend"></a>
+												</td>
+												<td class="cart_description">
+													<p class="product-name">
+							        					<a href="{{$onCartList['prod_url']}}">{{$onCartList['prod_name']}}</a>
+							       					</p>
+							        			</td>
+												<td class="cart_avail">
+									        		<span class="label label-success">In Stock
+									                                                </span>
+									       		</td>
+												<td class="cart_unit" data-title="Unit price">
+													<span class="price" id="product_price_1_0_0">
+													 	<span class="price special-price">{{$onCartList['prod_price_new']}}</span>
+													   	<!--<span class="price-percent-reduction small">
+											            	-5%
+											        	</span>
+														<span class="old-price">$128.96</span>-->
+													</span>
+												</td>
 
-										<td class="cart_quantity text-center">											
-											<input value="1" name="quantity_1_0_0_0_hidden" type="hidden">
-											<input size="2" autocomplete="off" class="cart_quantity_input form-control grey" value="1" name="quantity_1_0_0_0" type="text">
-											<div class="cart_quantity_button clearfix">
-												<a rel="nofollow" class="cart_quantity_down btn btn-default button-minus" id="cart_quantity_down_1_0_0_0" href="#" title="Subtract">
-													<span>
-							                        	<i class="icon-minus"></i>
-							                        </span>
-												</a>
-											    <a rel="nofollow" class="cart_quantity_up btn btn-default button-plus" id="cart_quantity_up_1_0_0_0" href="#" title="Add">
-							                    	<span>
-							                        	<i class="icon-plus"></i>
-							                        </span>
-							                    </a>
-											</div>
-										</td>
-										<td class="cart_total" data-title="Total">
-											<span class="price" id="total_product_price_1_0_0">
-																					$122.51									</span>
-										</td>
-										<td class="cart_delete text-center" data-title="Delete">
-											<div>
-												<a rel="nofollow" title="Delete" class="cart_quantity_delete" id="1_0_0_0" href="#">
-							                		<i class="icon-trash"></i>
-							               		</a>
-											</div>
-										</td>
-									</tr>
+												<td class="cart_quantity text-center">											
+													<input value="1" name="quantity_1_0_0_0_hidden" type="hidden">
+													<input size="2" autocomplete="off" class="cart_quantity_input form-control grey" value="1" name="quantity_1_0_0_0" type="text">
+													<div class="cart_quantity_button clearfix">
+														<a rel="nofollow" class="cart_quantity_down btn btn-default button-minus" id="cart_quantity_down_1_0_0_0" href="#" title="Subtract">
+															<span>
+									                        	<i class="icon-minus"></i>
+									                        </span>
+														</a>
+													    <a rel="nofollow" class="cart_quantity_up btn btn-default button-plus" id="cart_quantity_up_1_0_0_0" href="#" title="Add">
+									                    	<span>
+									                        	<i class="icon-plus"></i>
+									                        </span>
+									                    </a>
+													</div>
+												</td>
+												<td class="cart_total" data-title="Total">
+													<span class="price" id="total_product_price_1_0_0">
+																							$122.51									</span>
+												</td>
+												<td class="cart_delete text-center" data-title="Delete">
+													<div>
+														<a rel="nofollow" title="Delete" class="cart_quantity_delete" id="1_0_0_0" href="javascript:void(0)" onclick="removeToCart({{$onCartList['onCart_id']}});">
+									                		<i class="icon-trash"></i>
+									               		</a>
+													</div>
+												</td>
+											</tr>
+										@endforeach
+									@endif
 								</tbody>
 							</table>
 						</div> <!-- end order-detail-content -->
