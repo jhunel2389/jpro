@@ -142,7 +142,7 @@
 								<tfoot>
 									<tr class="cart_total_price">
 										<td rowspan="3" colspan="2" id="cart_voucher" class="cart_voucher">
-											<form action="#" method="post" id="voucher">
+											<!--<form action="#" method="post" id="voucher">
 												<fieldset>
 													<h4>Vouchers</h4>
 													<input class="discount_name form-control" id="discount_name" name="discount_name" type="text">
@@ -151,10 +151,10 @@
 					                                   	<span>OK</span>
 					                                </button>
 												</fieldset>
-											</form>
-											</td>
+											</form>-->
+										</td>
 												<td colspan="3" class="text-right">Total products</td>
-												<td colspan="2" class="price" id="total_product">$122.51</td>
+												<td colspan="2" class="price" id="total_product">{{App::make("App\Http\Controllers\GlobalController")->checkoutInfo()['total']}}</td>
 											</tr>
 										<tr style="display: none;">
 											<td colspan="3" class="text-right">Total gift-wrapping cost:</td>
@@ -162,18 +162,18 @@
 										</tr>
 										<tr class="cart_total_delivery">
 											<td colspan="3" class="text-right">Total shipping</td>
-											<td colspan="2" class="price" id="total_shipping">$7.00</td>
+											<td colspan="2" class="price" id="total_shipping">{{App::make("App\Http\Controllers\GlobalController")->checkoutInfo()['shippingFee']}}</td>
 										</tr>
-										<tr class="cart_total_voucher" style="display:none">
+										<!--<tr class="cart_total_voucher" style="display:none">
 											<td colspan="3" class="text-right">Total vouchers</td>
 											<td colspan="2" class="price-discount price" id="total_discount">$0.00</td>
-										</tr>
+										</tr>-->
 										<tr class="cart_total_price">
 											<td colspan="3" class="total_price_container text-right">
 												<span>Total</span>
 											</td>
 										<td colspan="2" class="price" id="total_price_container">
-											<span id="total_price">$129.51</span>
+											<span id="total_price">{{App::make("App\Http\Controllers\GlobalController")->checkoutInfo()['total']}}</span>
 										</td>
 									</tr>
 								</tfoot>
@@ -204,9 +204,8 @@
 													</span>
 												</td>
 
-												<td class="cart_quantity text-center">											
-													<input value="1" name="quantity_1_0_0_0_hidden" type="hidden">
-													<input size="2" autocomplete="off" class="cart_quantity_input form-control grey" value="1" name="quantity_1_0_0_0" type="text">
+												<td class="cart_quantity text-center">
+													<input size="2" autocomplete="off" class="cart_quantity_input form-control grey" value="{{$onCartList['prod_qty']}}" name="quantity_1_0_0_0" type="text">
 													<div class="cart_quantity_button clearfix">
 														<a rel="nofollow" class="cart_quantity_down btn btn-default button-minus" id="cart_quantity_down_1_0_0_0" href="#" title="Subtract">
 															<span>
@@ -221,8 +220,7 @@
 													</div>
 												</td>
 												<td class="cart_total" data-title="Total">
-													<span class="price" id="total_product_price_1_0_0">
-																							$122.51									</span>
+													<span class="price" id="total_product_price_1_0_0">{{$onCartList['prod_total_price']}}</span>
 												</td>
 												<td class="cart_delete text-center" data-title="Delete">
 													<div>

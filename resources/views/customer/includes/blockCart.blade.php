@@ -23,12 +23,12 @@
 																<div class="cart-info">
 																	<div class="product-name">
 																		<span class="quantity-formated">
-						                                                	<span class="quantity">1</span>&nbsp;x&nbsp;
+						                                                	<span class="quantity">{{$onCartList['prod_qty']}}</span>&nbsp;x&nbsp;
 						                                                </span>
 						                                                <a class="cart_block_product_name" href="{{$onCartList['prod_url']}}" title="{{$onCartList['prod_name']}}">{{$onCartList['prod_name']}}</a>
 																	</div>
 																	<span class="price">
-																		{{$onCartList['prod_price_new']}}
+																		{{$onCartList['prod_total_price']}}
 																	</span>
 																</div>
 																<span class="remove_link">
@@ -46,14 +46,14 @@
 												<div class="cart-prices">
 													<div class="cart-prices-line first-line">
 														<span class="price cart_block_shipping_cost ajax_cart_shipping_cost">
-															$7.00
+															{{App::make("App\Http\Controllers\GlobalController")->checkoutInfo()['shippingFee']}}
 														</span>
 														<span>
 															Shipping
 														</span>
 													</div>
 													<div class="cart-prices-line last-line">
-														<span class="price cart_block_total ajax_block_cart_total">$129.51</span>
+														<span class="price cart_block_total ajax_block_cart_total">{{App::make("App\Http\Controllers\GlobalController")->checkoutInfo()['total']}}</span>
 														<span>Total</span>
 													</div>
 												</div>

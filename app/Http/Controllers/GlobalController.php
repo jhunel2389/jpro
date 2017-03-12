@@ -145,6 +145,8 @@ class GlobalController extends Controller {
 	                "prod_price_new" => "$".number_format((empty($productPrice) ? "0" : $productPrice['price']), 2, '.', ''),
 	                "prod_price_old" => "$".number_format((empty($productPrice) ? "0" : "0"), 2, '.', ''),
 	                "prod_price_reduction" => "0%",
+	                "prod_qty" => $onCartList['qty'],
+	                "prod_total_price" => "$".number_format((empty($productPrice) ? "0" : $productPrice['price']) * $onCartList['qty'], 2, '.', ''),
 	                "prod_url"	=> URL::Route('getByProduct', $productInfo["name"]),
 	            );
 			}
@@ -156,5 +158,21 @@ class GlobalController extends Controller {
 	{
 		$onCartLists = ProductOnCart::where('cus_id','=',Auth::User()['id'])->get();
 
+	}
+
+	public function checkoutInfo()
+	{
+		$onCartLists = ProductOnCart::where('cus_id','=',Auth::User()['id'])->get();
+		$shippingFee = 0;
+		$total = 0;
+		foreach ($onCartLists as $onCartList) {
+			$productPrice = ProductPrice::where('prod_id','=',$onCartList['prod_id'])->where('status','=',1)->first();
+			$total += $productPrice['price'] * $onCartList['qty'];
+		}
+
+		return array(
+                    "total" => "$".number_format($total, 2, '.', ''),
+                    "shippingFee" => "$".number_format($shippingFee, 2, '.', ''),
+                );
 	}
 }
