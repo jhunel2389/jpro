@@ -3,7 +3,7 @@
 				<footer id="footer" class="container">
 					<div class="row"><!-- Block Newsletter module-->
 						<div id="newsletter_block_left" class="block">
-							<h4>Newsletter</h4>
+							<!--<h4>Newsletter</h4>
 							<div class="block_content">
 								<form action="https://livedemo00.template-help.com/prestashop_49165/index.php" method="post">
 									<div class="form-group">
@@ -14,7 +14,7 @@
 										<input name="action" value="0" type="hidden">
 									</div>
 								</form>
-							</div>
+							</div>-->
 						</div>
 						<!-- /Block Newsletter module-->
 						<section id="social_block">
@@ -44,51 +44,13 @@
 							<div class="category_footer toggle-footer" style="">
 								<div class="list">
 									<ul class="tree dhtml">
-										<li>
-											<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-												Anklets
-											</a>
-										</li>									
-										<li>
-											<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-												Bracelets
-											</a>
-										</li>							
-										<li>
-											<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-												Brooches
-											</a>
-										</li>
-										<li>
-											<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-												Earrings
-											</a>
-										</li>
-										<li>
-											<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-												Necklaces
-											</a>
-										</li>
-										<li>
-											<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-												Pendants
-											</a>
-										</li>
-										<li>
-											<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-												Piercing
-											</a>
-										</li>
-										<li>
-											<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-												Rings
-											</a>
-										</li>			
-										<li class="last">
-											<a href="#" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu suscipit nulla. Praesent id erat nibh. Nam fermentum risus ac sapien molestie consequat. Mauris non odio in magna consequat bibendum. Suspendisse sapien eros, ultrices sed augue sed, vehicula tempor eros. Etiam lacinia dolor at mauris scelerisque auctor vel lobortis nisl. Maecenas odio tellus, vulputate ut libero non, commodo aliquet nunc. Nunc mollis nunc porttitor malesuada iaculis. Etiam tempor massa dictum orci aliquam, sed tempor nisl aliquam. Duis euismod ornare nisl, sed rutrum mauris tempor eu. Nam posuere facilisis posuere. Aenean ac justo tempus, adipiscing libero feugiat, suscipit turpis. Aliquam eget laoreet leo, nec ultricies libero. Aenean rutrum adipiscing lorem sed pretium.">
-												Watches
-											</a>
-										</li>
+										@foreach($categories as $category)
+											<li>
+												<a href="{{ URL::Route('getProductByCategory', $category['slug']) }}" title="{{$category['name']}}">
+													{{$category['name']}}
+												</a>
+											</li>									
+										@endforeach
 									</ul>
 								</div>
 							</div> <!-- .category_footer -->
