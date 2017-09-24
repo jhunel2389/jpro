@@ -3,7 +3,7 @@
 								<div class="shopping_cart">
 									<a href="{{ URL::Route('getCheckout') }}" title="View my shopping cart" rel="nofollow">
 										<b>Cart</b>
-										<span class="ajax_cart_quantity">{{Auth::User()->cart()->sum('qty')}}</span>
+										<span class="ajax_cart_quantity">{{App::make("App\Http\Controllers\GlobalController")->cartQty()}}</span>
 										<span class="ajax_cart_product_txt">Product</span>
 										<span class="ajax_cart_product_txt_s unvisible">Products</span>
 										<span class="ajax_cart_total">

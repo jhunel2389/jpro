@@ -78,9 +78,13 @@ class GlobalController extends Controller {
 				"prod_name" => $productInfo['name'],
 				"prod_description" => $productInfo['description'],
 				"prod_price" => "$".number_format($productPrice['price'], 2, '.', ''),
-				"prod_image" => "productImage/".$productImage['img_file'],
-				"prod_image_tn" => "productImage/".$productImage['thumbnail_img'],
-				"prod_thumb_img" => $productThumbimg, 
+				"prod_image" => env('FILE_PATH_CUSTOM')."productImage/".$productImage['img_file'],
+				"prod_image_tn" => env('FILE_PATH_CUSTOM')."productThumbnail/".$productImage['thumbnail_img'],
+				"prod_thumb_img" => $productThumbimg,
+				"prod_price_new" => "$".number_format((empty($productPrice) ? "0" : $productPrice['price']), 2, '.', ''),
+                "prod_price_old" => "$".number_format((empty($productPrice) ? "0" : "0"), 2, '.', ''),
+                "prod_price_reduction" => "0%",
+                "prod_url"	=> URL::Route('getByProduct', $productInfo["name"]),
 			);
 		}
 		else
@@ -174,5 +178,19 @@ class GlobalController extends Controller {
                     "total" => "$".number_format($total, 2, '.', ''),
                     "shippingFee" => "$".number_format($shippingFee, 2, '.', ''),
                 );
+	}
+
+	public function cartQty(){
+		//$response = Auth::User()->cart()->sum('qty');
+		//$cart = Auth::User()->cart();
+
+		if(empty($cart)){
+			$response = 0;
+		} else {
+			$response = 3;
+		}
+
+		return $response;
+
 	}
 }

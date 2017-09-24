@@ -1,4 +1,4 @@
-					<!-- MODULE Block cmsinfo -->
+					<!-- MODULE Block cmsinfo
 						<div id="cmsinfo_block">
 							<div class="col-xs-6"><h2>Custom Block 1</h2>
 								<ul>
@@ -40,4 +40,4 @@
 								</div>
 							</div>
 						</div>
-					<!-- /MODULE Block cmsinfo -->
+					/MODULE Block cmsinfo -->

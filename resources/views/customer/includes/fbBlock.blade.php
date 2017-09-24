@@ -1,4 +1,4 @@
-						<div id="fb-root" class=" fb_reset">
+						<!--<div id="fb-root" class=" fb_reset">
 							<div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
 								<div>
 									<iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="images/D6ZfFsLEB4F.htm" frameborder="0">
@@ -22,4 +22,4 @@
 									</span>
 								</div>
 							</div>
-						</div>
+						</div>-->

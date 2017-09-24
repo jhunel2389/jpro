@@ -1,12 +1,13 @@
 <!-- Products list -->
 							<ul class="product_list grid row blocknewproducts tab-pane active">
+								@if(!empty($newProducts))
 								@foreach($newProducts as $newProduct)
 	                    			<li class="col-xs-12 col-sm-4 col-md-3">
 	                					<div class="product-container">
 	                    					<div class="left-block">
 	                        					<div class="product-image-container">
 	                            					<a class="product_img_link" href="{{ URL::Route('getByProduct', $newProduct['prod_name']) }}" title="$newProduct['prod_name']" itemprop="url">
-	                                					<img class="replace-2x img-responsive" src="{{env('FILE_PATH_CUSTOM')}}cus/images/{{$newProduct['prod_image']}}" alt="{{$newProduct['prod_name']}}" title="{{$newProduct['prod_name']}}" itemprop="image">
+	                                					<img class="replace-2x img-responsive" src="{{$newProduct['prod_image']}}" alt="{{$newProduct['prod_name']}}" title="{{$newProduct['prod_name']}}" itemprop="image">
 	                            					</a>
 	                                                <a class="quick-view" href="#" rel="https://livedemo00.template-help.com/prestashop_49165/index.php?id_product=1&amp;controller=product&amp;id_lang=1" title="Quick view">
 					                                    <span>Quick view</span>
@@ -73,4 +74,5 @@
 	                                    </div><!-- .product-container> -->    
 	            					</li>
 	            				@endforeach
+	            				@endif
         					</ul>
