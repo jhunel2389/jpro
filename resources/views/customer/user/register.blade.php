@@ -94,29 +94,44 @@
 					<!-- #center_column -->
 					<div id="center_column" class="center_column col-xs-12 col-sm-9">
     					<h1 class="page-heading bottom-indent">Customer - Register</h1>
-	    					<form action="{{ URL::Route('cs_message') }}" method="post" class="contact-form-box" enctype="multipart/form-data">
+	    					<form action="{{ URL::Route('postRegister') }}" method="post" class="contact-form-box" enctype="multipart/form-data">
 	    						{{ csrf_field() }}
 								<fieldset>
 	        					<h3 class="page-subheading">Register Customer Account</h3>
 						        <div class="clearfix">
 						            <div class="col-xs-12 col-md-3"> 
-						            	<p class="form-group">
-	                    					<label for="email">Email</label>
+						            	<p class="form-group has-feedback">
+	                    					<label for="firstname">Firstname<span style="color: red">*</span></label>
+	                                        <input class="form-control grey" id="firstname" name="firstname" type="text" required>
+	                                    </p>
+	                                    <p class="form-group has-feedback">
+	                    					<label for="lastname">Lastname<span style="color: red">*</span></label>
+	                                        <input class="form-control grey" id="lastname" name="lastname" type="text" required>
+	                                    </p>
+	                                    <p class="form-group has-feedback">
+	                    					<label for="username">Username<span style="color: red">*</span></label>
+	                                        <input class="form-control grey" id="username" name="username" type="text" required>
+	                                    </p>
+	                                    <p class="form-group has-feedback">
+	                    					<label for="email">Email<span style="color: red">*</span></label>
 	                                        <input class="form-control grey" id="email" name="email" type="text" required>
 	                                    </p>
-	                                    <p class="form-group">
-	                    					<label for="password">Password</label>
+	                                    <p class="form-group has-feedback">
+	                    					<label for="passwords">Password<span style="color: red">*</span></label>
 	                                        <input class="form-control grey" id="passwords" name="passwords" type="password" required>
 	                                    </p>
-
-	                                    <p class="checkbox icheck">
-								            <label for="chk_remember"></label>
-								        	<input type="checkbox" id="chk_remember"> Remember Me
+	                                    <p class="form-group has-feedback">
+	                    					<label for="cpasswords">Confirm Password<span style="color: red">*</span></label>
+	                                        <input class="form-control grey" id="cpasswords" name="cpasswords" type="password" required>
+	                                    </p>
+	                                    <p class="checkbox icheck has-feedback">
+								            <label for="chk_terms"></label>
+								        	<input type="checkbox" id="chk_terms"> Terms and Condition<span style="color: red">*</span>
 								        </p>
 	                            	</div>
 	        					</div>
 						        <div class="submit">
-						            <button type="submit" name="submitLogin" id="submitLogin" onClick="validateCreds(); return false;" class="button btn btn-default button-medium">
+						            <button type="submit" name="submitLogin" id="submitLogin" onclick="validateCreds(); return false;" class="button btn btn-default button-medium">
 						            	<span>
 						                	Sign in
 						                    <i class="icon-chevron-right right"></i>
@@ -143,23 +158,36 @@
 	function validateCreds()
     {
         $_token = "{{ csrf_token() }}";
+        $firstname = $("#firstname").val();
+        $lastname = $("#lastname").val();
+        $username = $("#username").val();
         $email = $("#email").val();
-        $pass = $("#passwords").val();
+        $cpasswords = $("#cpasswords").val();
+        $passwords = $("#passwords").val();
+        
+        $terms = $("#chk_terms").is(":checked");
         $source = "client";
-        $remember = $("#chk_remember").is(":checked");
-        $.post('{{URL::Route('postLogin')}}', { _token: $_token, txtUsername: $email , txtPassword: $pass ,remember: $remember,source: $source}, function(data)
-        {
+
+        $.post('{{URL::Route('postRegister')}}', { _token: $_token, firstname: $firstname , lastname: $lastname ,username: $username,email: $email , passwords : $passwords , cpasswords : $cpasswords, terms : $terms, source : $source}, function(data)
+        {	
+        	$(".text-danger").remove();
+        	console.log(data);
             if(data == 1)
             {
                 window.location.replace('{{URL::Route('cusIndex')}}');
             }
             else
             {
-            	
-            	$("#cu_prompt").append('<div class="alert alert-danger alert-dismissible">\
+
+            	$.each(data.message, function (key, val) {
+			        /*$("#cu_prompt").append('<div class="alert alert-danger alert-dismissible">\
 		                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
-		                '+data.message+'\
-		            </div>');
+		                '+val+'\
+		            </div>');*/
+
+            		$('#'+key).after('<span class="text-danger">'+val+'</div>');
+			    });
+            	
             }
             //console.log(data);
         });

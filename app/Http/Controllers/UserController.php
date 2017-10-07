@@ -54,8 +54,8 @@ class UserController extends Controller {
             'lastname'              => 'required',  
             'username'              => 'required|unique:users',      
             'email'                 => 'required|email|unique:users', 
-            'password'              => 'required',
-            'password_confirmation' => 'required|same:password', 
+            'passwords'              => 'required',
+            'cpasswords' 			=> 'required|same:passwords', 
             'terms'                 => 'required' 
         );
         $messages = array(
@@ -66,16 +66,24 @@ class UserController extends Controller {
         $validator = Validator::make(Request::all(), $rules, $messages);
         if ($validator->fails()) {      
             $messages = $validator->messages();
-        return Redirect::Route('getRegister')
-            ->withErrors($validator)
-            ->withInput(Request::except('password', 'password_confirm'));
+			if(Request::ajax()){
+				return  Response::json(array(
+	                    'status'  => 'fail',
+	                    'message'  => $messages,
+	                ));
+			} else {
+				return Redirect::Route('getRegister')
+			            ->withErrors($validator)
+			            ->withInput(Request::except('passwords', 'passwords'));
+			}
+
         }
         else{
         	$username       = Request::get('username');
             $lastname       = Request::get('lastname');
             $firstname      = Request::get('firstname');
             $email          = Request::get('email');
-            $password       = Request::get('password');
+            $password       = Request::get('passwords');
             $vCode          = str_random(120);
 
             $user = new User();
@@ -93,7 +101,11 @@ class UserController extends Controller {
                 $user_Info['email'] = $email;
                 if($user_Info -> save())
                 {
-                    return Redirect::Route('getLogin')->with('success','Your account has been created successfully and is ready to use.');
+                	if(Request::ajax()) {
+                		return 1;
+                	} else {
+                		return Redirect::Route('getLogin')->with('success','Your account has been created successfully and is ready to use.');
+                	}
                 }   
             }
         }

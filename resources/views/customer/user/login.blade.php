@@ -101,8 +101,8 @@
 						        <div class="clearfix">
 						            <div class="col-xs-12 col-md-3"> 
 						            	<p class="form-group">
-	                    					<label for="email">Email</label>
-	                                        <input class="form-control grey" id="email" name="email" type="text" required>
+	                    					<label for="email">Username</label>
+	                                        <input class="form-control grey" id="username" name="username" type="text" required>
 	                                    </p>
 	                                    <p class="form-group">
 	                    					<label for="password">Password</label>
@@ -111,7 +111,7 @@
 
 	                                    <p class="checkbox icheck">
 								            <label for="chk_remember"></label>
-								        	<input type="checkbox" id="chk_remember"> Remember Me
+								        	<input type="checkbox" id="remember" name="remember"> Remember Me
 								        </p>
 	                            	</div>
 	        					</div>
@@ -143,12 +143,14 @@
 	function validateCreds()
     {
         $_token = "{{ csrf_token() }}";
-        $email = $("#email").val();
+        $email = $("#username").val();
         $pass = $("#passwords").val();
         $source = "client";
         $remember = $("#chk_remember").is(":checked");
+        $("#cu_prompt").empty();
         $.post('{{URL::Route('postLogin')}}', { _token: $_token, txtUsername: $email , txtPassword: $pass ,remember: $remember,source: $source}, function(data)
         {
+        	$("#cu_prompt").empty();
             if(data == 1)
             {
                 window.location.replace('{{URL::Route('cusIndex')}}');

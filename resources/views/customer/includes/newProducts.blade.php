@@ -6,7 +6,7 @@
 	                					<div class="product-container">
 	                    					<div class="left-block">
 	                        					<div class="product-image-container">
-	                            					<a class="product_img_link" href="{{ URL::Route('getByProduct', $newProduct['prod_name']) }}" title="$newProduct['prod_name']" itemprop="url">
+	                            					<a class="product_img_link" href="{{ URL::Route('getByProduct', $newProduct['prod_name']) }}" title="{{$newProduct['prod_name']}}" itemprop="url">
 	                                					<img class="replace-2x img-responsive" src="{{$newProduct['prod_image']}}" alt="{{$newProduct['prod_name']}}" title="{{$newProduct['prod_name']}}" itemprop="image">
 	                            					</a>
 	                                                <a class="quick-view" href="#" rel="https://livedemo00.template-help.com/prestashop_49165/index.php?id_product=1&amp;controller=product&amp;id_lang=1" title="Quick view">

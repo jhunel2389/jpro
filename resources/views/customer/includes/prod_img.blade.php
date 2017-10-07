@@ -11,7 +11,7 @@
 									<span id="view_full_size">
 										<a class="jqzoom" title="" rel="gal1" href="#" itemprop="url" style="outline-style: none; text-decoration: none;">
 											<div class="zoomPad">
-												<img itemprop="image" src="{{env('FILE_PATH_CUSTOM').$products['prod_image']}}" title="Crochet necklace - The boa friend" alt="Crochet necklace - The boa friend" style="opacity: 1;">
+												<img itemprop="image" src="{{$products['prod_image']}}" title="Crochet necklace - The boa friend" alt="Crochet necklace - The boa friend" style="opacity: 1;">
 												<div class="zoomPup" style="width: 349px; height: 349px; position: absolute; display: none; border-width: 1px; left: 108px; top: -1px;">
 												</div>
 												<div class="zoomWindow" style="position: absolute; z-index: 5001; cursor: default; left: 0px; top: 0px; display: none;">
@@ -37,7 +37,7 @@
 											@foreach($products['prod_thumb_img'] as $thumbImg)
 												<li id="thumbnail_111">
 													<a href="#" rel="" title="{{$products['prod_name']}}">
-														<img class="img-responsive" id="thumb_2" src="{{env('FILE_PATH_CUSTOM')}}productThumbnail/{{$thumbImg['thumbnail_img']}}"" alt="{{$products['prod_name']}}" title="{{$products['prod_name']}}" itemprop="image" width="80" height="80">
+														<img class="img-responsive" id="thumb_2" src="{{env('FILE_PATH_CUSTOM')}}productThumbnail/{{$thumbImg['thumbnail_img']}}" alt="{{$products['prod_name']}}" title="{{$products['prod_name']}}" itemprop="image" width="80" height="80">
 													</a>
 												</li>
 											@endforeach

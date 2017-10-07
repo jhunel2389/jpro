@@ -50,11 +50,11 @@
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" id="password" name="password" value="{{ old('password') }}">
+        <input type="password" class="form-control" placeholder="Password" id="passwords" name="passwords" value="{{ old('passwords') }}">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Retype password" id="password_confirmation" name="password_confirmation" value="{{ old('password_confirmation') }}">
+        <input type="password" class="form-control" placeholder="Retype password" id="cpasswords" name="cpasswords" value="{{ old('cpasswords') }}">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="row">

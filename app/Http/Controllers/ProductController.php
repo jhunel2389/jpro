@@ -67,6 +67,7 @@ class ProductController extends Controller
         $categories =  App::make("App\Http\Controllers\GlobalController")->activeCategories();
         $productInfo = Product::where("name","=",$name)->where('status','=',1)->first();
         $products = App::make("App\Http\Controllers\GlobalController")->productInfo($productInfo['id']);
+
         return view('customer.product.index')->with('products',$products)
                                                     ->with('categories',$categories)
                                                         ->with('cat_name',$name)
@@ -102,9 +103,9 @@ class ProductController extends Controller
                 foreach($images as $image)
                 {
                     $date = new DateTime();
-                    $tn_name = date_format($date, 'U').str_random(110).'.'.$image->getClientOriginalExtension();
-                    $iname = date_format($date, 'U').str_random(110).'.'.$image->getClientOriginalExtension();
-                    $md_name = date_format($date, 'U').str_random(110).'.'.$image->getClientOriginalExtension();
+                    $tn_name = date_format($date, 'U').str_random(10).'.'.$image->getClientOriginalExtension();
+                    $iname = date_format($date, 'U').str_random(10).'.'.$image->getClientOriginalExtension();
+                    $md_name = date_format($date, 'U').str_random(10).'.'.$image->getClientOriginalExtension();
                     $data = getimagesize($image->getRealPath());
                     $path1 = public_path('productImage/' . $iname);
                     $path2 = public_path('productThumbnail/' . $tn_name);
@@ -205,7 +206,7 @@ class ProductController extends Controller
 
     public function newProduct()
     {   
-        $allProducts = Product::all();
+        $allProducts = Product::where('status','=',1)->get();
         $response = array();
        
             //print_r($allProducts);die();
